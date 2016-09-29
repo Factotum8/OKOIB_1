@@ -21,6 +21,7 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     spr.h \
     ir.h \
-    develop.h
+    develop.h \
+    struct.h
 
 FORMS    += mainwindow.ui
