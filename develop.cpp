@@ -7,9 +7,9 @@ Develop::Develop(int years){
     years_develop=years;
     first_year.setDate(0000,00,00);
     number_employees= new int [years];
-    salory= new double [years];
-    tax= new double[years];
-    consumables=new double [years];
+    salory= new int [(years!=0)?years:1];
+    tax= new int [(years!=0)?years:1];
+    consumables=new int [(years!=0)?years:1];
 }
 
 int * Develop::get_number_employees(){
@@ -19,17 +19,17 @@ int * Develop::get_number_employees(){
 
 
 
-double * Develop::get_salory(){
+int * Develop::get_salory(){
 
     return salory;
 }
 
-double * Develop::get_tax(){
+int * Develop::get_tax(){
 
     return tax;
 }
 
-double * Develop::get_consumables(){
+int * Develop::get_consumables(){
 
     return consumables;
 }

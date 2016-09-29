@@ -1,6 +1,10 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
+
+#include <QDate>
+
+
 struct Acquire {
 
     double cost_first_year;
@@ -20,5 +24,11 @@ struct Profit{
     double profit; //прибыль от использования ресурса в течение года
 };
 
+struct cost_index{
+
+    QDate year;
+    double index;
+
+};
 
 #endif // STRUCT_H
