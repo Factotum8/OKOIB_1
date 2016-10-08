@@ -16,12 +16,15 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     spr.cpp \
     ir.cpp \
-    develop.cpp
+    develop.cpp \
+    tableir.cpp
 
 HEADERS  += mainwindow.h \
     spr.h \
     ir.h \
     develop.h \
-    struct.h
+    struct.h \
+    tableir.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    tableir.ui

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TableIr</class>
+ <widget class="QWidget" name="TableIr">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>443</width>
+    <height>337</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Таблица ИР</string>
+  </property>
+  <widget class="QTableView" name="table">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>20</y>
+     <width>421</width>
+     <height>271</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="save_butt">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>300</y>
+     <width>99</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>сохранить</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exit_butt">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>300</y>
+     <width>99</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>выход</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
