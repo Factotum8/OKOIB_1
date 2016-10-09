@@ -1,5 +1,8 @@
 #include "mainwindow.h"
 
+//IR *ir;
+//extern int count_ir;
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

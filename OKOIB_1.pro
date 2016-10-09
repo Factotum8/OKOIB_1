@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     ir.cpp \
     develop.cpp \
     tableir.cpp \
-    errorform.cpp
+    errorform.cpp \
+    global.cpp
 
 HEADERS  += mainwindow.h \
     spr.h \
