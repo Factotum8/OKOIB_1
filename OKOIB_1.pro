@@ -17,14 +17,18 @@ SOURCES += main.cpp\
     spr.cpp \
     ir.cpp \
     develop.cpp \
-    tableir.cpp
+    tableir.cpp \
+    errorform.cpp
 
 HEADERS  += mainwindow.h \
     spr.h \
     ir.h \
     develop.h \
     struct.h \
-    tableir.h
+    tableir.h \
+    errorform.h \
+    global.h
 
 FORMS    += mainwindow.ui \
-    tableir.ui
+    tableir.ui \
+    errorform.ui

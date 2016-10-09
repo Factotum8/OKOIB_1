@@ -1,6 +1,5 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
-#include "tableir.h"
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,7 +16,24 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_butt_enter_clicked()
 {
-    ui->edit_quantity->text();
+    QString str=ui->edit_quantity->text();
+
+    if (str.length()==0){
+
+        ErrorForm *e = new ErrorForm;
+
+       // ErrorForm *e = new ErrorForm(this); проанализируй потом
+
+        e->setAttribute(Qt::WA_DeleteOnClose);
+
+        e->show();
+
+        return;
+    }
+
+    count_ir=str.toInt();
+
+    ir = new IR [count_ir];
 
     TableIr *w2 = new TableIr;
 

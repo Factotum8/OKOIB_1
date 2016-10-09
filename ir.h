@@ -25,7 +25,7 @@ public:
     Profit profit;
     Develop *develop;
 
-    IR(int years_develop);
+    IR();
 
     QString get_name ();
     QDate get_first_year();

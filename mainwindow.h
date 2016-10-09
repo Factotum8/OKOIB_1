@@ -3,6 +3,15 @@
 
 #include <QMainWindow>
 
+#include "ui_mainwindow.h"
+#include "tableir.h"
+#include "errorform.h"
+#include "glob.h"
+#include "ir.h"
+
+extern IR *ir;
+extern int count_ir;
+
 namespace Ui {
 class MainWindow;
 }

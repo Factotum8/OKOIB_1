@@ -3,10 +3,10 @@
 #include "struct.h"
 
 
-IR::IR(int years_develop)
+IR::IR()
 {
 
-    develop= new Develop (years_develop);
+    develop=NULL; //new Develop (years_develop);
 
     val_acquire=0;
     val_develop=0;

@@ -24,7 +24,7 @@ struct Profit{
     double profit; //прибыль от использования ресурса в течение года
 };
 
-struct cost_index{
+struct cost_index{ // индексы увеличения ценн
 
     QDate year;
     double index;
