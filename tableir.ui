@@ -6,31 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>443</width>
-    <height>337</height>
+    <width>1450</width>
+    <height>527</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1200</width>
+    <height>0</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Таблица ИР</string>
   </property>
-  <widget class="QTableView" name="table">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>421</width>
-     <height>101</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="save_butt">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>300</y>
-     <width>99</width>
+     <x>10</x>
+     <y>480</y>
+     <width>100</width>
      <height>27</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
    </property>
    <property name="text">
     <string>сохранить</string>
@@ -39,11 +41,17 @@
   <widget class="QPushButton" name="exit_butt">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>300</y>
-     <width>99</width>
+     <x>1250</x>
+     <y>480</y>
+     <width>100</width>
      <height>27</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
    </property>
    <property name="text">
     <string>выход</string>
@@ -53,11 +61,69 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>140</y>
-     <width>411</width>
-     <height>141</height>
+     <y>20</y>
+     <width>1405</width>
+     <height>451</height>
     </rect>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>1181</width>
+     <height>0</height>
+    </size>
+   </property>
+   <column>
+    <property name="text">
+     <string>Наименование ИР</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Первый календарный г. эксплуатации</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Текущий г. эксплуатации</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Планируемый срок эксплуатации</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Приобретённый</string>
+    </property>
+    <property name="whatsThis">
+     <string extracomment="поставте 0 или 1"/>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Разработанный</string>
+    </property>
+    <property name="whatsThis">
+     <string extracomment="поставте 0 или 1"/>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Обслуживаемый</string>
+    </property>
+    <property name="whatsThis">
+     <string extracomment="поставте 0 или 1"/>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>Приносящий</string>
+    </property>
+    <property name="whatsThis">
+     <string extracomment="с"/>
+    </property>
+   </column>
   </widget>
  </widget>
  <resources/>

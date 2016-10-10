@@ -42,6 +42,7 @@ void MainWindow::on_butt_enter_clicked()
 
     w2->setAttribute(Qt::WA_DeleteOnClose);
 
+
     w2->show();
 }
 
