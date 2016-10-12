@@ -2,11 +2,16 @@
 #define TABLEIR_H
 
 #include <QWidget>
+#include <QLabel>
 
 #include "ui_tableir.h"
 #include "global.h"
+#include "errorform.h"
+#include "tabwidgetir.h"
 
-#define  COLUMNCOUNT 7
+#define  COLUMNCOUNT 8
+
+extern TabWidgetIr *twi;
 
 namespace Ui {
 class TableIr;
@@ -23,12 +28,12 @@ public:
 private slots:
     void on_save_butt_clicked();
 
-    void on_exit_butt_destroyed();
-
     void on_exit_butt_clicked();
 
 private:
     Ui::TableIr *ui;
+    void set_boolval (int i,int j ,QString str);
+    QDate set_dateval (QString str);
 };
 
 #endif // TABLEIR_H

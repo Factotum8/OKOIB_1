@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1450</width>
+    <width>1600</width>
     <height>527</height>
    </rect>
   </property>
@@ -41,7 +41,7 @@
   <widget class="QPushButton" name="exit_butt">
    <property name="geometry">
     <rect>
-     <x>1250</x>
+     <x>1400</x>
      <y>480</y>
      <width>100</width>
      <height>27</height>
@@ -62,13 +62,13 @@
     <rect>
      <x>10</x>
      <y>20</y>
-     <width>1405</width>
+     <width>1550</width>
      <height>451</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>1181</width>
+     <width>1550</width>
      <height>0</height>
     </size>
    </property>

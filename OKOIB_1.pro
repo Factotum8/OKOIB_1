@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     develop.cpp \
     tableir.cpp \
     errorform.cpp \
-    global.cpp
+    global.cpp \
+    tabwidgetir.cpp
 
 HEADERS  += mainwindow.h \
     spr.h \
@@ -28,8 +29,10 @@ HEADERS  += mainwindow.h \
     struct.h \
     tableir.h \
     errorform.h \
-    global.h
+    global.h \
+    tabwidgetir.h
 
 FORMS    += mainwindow.ui \
     tableir.ui \
-    errorform.ui
+    errorform.ui \
+    tabwidgetir.ui
