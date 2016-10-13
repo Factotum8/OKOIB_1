@@ -107,16 +107,16 @@ void TableIr::on_save_butt_clicked()
                 twi->get_TabWidget()->addTab(new QLabel(str,twi->get_TabWidget()),str);
             }
 
-            twi->show();
         }
 
     }
+    //twi->show();
 }
 
 
 void TableIr::on_exit_butt_clicked()
 {
-
+    this->close();
     return;
 }
 

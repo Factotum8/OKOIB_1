@@ -28,6 +28,8 @@ public:
 private slots:
     void on_butt_enter_clicked();
 
+    void on_edit_quantity_editingFinished();
+
 private:
     Ui::MainWindow *ui;
 };
