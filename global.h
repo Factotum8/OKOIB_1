@@ -9,6 +9,6 @@
 
 extern IR *ir;
 extern int count_ir;
-extern TabWidgetIr *twi;
+extern class TabWidgetIr *twi;
 
 #endif // GLOBAL_H

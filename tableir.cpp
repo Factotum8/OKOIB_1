@@ -43,39 +43,26 @@ TableIr::TableIr(QWidget *parent) :
     ui->tablewidIR->setHorizontalHeaderItem(6, new QTableWidgetItem(tr("Обслуживаемый")));
     ui->tablewidIR->setHorizontalHeaderItem(7, new QTableWidgetItem(tr("Приносящий")));
 
-//    QTableWidgetItem *pitem4 = new QTableWidgetItem();
-//    QTableWidgetItem *pitem5 = new QTableWidgetItem();
-//    QTableWidgetItem *pitem6 = new QTableWidgetItem();
-//    QTableWidgetItem *pitem7 = new QTableWidgetItem();
 
-//    pitem4->data(Qt::Checked);
-//    pitem5->data(Qt::ClosedHandCursor);
-//    pitem6->data(Qt::CheckStateRole);
-//    pitem7->data(Qt::CheckStateRole);
+//    QHeaderView* model = new QHeaderView;
+//    model->setStringList(QStringList() << "Наименование ИР" << "Первый календарный г. эксплуатации" << "Текущий г. эксплуатации"<<"Планируемый срок эксплуатации"
+//                                                                                                <<"Приобретённый"<<"Разработанный"<<"Обслуживаемый"<<"Приносящий");
 
-//    for (int i=0;i<count_ir;i++){
 
-//        QTableWidgetItem *pitem4 = new QTableWidgetItem();
-//        QTableWidgetItem *pitem5 = new QTableWidgetItem();
-//        QTableWidgetItem *pitem6 = new QTableWidgetItem();
-//        QTableWidgetItem *pitem7 = new QTableWidgetItem();
 
-//        pitem4->data(Qt::Checked);
-//        pitem5->data(Qt::ClosedHandCursor);
-//        pitem6->data(Qt::CheckStateRole);
-//        pitem7->data(Qt::CheckStateRole);
 
-//        ui->tablewidIR->setItem(i,4,pitem4);
-//        ui->tablewidIR->setItem(i,5,pitem5);
-//        ui->tablewidIR->setItem(i,6,pitem6);
-//        ui->tablewidIR->setItem(i,7,pitem7);
+    QStringList model;
+    model<< "Наименование ИР" << "Первый календарный г. эксплуатации" << "Текущий г. эксплуатации"<<"Планируемый срок эксплуатации"
+                                                                                                            <<"Приобретённый"<<"Разработанный"<<"Обслуживаемый"<<"Приносящий";
 
-//    }
+     QStringListModel c;
 
-//    //QTableWidgetItem * QTableWidget::item ( int row, int column ) const
-
-    //ui->tablewidIR->item(1,1)->text();
-
+     c.setStringList(QStringList() << "Наименование ИР" << "Первый календарный г. эксплуатации" << "Текущий г. эксплуатации"<<"Планируемый срок эксплуатации"
+                                                                                                                    <<"Приобретённый"<<"Разработанный"<<"Обслуживаемый"<<"Приносящий");
+    QItemSelectionModel select(&c);
+    //ui->tableViewIR->setModel(new QStandardItemModel (count_ir,COLUMNCOUNT));//(COLUMNCOUNT,count_ir));
+    ui->tableViewIR->setItemDelegate(new ItemDelegate);
+    ui->tableViewIR->setSelectionMode(&select);
 }
 
 TableIr::~TableIr()
@@ -85,7 +72,6 @@ TableIr::~TableIr()
 
 void TableIr::on_save_butt_clicked()
 {
-
     for (int i=0;i<count_ir;i++){
 
         ir[i].set_name(ui->tablewidIR->item(i,0)->text());
@@ -97,21 +83,16 @@ void TableIr::on_save_butt_clicked()
         set_boolval(i,5,ui->tablewidIR->item(i,5)->text());
         set_boolval(i,6,ui->tablewidIR->item(i,6)->text());
         set_boolval(i,7,ui->tablewidIR->item(i,7)->text());
-
-
-        for (int i=0;i<count_ir;i++){
-            QStringList list;
-
-            foreach (QString str, list) {
-
-                twi->get_TabWidget()->addTab(new QLabel(str,twi->get_TabWidget()),str);
-            }
-
-        }
-
     }
-    //twi->show();
+
+
+    TabWidgetIr *twi= new TabWidgetIr;
+
+    twi->setAttribute(Qt::WA_DeleteOnClose);
+
+    twi->show();
 }
+
 
 
 void TableIr::on_exit_butt_clicked()
@@ -122,10 +103,10 @@ void TableIr::on_exit_butt_clicked()
 
 QDate TableIr::set_dateval (QString str){
 
-    QDate date;
+    QDate date(0000,00,00);
+
     date.addYears(str.toInt());
-    date.addDays(1);
-    date.addMonths(1);
+
     return date;
 
 }
@@ -144,19 +125,21 @@ void TableIr::set_boolval (int i,int j ,QString str){
         }
 
         break;
-    case 5:
+    case 6:
         if (str=="1"){
 
             ir[i].set_val_maintain(true);
+
         }else{
 
             ir[i].set_val_maintain(false);
         }
         break;
-    case 6:
+    case 5:
         if (str=="1"){
 
             ir[i].set_val_develop(true);
+
         }else{
 
             ir[i].set_val_develop(false);

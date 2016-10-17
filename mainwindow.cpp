@@ -38,17 +38,13 @@ void MainWindow::on_butt_enter_clicked()
 
     ir = new IR [count_ir];
 
-    TabWidgetIr *twi= new TabWidgetIr;
-
-    twi->setAttribute(Qt::WA_DeleteOnClose);
-
     TableIr *w2 = new TableIr;
+
+    //w2->set
 
     w2->setAttribute(Qt::WA_DeleteOnClose);
 
-
     w2->show();
-
 
 }
 

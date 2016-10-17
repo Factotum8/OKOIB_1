@@ -23,7 +23,7 @@ public:
     Acquire acquire;
     Maintain maintain;
     Profit profit;
-    Develop *develop;
+    Develop *develop=NULL;
 
     IR();
 

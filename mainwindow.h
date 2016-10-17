@@ -8,6 +8,7 @@
 #include "errorform.h"
 #include "glob.h"
 #include "ir.h"
+#include "itemdelegate.h"
 
 
 extern IR *ir;

@@ -12,8 +12,8 @@
   </property>
   <property name="sizePolicy">
    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-    <horstretch>0</horstretch>
-    <verstretch>0</verstretch>
+    <horstretch>225</horstretch>
+    <verstretch>169</verstretch>
    </sizepolicy>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,8 @@
    <widget class="QLabel" name="lab_quantity">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>0</y>
+      <x>30</x>
+      <y>20</y>
       <width>171</width>
       <height>21</height>
      </rect>
@@ -36,8 +36,8 @@
    <widget class="QLineEdit" name="edit_quantity">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>40</y>
+      <x>80</x>
+      <y>60</y>
       <width>71</width>
       <height>23</height>
      </rect>
@@ -49,14 +49,14 @@
    <widget class="QPushButton" name="butt_enter">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>80</y>
+      <x>60</x>
+      <y>100</y>
       <width>111</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>enter</string>
+     <string>Вход</string>
     </property>
    </widget>
   </widget>
@@ -70,27 +70,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>1</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="mouseTracking">
-    <bool>false</bool>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

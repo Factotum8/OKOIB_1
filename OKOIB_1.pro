@@ -14,25 +14,28 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    spr.cpp \
     ir.cpp \
     develop.cpp \
     tableir.cpp \
     errorform.cpp \
     global.cpp \
-    tabwidgetir.cpp
+    tabwidgetir.cpp \
+    formir.cpp \
+    itemdelegate.cpp
 
 HEADERS  += mainwindow.h \
-    spr.h \
     ir.h \
     develop.h \
     struct.h \
     tableir.h \
     errorform.h \
     global.h \
-    tabwidgetir.h
+    tabwidgetir.h \
+    formir.h \
+    itemdelegate.h
 
 FORMS    += mainwindow.ui \
     tableir.ui \
     errorform.ui \
-    tabwidgetir.ui
+    tabwidgetir.ui \
+    formir.ui

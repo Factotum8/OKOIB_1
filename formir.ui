@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FormIr</class>
+ <widget class="QWidget" name="FormIr">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>771</width>
+    <height>568</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QFrame" name="frame_acquire">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>421</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>20</y>
+      <width>261</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Стоимость ИР на момент покупкиф&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEditacquire">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>70</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>170</y>
+     <width>421</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Первый год разработки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Первый  год разработки</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>20</y>
+      <width>211</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Количество лет разработки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Количество лет разработки</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEditfirstyear">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>381</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Первый год разработки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Количество сотрудников, участвующих в разработке </string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEditemployees_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TableDev">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>140</y>
+      <width>121</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ввод</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdityearsdev">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>60</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_5">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>390</y>
+     <width>421</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>10</y>
+      <width>311</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;Первый год разработки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="text">
+     <string>Количество обслуживающих  сотрудников  </string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEditmaintainemployees">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>60</y>
+      <width>301</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TableMaintain">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>110</y>
+      <width>99</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ввод</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_6">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>20</y>
+     <width>311</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>40</y>
+      <width>67</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>20</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Прибыль за год&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEditprofit">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>70</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="inputMethodHints">
+     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
+    </property>
+   </widget>
+   <zorder>label_4</zorder>
+   <zorder>label</zorder>
+   <zorder>label_3</zorder>
+   <zorder>textEditprofit</zorder>
+  </widget>
+  <widget class="QPushButton" name="Save">
+   <property name="geometry">
+    <rect>
+     <x>540</x>
+     <y>330</y>
+     <width>121</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Сохранить</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

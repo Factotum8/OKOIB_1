@@ -3,11 +3,15 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QTableWidget>
+#include <QStandardItemModel>
+#include <QStringListModel>
 
 #include "ui_tableir.h"
 #include "global.h"
 #include "errorform.h"
 #include "tabwidgetir.h"
+#include "itemdelegate.h"
 
 #define  COLUMNCOUNT 8
 
