@@ -27,19 +27,19 @@ QWidget* ItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem 
         return edit;
         break;
     case 4:
-        edit->setInputMask("0-1");
+        edit->setInputMask("B");
         return edit;
         break;
     case 5:
-        edit->setInputMask("0-1");
+        edit->setInputMask("B");
         return edit;
         break;
     case 6:
-        edit->setInputMask("0-1");
+        edit->setInputMask("B");
         return edit;
         break;
     case 7:
-        edit->setInputMask("0-1");
+        edit->setInputMask("B");
         return edit;
         break;
     default:

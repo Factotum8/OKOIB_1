@@ -60,9 +60,9 @@ TableIr::TableIr(QWidget *parent) :
      c.setStringList(QStringList() << "Наименование ИР" << "Первый календарный г. эксплуатации" << "Текущий г. эксплуатации"<<"Планируемый срок эксплуатации"
                                                                                                                     <<"Приобретённый"<<"Разработанный"<<"Обслуживаемый"<<"Приносящий");
     QItemSelectionModel select(&c);
-    //ui->tableViewIR->setModel(new QStandardItemModel (count_ir,COLUMNCOUNT));//(COLUMNCOUNT,count_ir));
+    ui->tableViewIR->setModel(new QStandardItemModel (count_ir,COLUMNCOUNT));//(COLUMNCOUNT,count_ir));
     ui->tableViewIR->setItemDelegate(new ItemDelegate);
-    ui->tableViewIR->setSelectionMode(&select);
+//    ui->tableViewIR->setSelectionMode(&select);
 }
 
 TableIr::~TableIr()
