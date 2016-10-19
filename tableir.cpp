@@ -89,6 +89,8 @@ void TableIr::on_save_butt_clicked()
             set_boolval(i,7,ui->tablewidIR->item(i,7)->text());
         }*/
 
+//    ui->tableViewIR->model;p
+
     TabWidgetIr *twi= new TabWidgetIr;
 
     twi->setAttribute(Qt::WA_DeleteOnClose);

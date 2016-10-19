@@ -5,7 +5,8 @@
 #include <QLabel>
 #include <QTableWidget>
 #include <QStandardItemModel>
-#include <QStringListModel>
+//#include <QStringListModel>
+#include <QItemSelectionModel>
 
 #include "ui_tableir.h"
 #include "global.h"

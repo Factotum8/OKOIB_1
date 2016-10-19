@@ -12,9 +12,12 @@ class ItemDelegate : public QItemDelegate
 public:
     explicit ItemDelegate(QObject *parent=0);// : QItemDelegate (parent){}
 
-  protected:
+protected:
 
     QWidget* createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    void setEditorData(QWidget * editor, const QModelIndex & index) const;
+    void setModelData(QWidget * editor, QAbstractItemModel * model, const QModelIndex & index) const;
+
 };
 
 #endif // ITEMDELEGATE_H
