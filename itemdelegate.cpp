@@ -11,19 +11,19 @@ QWidget* ItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem 
 
     switch (index.column()) {
     case 0:
+        edit->setInputMask("Nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn");
         return edit;
-        //edit->setInputMask();
         break;
     case 1:
-        edit->setInputMask("1980-2020");
+        edit->setValidator(new QIntValidator (1920,2020));
         return edit;
         break;
     case 2:
-        edit->setInputMask("1980-2020");
+        edit->setValidator(new QIntValidator (1920,2020));
         return edit;
         break;
     case 3:
-        edit->setInputMask("1980-2020");
+        edit->setValidator(new QIntValidator (1920,2020));
         return edit;
         break;
     case 4:

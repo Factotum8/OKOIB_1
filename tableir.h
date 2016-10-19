@@ -15,7 +15,7 @@
 
 #define  COLUMNCOUNT 8
 
-extern TabWidgetIr *twi;
+//extern TabWidgetIr *twi;
 
 namespace Ui {
 class TableIr;
