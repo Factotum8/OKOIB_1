@@ -7,6 +7,7 @@
 #include <QStandardItemModel>
 //#include <QStringListModel>
 #include <QItemSelectionModel>
+#include <QDebug>
 
 #include "ui_tableir.h"
 #include "global.h"
@@ -37,8 +38,8 @@ private slots:
 
 private:
     Ui::TableIr *ui;
-    void set_boolval (int i,int j ,QString str);
-    QDate set_dateval (QString str);
+    void set_boolval (int i,int j ,int str);
+    QDate set_dateval (int str);
 };
 
 #endif // TABLEIR_H

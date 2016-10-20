@@ -2,12 +2,13 @@
 
 //extern TabWidgetIr *twi;
 
-
 TableIr::TableIr(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::TableIr)
 {
     ui->setupUi(this);
+
+    //ui->tableViewIR->setEditTriggers(QAbstractItemView::SelectedClicked);
 
 /*    ui->tablewidIR->setColumnCount(COLUMNCOUNT);
     ui->tablewidIR->setRowCount(count_ir);
@@ -89,7 +90,25 @@ void TableIr::on_save_butt_clicked()
             set_boolval(i,7,ui->tablewidIR->item(i,7)->text());
         }*/
 
-//    ui->tableViewIR->model;p
+    for (int i=0;i<count_ir;i++){
+
+        ir[i].set_name(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,0,QModelIndex())).toString());
+
+        ir[i].set_first_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,1,QModelIndex())).toInt()));
+
+        ir[i].set_this_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,2,QModelIndex())).toInt()));
+
+        ir[i].set_planned_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,3,QModelIndex())).toInt()));
+
+        set_boolval(i,4,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,4,QModelIndex())).toInt());
+
+        set_boolval(i,5,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,5,QModelIndex())).toInt());
+
+        set_boolval(i,6,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,6,QModelIndex())).toInt());
+
+        set_boolval(i,7,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,7,QModelIndex())).toInt());
+
+    }
 
     TabWidgetIr *twi= new TabWidgetIr;
 
@@ -106,22 +125,22 @@ void TableIr::on_exit_butt_clicked()
     return;
 }
 
-QDate TableIr::set_dateval (QString str){
+QDate TableIr::set_dateval (int str){
 
     QDate date(0000,00,00);
 
-    date.addYears(str.toInt());
+    date.addYears(str);
 
     return date;
 
 }
 
-void TableIr::set_boolval (int i,int j ,QString str){
+void TableIr::set_boolval (int i,int j ,int str){
 
     switch (j) {
     case 4:
 
-        if (str=="1"){
+        if (str== 1){
 
             ir[i].set_val_acquire(true);
         }else{
@@ -131,7 +150,7 @@ void TableIr::set_boolval (int i,int j ,QString str){
 
         break;
     case 6:
-        if (str=="1"){
+        if (str==1){
 
             ir[i].set_val_maintain(true);
 
@@ -141,7 +160,7 @@ void TableIr::set_boolval (int i,int j ,QString str){
         }
         break;
     case 5:
-        if (str=="1"){
+        if (str==1){
 
             ir[i].set_val_develop(true);
 
@@ -151,7 +170,7 @@ void TableIr::set_boolval (int i,int j ,QString str){
         }
         break;
     case 7:
-        if (str=="1"){
+        if (str==1){
 
             ir[i].set_val_profit(true);
 
