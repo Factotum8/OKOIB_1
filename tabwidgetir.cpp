@@ -14,16 +14,23 @@ TabWidgetIr::TabWidgetIr(QWidget *parent) :
 
     }
 
+    int i=0;
+
     foreach (QString str, list) {
 
-        ui->tabWidget->addTab(new FormIr(),str );
+        ui->tabWidget->addTab(new FormIr(i),str );
 
-        if (ir->get_val_develop()){
+        i++;
 
-        }
     }
 
+//    for (int i=0;i<count_ir;i++){
 
+//        if (!ir[i].get_val_develop()){
+
+//            ui->tabWidget;
+//        }
+//    }
 
 }
 

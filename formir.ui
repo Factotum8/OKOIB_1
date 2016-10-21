@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>771</width>
-    <height>568</height>
+    <height>559</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +19,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QFrame" name="frame_acquire">
+  <widget class="QFrame" name="frameAcquire">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -47,21 +47,18 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Стоимость ИР на момент покупкиф&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEditacquire">
+   <widget class="QLineEdit" name="textEditAcquire">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>80</x>
       <y>70</y>
-      <width>241</width>
-      <height>31</height>
+      <width>251</width>
+      <height>27</height>
      </rect>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_4">
+  <widget class="QFrame" name="frameDevelop">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -108,19 +105,6 @@
      <string>Количество лет разработки</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEditfirstyear">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>60</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
@@ -137,19 +121,6 @@
      <string>Количество сотрудников, участвующих в разработке </string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEditemployees_5">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>140</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
-    </property>
-   </widget>
    <widget class="QPushButton" name="TableDev">
     <property name="geometry">
      <rect>
@@ -163,21 +134,38 @@
      <string>Ввод</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdityearsdev">
+   <widget class="QLineEdit" name="textEditFirstYearDev">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>60</y>
+      <width>171</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="textEditYearsDev">
     <property name="geometry">
      <rect>
       <x>220</x>
       <y>60</y>
       <width>171</width>
-      <height>31</height>
+      <height>27</height>
      </rect>
     </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
+   </widget>
+   <widget class="QLineEdit" name="textEditEmployeesDev">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>171</width>
+      <height>27</height>
+     </rect>
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_5">
+  <widget class="QFrame" name="frameMantain">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -208,16 +196,6 @@
      <string>Количество обслуживающих  сотрудников  </string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEditmaintainemployees">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>60</y>
-      <width>301</width>
-      <height>31</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="TableMaintain">
     <property name="geometry">
      <rect>
@@ -231,8 +209,18 @@
      <string>Ввод</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="textEditEmployeesMaint">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>60</y>
+      <width>311</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
-  <widget class="QFrame" name="frame_6">
+  <widget class="QFrame" name="frameProfit">
    <property name="geometry">
     <rect>
      <x>450</x>
@@ -247,19 +235,6 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>40</y>
-      <width>67</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
@@ -273,23 +248,16 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Прибыль за год&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEditprofit">
+   <widget class="QLineEdit" name="textEditProfit">
     <property name="geometry">
      <rect>
       <x>70</x>
       <y>70</y>
       <width>171</width>
-      <height>31</height>
+      <height>27</height>
      </rect>
     </property>
-    <property name="inputMethodHints">
-     <set>Qt::ImhMultiLine|Qt::ImhPreferNumbers</set>
-    </property>
    </widget>
-   <zorder>label_4</zorder>
-   <zorder>label</zorder>
-   <zorder>label_3</zorder>
-   <zorder>textEditprofit</zorder>
   </widget>
   <widget class="QPushButton" name="Save">
    <property name="geometry">

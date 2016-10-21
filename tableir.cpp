@@ -10,7 +10,7 @@ TableIr::TableIr(QWidget *parent) :
 
     //ui->tableViewIR->setEditTriggers(QAbstractItemView::SelectedClicked);
 
-/*    ui->tablewidIR->setColumnCount(COLUMNCOUNT);
+    /*    ui->tablewidIR->setColumnCount(COLUMNCOUNT);
     ui->tablewidIR->setRowCount(count_ir);
      Включаем сетку
     ui->tablewidIR->setShowGrid(true);
@@ -45,7 +45,7 @@ TableIr::TableIr(QWidget *parent) :
     ui->tablewidIR->setHorizontalHeaderItem(7, new QTableWidgetItem(tr("Приносящий")));*/
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     QStringList list;
 
     list<< "Наименование ИР" << "Первый календарный г. эксплуатации" << "Текущий г. эксплуатации"<<"Планируемый срок эксплуатации"
@@ -77,36 +77,47 @@ TableIr::~TableIr()
 
 void TableIr::on_save_butt_clicked()
 {
-/*        for (int i=0;i<count_ir;i++){
-
-            ir[i].set_name(ui->tablewidIR->item(i,0)->text());
-            ir[i].set_first_year(set_dateval(ui->tablewidIR->item(i,1)->text()));
-            ir[i].set_this_year(set_dateval(ui->tablewidIR->item(i,2)->text()));
-            ir[i].set_planned_year(set_dateval(ui->tablewidIR->item(i,3)->text()));
-
-            set_boolval(i,4,ui->tablewidIR->item(i,4)->text());
-            set_boolval(i,5,ui->tablewidIR->item(i,5)->text());
-            set_boolval(i,6,ui->tablewidIR->item(i,6)->text());
-            set_boolval(i,7,ui->tablewidIR->item(i,7)->text());
-        }*/
-
     for (int i=0;i<count_ir;i++){
 
-        ir[i].set_name(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,0,QModelIndex())).toString());
+        if (dataisnull(i,0)) {
 
-        ir[i].set_first_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,1,QModelIndex())).toInt()));
+            return;
+        }
 
-        ir[i].set_this_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,2,QModelIndex())).toInt()));
+        if (dataisnull(i,1)) {
 
-        ir[i].set_planned_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,3,QModelIndex())).toInt()));
+            return;
+        }
 
-        set_boolval(i,4,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,4,QModelIndex())).toInt());
+        if (dataisnull(i,2)) {
 
-        set_boolval(i,5,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,5,QModelIndex())).toInt());
+            return;
+        }
 
-        set_boolval(i,6,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,6,QModelIndex())).toInt());
+        if (dataisnull(i,3)) {
 
-        set_boolval(i,7,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,7,QModelIndex())).toInt());
+            return;
+        }
+
+        if (dataisnull(i,4)) {
+
+            return;
+        }
+
+        if (dataisnull(i,5)) {
+
+            return;
+        }
+
+        if (dataisnull(i,6)) {
+
+            return;
+        }
+
+        if (dataisnull(i,7)) {
+
+            return;
+        }
 
     }
 
@@ -115,9 +126,8 @@ void TableIr::on_save_butt_clicked()
     twi->setAttribute(Qt::WA_DeleteOnClose);
 
     twi->show();
+
 }
-
-
 
 void TableIr::on_exit_butt_clicked()
 {
@@ -187,5 +197,74 @@ void TableIr::set_boolval (int i,int j ,int str){
 
         e->show();
         break;
+    }
+}
+
+bool TableIr::isnull (int i,int j){
+
+    return ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,j,QModelIndex())).isNull();
+}
+
+
+bool TableIr::dataisnull (int i, int j){
+
+    if (!isnull(i,j)) {
+
+        switch (j) {
+
+        case 0:
+
+            ir[i].set_name(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,0,QModelIndex())).toString());
+            break;
+
+        case 1:
+
+            ir[i].set_first_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,1,QModelIndex())).toInt()));
+            break;
+
+        case 2:
+            ir[i].set_this_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,2,QModelIndex())).toInt()));
+            break;
+
+        case 3:
+
+            ir[i].set_planned_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,3,QModelIndex())).toInt()));
+            break;
+        case 4:
+
+            set_boolval(i,4,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,4,QModelIndex())).toInt());
+            break;
+
+        case 5:
+
+            set_boolval(i,5,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,5,QModelIndex())).toInt());
+            break;
+
+        case 6:
+
+            set_boolval(i,6,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,6,QModelIndex())).toInt());
+            break;
+
+        case 7:
+
+            set_boolval(i,7,ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,7,QModelIndex())).toInt());
+            break;
+
+        default:
+
+            ErrorForm* e = new ErrorForm();
+            e->show();
+            break;
+        }
+
+        return 0;
+
+    }else {
+
+        ErrorForm* e = new ErrorForm();
+
+        e->show();
+
+        return 1;
     }
 }

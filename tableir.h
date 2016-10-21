@@ -38,8 +38,10 @@ private slots:
 
 private:
     Ui::TableIr *ui;
-    void set_boolval (int i,int j ,int str);
-    QDate set_dateval (int str);
+    void    set_boolval (int i,int j ,int str);
+    QDate   set_dateval (int str);
+    bool    isnull      (int i,int j);
+    bool    dataisnull  (int i, int j);
 };
 
 #endif // TABLEIR_H

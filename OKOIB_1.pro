@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     global.cpp \
     tabwidgetir.cpp \
     formir.cpp \
-    itemdelegate.cpp
+    itemdelegate.cpp \
+    formemployees.cpp
 
 HEADERS  += mainwindow.h \
     ir.h \
@@ -32,10 +33,12 @@ HEADERS  += mainwindow.h \
     global.h \
     tabwidgetir.h \
     formir.h \
-    itemdelegate.h
+    itemdelegate.h \
+    formemployees.h
 
 FORMS    += mainwindow.ui \
     tableir.ui \
     errorform.ui \
     tabwidgetir.ui \
-    formir.ui
+    formir.ui \
+    formemployees.ui
