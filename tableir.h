@@ -1,7 +1,8 @@
 #ifndef TABLEIR_H
 #define TABLEIR_H
 
-#include <QWidget>
+//#include <QWidget>
+#include <QtWidgets>
 #include <QLabel>
 #include <QTableWidget>
 #include <QStandardItemModel>

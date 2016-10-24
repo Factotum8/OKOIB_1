@@ -12,3 +12,18 @@ ErrorForm::~ErrorForm()
 {
     delete ui;
 }
+
+void ErrorForm::showerror (){
+
+    ErrorForm *e = new ErrorForm;
+
+    e->setAttribute(Qt::WA_DeleteOnClose);
+
+    e->setWindowFlags(Qt::WindowStaysOnTopHint);
+
+    e->move(500,500);
+
+    e->show();
+
+    return;
+}

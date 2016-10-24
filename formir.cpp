@@ -16,8 +16,8 @@ FormIr::FormIr(int i,QWidget *parent) :
 
         ui->textEditFirstYearDev->setPlaceholderText("1920-2020");
         ui->textEditFirstYearDev->setValidator(new QIntValidator (1920,2020));
-        ui->textEditYearsDev->setInputMask("0D");
-        ui->textEditEmployeesDev->setInputMask("0D");
+        ui->textEditYearsDev->setInputMask("D0");
+        ui->textEditEmployeesDev->setInputMask("D0");
 
     }
 
@@ -27,7 +27,7 @@ FormIr::FormIr(int i,QWidget *parent) :
 
     } else {
 
-        ui->textEditAcquire->setInputMask("0D");
+        ui->textEditAcquire->setInputMask("D0");
     }
 
     if (!ir[i].get_val_maintain()){
@@ -36,7 +36,7 @@ FormIr::FormIr(int i,QWidget *parent) :
 
     } else {
 
-        ui->textEditEmployeesMaint->setInputMask("0000D");
+        ui->textEditEmployeesMaint->setInputMask("D0000");
     }
 
     if (!ir[i].get_val_profit()){
@@ -89,12 +89,22 @@ void FormIr::on_TableDev_clicked()
 
         FormEmployees* formfmployees = new FormEmployees(ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
 
+        formfmployees->setAttribute(Qt::WA_DeleteOnClose);
+
+        formfmployees->setWindowFlags(Qt::WindowStaysOnTopHint);
+
         formfmployees->show();
 
     }else{
 
-        ErrorForm* e = new ErrorForm;
+//        ErrorForm* e = new ErrorForm;
 
-        e->show();
+//        e->setAttribute(Qt::WA_DeleteOnClose);
+//        e->setWindowFlags(Qt::WindowStaysOnTopHint);
+//        e->move(500,500);
+
+//        e->show();
+
+        ErrorForm::showerror ();
     }
 }

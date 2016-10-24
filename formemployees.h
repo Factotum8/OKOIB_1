@@ -1,7 +1,8 @@
 #ifndef FORMEMPLOYEES_H
 #define FORMEMPLOYEES_H
 
-#include <QWidget>
+//#include <QWidget>
+#include <QtWidgets>
 #include <QStandardItemModel>
 #include <QDoubleSpinBox>
 #include <QStandardItemEditorCreator>

@@ -9,6 +9,20 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    QVBoxLayout* pqvbxLayout = new QVBoxLayout;
+
+    pqvbxLayout->setMargin(5);
+
+    pqvbxLayout->setSpacing(5);
+
+    pqvbxLayout->insertStretch(5);
+
+    pqvbxLayout->addWidget(ui->lab_quantity);
+
+    pqvbxLayout->addWidget(ui->edit_quantity);
+
+    pqvbxLayout->addWidget(ui->butt_enter);
 }
 
 MainWindow::~MainWindow()
@@ -23,13 +37,17 @@ void MainWindow::on_butt_enter_clicked()
 
     if (str.length()==0){
 
-        ErrorForm *e = new ErrorForm;
+//        ErrorForm *e = new ErrorForm;
 
-       // ErrorForm *e = new ErrorForm(this); проанализируй потом
+//        e->setAttribute(Qt::WA_DeleteOnClose);
 
-        e->setAttribute(Qt::WA_DeleteOnClose);
+//        e->setWindowFlags(Qt::WindowStaysOnTopHint);
 
-        e->show();
+//        e->move(500,500);
+
+//        e->show();
+
+        ErrorForm::showerror();
 
         return;
     }
@@ -40,10 +58,8 @@ void MainWindow::on_butt_enter_clicked()
 
     TableIr *w2 = new TableIr;
 
-    //w2->set
-
     w2->setAttribute(Qt::WA_DeleteOnClose);
-
+    w2->setWindowFlags(Qt::WindowStaysOnTopHint);
     w2->show();
 
 }

@@ -23,6 +23,30 @@ FormEmployees::FormEmployees(int count_employees,int count_years,QWidget *parent
 
     ui->tableEmployees->setItemDelegate(delegate);
 
+    QHBoxLayout* pqhbxLayout = new QHBoxLayout;
+
+    QVBoxLayout* pqvbxLayout = new QVBoxLayout;
+
+    pqhbxLayout->setMargin(10);
+
+    pqhbxLayout->setSpacing(10);
+
+    pqhbxLayout->insertStretch(10);
+
+    pqvbxLayout->setMargin(10);
+
+    pqvbxLayout->setSpacing(10);
+
+    pqvbxLayout->insertStretch(10);
+
+    pqhbxLayout->addWidget(ui->ButtonExit);
+
+    pqhbxLayout->addWidget(ui->ButtonSave);
+
+    pqvbxLayout->addWidget(ui->tableEmployees);
+
+    pqvbxLayout->addLayout(pqhbxLayout);
+
 
 }
 

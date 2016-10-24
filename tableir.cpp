@@ -8,44 +8,30 @@ TableIr::TableIr(QWidget *parent) :
 {
     ui->setupUi(this);
 
-//    ui->tableViewIR->setEditTriggers(QAbstractItemView::SelectedClicked);
+    QHBoxLayout* pqhbxLayout = new QHBoxLayout;
 
-    /*    ui->tablewidIR->setColumnCount(COLUMNCOUNT);
-    ui->tablewidIR->setRowCount(count_ir);
-     Включаем сетку
-    ui->tablewidIR->setShowGrid(true);
-     Разрешаем выделение только одного элемента
-    ui->tablewidIR->setSelectionMode(QAbstractItemView::SingleSelection);
-     Разрешаем выделение построчно
-    ui->tablewidIR->setSelectionBehavior(QAbstractItemView::SelectRows);
-     Устанавливаем заголовки колонок
-        ui->tablewidIR->setHorizontalHeaderLabels(headers);
-     Растягиваем последнюю колонку на всё доступное пространство
-    ui->tablewidIR->horizontalHeader()->setStretchLastSection(true);
-     Скрываем колонку под номером 0
-        ui->tablewidIR->hideColumn(0);
+    QVBoxLayout* pqvbxLayout = new QVBoxLayout;
 
-    ui->tablewidIR->setColumnWidth(0,175);
-    ui->tablewidIR->setColumnWidth(1,295);
-    ui->tablewidIR->setColumnWidth(2,215);
-    ui->tablewidIR->setColumnWidth(3,265);
-    ui->tablewidIR->setColumnWidth(4,135);
-    ui->tablewidIR->setColumnWidth(5,145);
-    ui->tablewidIR->setColumnWidth(6,145);
-    ui->tablewidIR->setColumnWidth(7,145);
+    pqhbxLayout->setMargin(10);
 
+    pqhbxLayout->setSpacing(10);
 
-    ui->tablewidIR->setHorizontalHeaderItem(0, new QTableWidgetItem(tr("Наименование ИР")));
-    ui->tablewidIR->setHorizontalHeaderItem(1, new QTableWidgetItem(tr("Первый календарный г. эксплуатации")));
-    ui->tablewidIR->setHorizontalHeaderItem(2, new QTableWidgetItem(tr("Текущий г. эксплуатации")));
-    ui->tablewidIR->setHorizontalHeaderItem(3, new QTableWidgetItem(tr("Планируемый срок эксплуатации")));
-    ui->tablewidIR->setHorizontalHeaderItem(4, new QTableWidgetItem(tr("Приобретённый")));
-    ui->tablewidIR->setHorizontalHeaderItem(5, new QTableWidgetItem(tr("Разработанный")));
-    ui->tablewidIR->setHorizontalHeaderItem(6, new QTableWidgetItem(tr("Обслуживаемый")));
-    ui->tablewidIR->setHorizontalHeaderItem(7, new QTableWidgetItem(tr("Приносящий")));*/
+    pqhbxLayout->insertStretch(10);
 
+    pqvbxLayout->setMargin(10);
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    pqvbxLayout->setSpacing(10);
+
+    pqvbxLayout->insertStretch(10);
+
+    pqhbxLayout->addWidget(ui->exit_butt);
+
+    pqhbxLayout->addWidget(ui->save_butt);
+
+    pqvbxLayout->addWidget(ui->tableViewIR);
+
+    pqhbxLayout->addLayout(pqvbxLayout);
+
     QStringList list;
 
     list<< "Наименование ИР" << "Первый календарный г. эксплуатации" << "Текущий г. эксплуатации"<<"Планируемый срок эксплуатации"
@@ -124,6 +110,7 @@ void TableIr::on_save_butt_clicked()
     TabWidgetIr *twi= new TabWidgetIr;
 
     twi->setAttribute(Qt::WA_DeleteOnClose);
+    twi->setWindowFlags(Qt::WindowStaysOnTopHint);
 
     twi->show();
 
@@ -191,11 +178,13 @@ void TableIr::set_boolval (int i,int j ,int str){
         }
         break;
     default:
-        ErrorForm *e = new ErrorForm;
+//        ErrorForm *e = new ErrorForm;
 
-        e->setAttribute(Qt::WA_DeleteOnClose);
+//        e->setAttribute(Qt::WA_DeleteOnClose);
+//        e->setWindowFlags(Qt::WindowStaysOnTopHint);
 
-        e->show();
+//        e->show();
+        ErrorForm::showerror ();
         break;
     }
 }
@@ -252,8 +241,14 @@ bool TableIr::dataisnull (int i, int j){
 
         default:
 
-            ErrorForm* e = new ErrorForm();
-            e->show();
+//            ErrorForm* e = new ErrorForm();
+
+//            e->setAttribute(Qt::WA_DeleteOnClose);
+
+//            e->setWindowFlags(Qt::WindowStaysOnTopHint);
+
+//            e->show();
+            ErrorForm::showerror ();
             break;
         }
 
@@ -261,9 +256,14 @@ bool TableIr::dataisnull (int i, int j){
 
     }else {
 
-        ErrorForm* e = new ErrorForm();
+//        ErrorForm* e = new ErrorForm();
 
-        e->show();
+//        e->setAttribute(Qt::WA_DeleteOnClose);
+
+//        e->setWindowFlags(Qt::WindowStaysOnTopHint);
+
+//        e->show();
+        ErrorForm::showerror ();
 
         return 1;
     }

@@ -14,6 +14,7 @@ class ErrorForm : public QWidget
 public:
     explicit ErrorForm(QWidget *parent = 0);
     ~ErrorForm();
+    static void showerror ();
 
 private:
     Ui::ErrorForm *ui;
