@@ -27,7 +27,7 @@ struct Maintain{
 struct Profit{
 
     int profit; //прибыль от использования ресурса в течение года
-};
+};\
 
 struct cost_index{ // индексы увеличения ценн
 
