@@ -36,7 +36,7 @@ FormIr::FormIr(int i,QWidget *parent) :
 
     } else {
 
-        ui->textEditEmployeesMaint->setInputMask("0D");
+        ui->textEditEmployeesMaint->setInputMask("0000D");
     }
 
     if (!ir[i].get_val_profit()){
@@ -81,7 +81,15 @@ void FormIr::on_TableDev_clicked()
 {
     if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()&!ui->textEditYearsDev->text().isEmpty()){
 
+        qDebug()<<"\n"<<k<<"\n";
+
         ir[k].develop->init_number_employees(ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+
+        ir[k].develop->set_first_year(ui->textEditFirstYearDev->text().toInt());
+
+        FormEmployees* formfmployees = new FormEmployees(ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
+
+        formfmployees->show();
 
     }else{
 

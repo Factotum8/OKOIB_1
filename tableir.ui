@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1630</width>
+    <width>1300</width>
     <height>781</height>
    </rect>
   </property>
@@ -41,7 +41,7 @@
   <widget class="QPushButton" name="exit_butt">
    <property name="geometry">
     <rect>
-     <x>1520</x>
+     <x>1190</x>
      <y>730</y>
      <width>100</width>
      <height>27</height>
@@ -57,81 +57,13 @@
     <string>выход</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tablewidIR">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>1611</width>
-     <height>451</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>1550</width>
-     <height>0</height>
-    </size>
-   </property>
-   <column>
-    <property name="text">
-     <string>Наименование ИР</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Первый календарный г. эксплуатации</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Текущий г. эксплуатации</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Планируемый срок эксплуатации</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Приобретённый</string>
-    </property>
-    <property name="whatsThis">
-     <string extracomment="поставте 0 или 1"/>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Разработанный</string>
-    </property>
-    <property name="whatsThis">
-     <string extracomment="поставте 0 или 1"/>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Обслуживаемый</string>
-    </property>
-    <property name="whatsThis">
-     <string extracomment="поставте 0 или 1"/>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Приносящий</string>
-    </property>
-    <property name="whatsThis">
-     <string extracomment="с"/>
-    </property>
-   </column>
-  </widget>
   <widget class="QTableView" name="tableViewIR">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>490</y>
-     <width>1611</width>
-     <height>192</height>
+     <y>21</y>
+     <width>1280</width>
+     <height>661</height>
     </rect>
    </property>
   </widget>

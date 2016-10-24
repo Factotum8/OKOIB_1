@@ -7,6 +7,7 @@
 #include "ui_formir.h"
 #include "global.h"
 #include "errorform.h"
+#include "formemployees.h"
 
 namespace Ui {
 class FormIr;

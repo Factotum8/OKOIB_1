@@ -8,7 +8,7 @@ TableIr::TableIr(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //ui->tableViewIR->setEditTriggers(QAbstractItemView::SelectedClicked);
+//    ui->tableViewIR->setEditTriggers(QAbstractItemView::SelectedClicked);
 
     /*    ui->tablewidIR->setColumnCount(COLUMNCOUNT);
     ui->tablewidIR->setRowCount(count_ir);
