@@ -58,8 +58,10 @@ void MainWindow::on_butt_enter_clicked()
 
     TableIr *w2 = new TableIr;
 
-    w2->setAttribute(Qt::WA_DeleteOnClose);
-    w2->setWindowFlags(Qt::WindowStaysOnTopHint);
+//    w2->setAttribute(Qt::WA_DeleteOnClose);
+
+//    w2->move(10,10);
+    //w2->setWindowFlags(Qt::WindowStaysOnTopHint);
     w2->show();
 
 }

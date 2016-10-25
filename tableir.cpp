@@ -8,6 +8,10 @@ TableIr::TableIr(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setAttribute(Qt::WA_DeleteOnClose);
+
+    this->move(10,10);
+
     QHBoxLayout* pqhbxLayout = new QHBoxLayout;
 
     QVBoxLayout* pqvbxLayout = new QVBoxLayout;
@@ -110,7 +114,7 @@ void TableIr::on_save_butt_clicked()
     TabWidgetIr *twi= new TabWidgetIr;
 
     twi->setAttribute(Qt::WA_DeleteOnClose);
-    twi->setWindowFlags(Qt::WindowStaysOnTopHint);
+    //twi->setWindowFlags(Qt::WindowStaysOnTopHint);
 
     twi->show();
 

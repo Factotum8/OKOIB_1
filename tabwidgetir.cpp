@@ -6,6 +6,11 @@ TabWidgetIr::TabWidgetIr(QWidget *parent) :
     ui(new Ui::TabWidgetIr)
 {
     ui->setupUi(this);
+
+    this->setAttribute(Qt::WA_DeleteOnClose);
+
+    this->move(10,10);
+
     QStringList    list ;
 
     for (int i=0;i<count_ir;i++){

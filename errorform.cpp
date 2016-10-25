@@ -21,7 +21,7 @@ void ErrorForm::showerror (){
 
     e->setWindowFlags(Qt::WindowStaysOnTopHint);
 
-    e->move(500,500);
+    e->move(500,300);
 
     e->show();
 

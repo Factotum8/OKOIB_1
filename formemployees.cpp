@@ -7,6 +7,10 @@ FormEmployees::FormEmployees(int count_employees,int count_years,QWidget *parent
 {
     ui->setupUi(this);
 
+    this->setAttribute(Qt::WA_DeleteOnClose);
+
+    this->move(10,10);
+
     QStandardItemModel* model = new QStandardItemModel (count_employees,count_years);
 
     QItemDelegate* delegate = new QItemDelegate;
