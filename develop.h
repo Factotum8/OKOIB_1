@@ -5,6 +5,7 @@
 #include <QDebug>
 
 #include "struct.h"
+#include "errorform.h"
 
 class Develop
 {
@@ -24,6 +25,10 @@ public:
 
     Employees** get_number_employees();
 
+    void init_number_employees(int count_employees, int count_years);
+
+    void set_number_employees(Employees** pEmployees);
+
     int * get_salory ();
 
     int* get_tax ();
@@ -36,7 +41,6 @@ public:
 
     void set_salory(double * mas );
 
-    void init_number_employees(int count_employees, int count_years);
 
     QDate set_first_year (QDate time);
 

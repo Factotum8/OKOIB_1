@@ -6,7 +6,9 @@ Develop::Develop(int years){
 
     years_develop=years;
     first_year.setDate(0000,00,00);
-    number_employees;// = NULL;
+    number_employees = NULL;//new Employees*;
+    //delete number_employees;
+    //free(number_employees);
     salory= new int [(years!=0)?years:1];
     tax= new int [(years!=0)?years:1];
     consumables=new int [(years!=0)?years:1];
@@ -46,21 +48,33 @@ void Develop::init_number_employees(int count_employees, int count_years){
 
     qDebug()<<count_employees<<" "<<count_years;
 
-//    Employees ** mas = new Employees*[count_employees];
+    //    Employees ** mas = new Employees*[count_employees];
 
-//    for (int i=0;i<count_employees;i++){
+    //    for (int i=0;i<count_years;i++){
 
-//           mas[i] = new Employees [count_employees];
-//        }
+    //           mas[i] = new Employees [count_years];
+    //        }
+    if (this->number_employees == NULL){
 
-//    this->number_employees= new struct Employees* [count_employees];
+        this->number_employees = new struct Employees* [count_employees];
 
-//    for (int i=0;i<count_employees;i++){
+        for (int i=0;i<count_employees;i++){
 
-//        this->number_employees[i] = new Employees [count_years];
-//    }
+            this->number_employees[i] = new Employees [count_years];
+        }
+    }else {
+
+        ErrorForm::showerror();
+
+    }
 
 }
+
+void Develop::set_number_employees(Employees** pEmployees){
+
+    this->number_employees = pEmployees;
+}
+
 
 void Develop::set_salory(double * mas){
 
