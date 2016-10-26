@@ -109,7 +109,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>100</y>
+      <y>90</y>
       <width>381</width>
       <height>31</height>
      </rect>
@@ -124,14 +124,14 @@
    <widget class="QPushButton" name="TableDev">
     <property name="geometry">
      <rect>
-      <x>260</x>
-      <y>140</y>
-      <width>121</width>
+      <x>230</x>
+      <y>130</y>
+      <width>151</width>
       <height>27</height>
      </rect>
     </property>
     <property name="text">
-     <string>Ввод</string>
+     <string>Ввести зарплаты</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="textEditFirstYearDev">
@@ -158,10 +158,23 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>140</y>
+      <y>130</y>
       <width>171</width>
       <height>27</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtTaxDev">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>160</y>
+      <width>151</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ввести отчисления</string>
     </property>
    </widget>
   </widget>

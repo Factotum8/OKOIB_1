@@ -29,6 +29,12 @@ private slots:
 
     void on_TableDev_clicked();
 
+    void on_TableMaintain_clicked();
+
+    void on_ButtTaxDev_clicked();
+
+    void buttclicked (bool flag);
+
 private:
     Ui::FormIr *ui;
 };

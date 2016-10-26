@@ -79,53 +79,41 @@ void FormIr::on_Save_clicked()
 
 void FormIr::on_TableDev_clicked()
 {
+    buttclicked(true);
+}
+
+void FormIr::on_TableMaintain_clicked()
+{
+
+}
+
+void FormIr::on_ButtTaxDev_clicked()
+{
+    buttclicked(false);
+}
+
+void FormIr::buttclicked (bool flag){
+
     if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()&!ui->textEditYearsDev->text().isEmpty()){
 
-        qDebug()<<"\n"<<k<<"\n";
+        if (ir[k].develop == NULL){
 
-        ir[k].develop->init_number_employees(ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
 
-        //        Employees** (&pemployees) = ir[k].develop->get_employees();
+        } else {
 
-        //        pemployees = new Employees*[ui->textEditEmployeesDev->text().toInt()];
+            delete ir[k].develop;
 
-        //        for (int i=0;i<ui->textEditEmployeesDev->text().toInt();i++){
+            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+        }
 
-        //      ir[k].develop->get_employees()[i] = new Employees[ui->textEditYearsDev->text().toInt()];
-
-        //        pemployees[i] = new Employees[ui->textEditYearsDev->text().toInt()];
-
-        //        }
-
-
-//        Employees** pEmployees= new  Employees* [ui->textEditEmployeesDev->text().toInt()];
-
-//        for (int i=0;i<ui->textEditEmployeesDev->text().toInt();i++){
-
-//            pEmployees[i] = new Employees [ui->textEditYearsDev->text().toInt()];
-//        }
-
-//        ir[k].develop->set_number_employees(pEmployees);
-
-        ir[k].develop->set_first_year(ui->textEditFirstYearDev->text().toInt());
-
-        FormEmployees* formfmployees = new FormEmployees(ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
+        FormEmployees* formfmployees = new FormEmployees(k,flag,ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
 
         formfmployees->setAttribute(Qt::WA_DeleteOnClose);
-
-        //formfmployees->setWindowFlags(Qt::WindowStaysOnTopHint);
 
         formfmployees->show();
 
     }else{
-
-        //        ErrorForm* e = new ErrorForm;
-
-        //        e->setAttribute(Qt::WA_DeleteOnClose);
-        //        e->setWindowFlags(Qt::WindowStaysOnTopHint);
-        //        e->move(500,500);
-
-        //        e->show();
 
         ErrorForm::showerror ();
     }

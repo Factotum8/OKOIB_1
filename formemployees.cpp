@@ -1,31 +1,26 @@
 #include "formemployees.h"
 
 
-FormEmployees::FormEmployees(int count_employees,int count_years,QWidget *parent) :
+FormEmployees::FormEmployees(int element, bool flag,int count_employees,int count_years,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FormEmployees)
 {
     ui->setupUi(this);
 
+    this->flag=flag;
+    this->element=element;
+    this->count_employees=count_employees;
+    this->count_years=count_years;
+
     this->setAttribute(Qt::WA_DeleteOnClose);
 
     this->move(10,10);
 
-    QStandardItemModel* model = new QStandardItemModel (count_employees,count_years);
+    //    QStandardItemModel* model = new QStandardItemModel (count_employees,count_years);
 
-    QItemDelegate* delegate = new QItemDelegate;
+    ui->tableEmployees->setModel(new QStandardItemModel (count_employees,count_years));
 
-    QItemEditorCreatorBase* doubleEditor = new QStandardItemEditorCreator<QDoubleSpinBox>();// = new QDoubleSpinBox;
-
-    QItemEditorFactory * factory = new QItemEditorFactory;
-
-    factory->registerEditor(QVariant::Double, doubleEditor);
-
-    delegate->setItemEditorFactory(factory);
-
-    ui->tableEmployees->setModel(model);
-
-    ui->tableEmployees->setItemDelegate(delegate);
+    ui->tableEmployees->setItemDelegate(new ItemDelegateFloat);
 
     QHBoxLayout* pqhbxLayout = new QHBoxLayout;
 
@@ -62,4 +57,52 @@ FormEmployees::~FormEmployees()
 void FormEmployees::on_ButtonExit_clicked()
 {
     close();
+}
+
+void FormEmployees::on_ButtonSave_clicked()
+{   qDebug()<<"\n on_ButtonSave_clicked";
+    for(int i=0;i<count_employees;i++){
+        for(int j;j<count_years;j++){
+
+            dataisnull(i,j);
+        }
+    }
+
+}
+
+bool FormEmployees::isnull (int i,int j){
+qDebug()<<"\n isnull";
+    return ui->tableEmployees->model()->data(ui->tableEmployees->model()->index(i,j,QModelIndex())).isNull();
+}
+
+
+bool FormEmployees::dataisnull (int i, int j){
+qDebug()<<"\n dataisnull";
+    if (!isnull(i,j)) {
+
+        switch (flag) {
+        case true:
+            (ir[element].develop->get_number_employees())[i][j].salory = ui->tableEmployees->model()->data( ui->tableEmployees->model()->index(i,j,QModelIndex())  ).toInt();
+
+            qDebug()<<"\n salory "<<(ir[element].develop->get_number_employees())[i][j].salory;
+
+            break;
+
+        case false:
+            (ir[element].develop->get_number_employees())[i][j].tax = ui->tableEmployees->model()->data(  ui->tableEmployees->model()->index(i,j,QModelIndex())  ).toInt();
+
+            qDebug()<<"\n tax "<<ir[element].develop->get_number_employees()[i][j].tax;
+
+            break;
+
+        default:
+            exit(1);
+            break;
+        }
+    }else {
+
+        ErrorForm::showerror ();
+
+        return 1;
+    }
 }

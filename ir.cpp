@@ -18,7 +18,7 @@ IR::IR()
     planned_year.setDate(0000,00,00);;
 
     acquire.cost_first_year=0;
-    maintain.number_employees;
+    maintain.number_employees=NULL;
     maintain.salory=0;
     maintain.tax=0;
     maintain.consumables=0;
