@@ -61,13 +61,15 @@ void FormEmployees::on_ButtonExit_clicked()
 
 void FormEmployees::on_ButtonSave_clicked()
 {   qDebug()<<"\n on_ButtonSave_clicked";
+
     for(int i=0;i<count_employees;i++){
-        for(int j;j<count_years;j++){
+        for(int j=0;j<count_years;j++){
 
             dataisnull(i,j);
         }
     }
 
+    close();
 }
 
 bool FormEmployees::isnull (int i,int j){

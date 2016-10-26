@@ -21,9 +21,9 @@ private:
 public:
 
     Acquire acquire;
-    Maintain maintain;
+    Maintain* maintain=NULL;
     Profit profit;
-    Develop *develop=NULL;
+    Develop* develop=NULL;
 
     IR();
 

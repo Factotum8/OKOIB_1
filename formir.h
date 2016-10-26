@@ -25,7 +25,7 @@ public:
 private slots:
     void on_Exit_clicked();
 
-    void on_Save_clicked();
+    //void on_Save_clicked();
 
     void on_TableDev_clicked();
 

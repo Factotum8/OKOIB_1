@@ -212,14 +212,14 @@
    <widget class="QPushButton" name="TableMaintain">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>50</x>
       <y>110</y>
-      <width>99</width>
+      <width>141</width>
       <height>27</height>
      </rect>
     </property>
     <property name="text">
-     <string>Ввод</string>
+     <string>Ввести зарплаты</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="textEditEmployeesMaint">
@@ -230,6 +230,19 @@
       <width>311</width>
       <height>27</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonInputTaxMaint">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>110</y>
+      <width>151</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ввести отчисления</string>
     </property>
    </widget>
   </widget>
@@ -285,6 +298,12 @@
     <string>Сохранить</string>
    </property>
   </widget>
+  <zorder>frameAcquire</zorder>
+  <zorder>frameDevelop</zorder>
+  <zorder>frameMantain</zorder>
+  <zorder>frameProfit</zorder>
+  <zorder>Save</zorder>
+  <zorder>ButtonInputTaxMaint</zorder>
  </widget>
  <resources/>
  <connections/>

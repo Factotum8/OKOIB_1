@@ -7,8 +7,6 @@ Develop::Develop(int years){
     years_develop=years;
     first_year.setDate(0000,00,00);
     number_employees = NULL;
-    //    salory= new int [(years!=0)?years:1];
-    //    tax= new int [(years!=0)?years:1];
     consumables=new int [(years!=0)?years:1];
 }
 
@@ -25,15 +23,22 @@ Develop::Develop(int first_year,int count_employees, int count_years){
 
             this->salory[i] = new Employees [count_years];
             this->tax[i] = new Employees [count_years];
-            this->number_employees = new Employees* [count_years];
+            this->number_employees[i] = new Employees [count_years];
         }
     }
     else{
-        qDebug()<<"\nNOt NUll tax salory\n";
+        qDebug()<<"\nCan't allocate memory\n";
         exit(0);
     }
 
+    for (int i=0;i<count_employees;i++){
 
+        for (int j=0;j<count_years;j++){
+
+            this->number_employees[i][j].salory = 0;
+        }
+
+    }
 
     consumables=new int [(count_years!=0)?count_years:1];
 }

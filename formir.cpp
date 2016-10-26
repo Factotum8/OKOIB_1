@@ -57,25 +57,25 @@ void FormIr::on_Exit_clicked()
     close();
 }
 
-void FormIr::on_Save_clicked()
-{
+//void FormIr::on_Save_clicked()
+//{
 
-    if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()&!ui->textEditYearsDev->text().isEmpty()){
+//    if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()&!ui->textEditYearsDev->text().isEmpty()){
 
-        ir[k].develop = new Develop(ui->textEditYearsDev->text().toInt());
+//        ir[k].develop = new Develop(ui->textEditYearsDev->text().toInt());
 
-        ir[k].develop->set_first_year(ui->textEditFirstYearDev->text().toInt());
+//        ir[k].develop->set_first_year(ui->textEditFirstYearDev->text().toInt());
 
-        //            ir[k].develop->set_number_employees(ui->textEditEmployeesDev->text().toInt());
+//        //            ir[k].develop->set_number_employees(ui->textEditEmployeesDev->text().toInt());
 
-    }
+//    }
 
-    if (ir[k].get_val_acquire()&!ui->textEditAcquire->text().isEmpty()){
+//    if (ir[k].get_val_acquire()&!ui->textEditAcquire->text().isEmpty()){
 
-        //ir[k].acquire.cost_first_year
-    }
+//        //ir[k].acquire.cost_first_year
+//    }
 
-}
+//}
 
 void FormIr::on_TableDev_clicked()
 {
@@ -102,7 +102,7 @@ void FormIr::buttclicked (bool flag){
 
         } else {
 
-            delete ir[k].develop;
+            delete (ir[k].develop);
 
             ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
         }
