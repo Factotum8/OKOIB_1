@@ -79,7 +79,7 @@ void FormIr::on_Exit_clicked()
 
 void FormIr::on_TableDev_clicked()
 {
-    buttclicked(true);
+    buttclickeddev(true);
 }
 
 void FormIr::on_TableMaintain_clicked()
@@ -87,14 +87,21 @@ void FormIr::on_TableMaintain_clicked()
 
 }
 
-void FormIr::on_ButtTaxDev_clicked()
+void FormIr::on_ButtonInputTaxMaint_clicked()
 {
-    buttclicked(false);
+
 }
 
-void FormIr::buttclicked (bool flag){
 
-    if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()&!ui->textEditYearsDev->text().isEmpty()){
+void FormIr::on_ButtTaxDev_clicked()
+{
+    buttclickeddev(false);
+}
+
+void FormIr::buttclickeddev (bool flag){
+
+    if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()
+            &!ui->textEditYearsDev->text().isEmpty()){
 
         if (ir[k].develop == NULL){
 
@@ -112,6 +119,62 @@ void FormIr::buttclicked (bool flag){
         formfmployees->setAttribute(Qt::WA_DeleteOnClose);
 
         formfmployees->show();
+
+    }else{
+
+        ErrorForm::showerror ();
+    }
+}
+
+
+void FormIr::buttclickedmain (bool flag){
+
+    if (ir[k].get_val_develop()&!ui->textEditEmployeesMaint->text().isEmpty()){
+
+        if (ir[k].maintain == NULL){
+
+            ir[k].maintain =new Maintain;
+
+        } else {
+
+            delete (ir[k].maintain);
+
+            ir[k].maintain =new Maintain;
+        }
+
+        FormEmployees* formfmployees = new FormEmployees(k,flag,ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
+
+        formfmployees->setAttribute(Qt::WA_DeleteOnClose);
+
+        formfmployees->show();
+
+    }else{
+
+        ErrorForm::showerror ();
+    }
+}
+
+void FormIr::on_ButtonConsumablesDev_clicked()
+{
+    if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()
+            &!ui->textEditYearsDev->text().isEmpty()){
+
+        if (ir[k].develop == NULL){
+
+            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+
+        } else {
+
+            delete (ir[k].develop);
+
+            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+        }
+
+        FormConsumablesDev* formconsumablesdev = new FormConsumablesDev(k,ui->textEditYearsDev->text().toInt());
+
+//        formfmployees->setAttribute(Qt::WA_DeleteOnClose);
+
+        formconsumablesdev->show();
 
     }else{
 

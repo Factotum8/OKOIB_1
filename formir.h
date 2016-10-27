@@ -9,6 +9,7 @@
 #include "errorform.h"
 #include "formemployees.h"
 #include "develop.h"
+#include "formconsumablesdev.h"
 
 namespace Ui {
 class FormIr;
@@ -33,10 +34,17 @@ private slots:
 
     void on_ButtTaxDev_clicked();
 
-    void buttclicked (bool flag);
+    void buttclickeddev (bool flag);
+
+    void buttclickedmain (bool flag);
+
+    void on_ButtonInputTaxMaint_clicked();
+
+    void on_ButtonConsumablesDev_clicked();
 
 private:
     Ui::FormIr *ui;
 };
 
 #endif // FORMIR_H
+

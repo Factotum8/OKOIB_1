@@ -7,7 +7,9 @@ Develop::Develop(int years){
     years_develop=years;
     first_year.setDate(0000,00,00);
     number_employees = NULL;
-    consumables=new int [(years!=0)?years:1];
+    consumables= NULL;
+    salory = NULL;
+    tax = NULL;
 }
 
 Develop::Develop(int first_year,int count_employees, int count_years){
@@ -40,7 +42,8 @@ Develop::Develop(int first_year,int count_employees, int count_years){
 
     }
 
-    consumables=new int [(count_years!=0)?count_years:1];
+    //    consumables=new int [(count_years!=0)?count_years:1];
+    consumables= NULL;
 }
 
 Employees** Develop::get_number_employees(){
@@ -50,27 +53,27 @@ Employees** Develop::get_number_employees(){
 
 
 
- Employees** Develop::get_salory(){
+Employees** Develop::get_salory(){
 
     return salory;
 }
 
- Employees** Develop::get_tax(){
+Employees** Develop::get_tax(){
 
     return tax;
 }
 
-int * Develop::get_consumables(){
+int* Develop::get_consumables(){
 
     return consumables;
 }
 
 void Develop::set_consumables(double * mas){
 
-    for (int i=0;i<years_develop;i++){
+//    for (int i=0;i<years_develop;i++){
 
-        consumables[i]=mas[i];
-    }
+//        consumables[i]=mas[i];
+//    }
 }
 
 void Develop::init_number_employees(int count_employees, int count_years){

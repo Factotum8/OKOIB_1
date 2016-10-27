@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     formir.cpp \
     itemdelegate.cpp \
     formemployees.cpp \
-    itemdelegatefloat.cpp
+    itemdelegatefloat.cpp \
+    formconsumablesdev.cpp
 
 HEADERS  += mainwindow.h \
     ir.h \
@@ -36,11 +37,13 @@ HEADERS  += mainwindow.h \
     formir.h \
     itemdelegate.h \
     formemployees.h \
-    itemdelegatefloat.h
+    itemdelegatefloat.h \
+    formconsumablesdev.h
 
 FORMS    += mainwindow.ui \
     tableir.ui \
     errorform.ui \
     tabwidgetir.ui \
     formir.ui \
-    formemployees.ui
+    formemployees.ui \
+    formconsumablesdev.ui
