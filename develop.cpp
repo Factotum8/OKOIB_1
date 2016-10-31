@@ -68,12 +68,9 @@ int* Develop::get_consumables(){
     return consumables;
 }
 
-void Develop::set_consumables(double * mas){
+void Develop::set_consumables(int count_years){
 
-//    for (int i=0;i<years_develop;i++){
-
-//        consumables[i]=mas[i];
-//    }
+    consumables = new int [count_years];
 }
 
 void Develop::init_number_employees(int count_employees, int count_years){

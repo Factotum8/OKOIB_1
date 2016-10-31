@@ -18,6 +18,8 @@ public:
     explicit FormConsumablesDev(int element,int count_years,QWidget *parent = 0);
     ~FormConsumablesDev();
 
+    bool isnull (int j);
+
 private slots:
     void on_ButtonExit_clicked();
 

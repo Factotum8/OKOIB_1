@@ -84,6 +84,20 @@ void FormIr::on_TableDev_clicked()
 
 void FormIr::on_TableMaintain_clicked()
 {
+    if (ui->textEditEmployeesMaint->text().isEmpty()){
+
+    ir[k].maintain->salory = new int[ui->textEditEmployeesMaint->text().toInt()];
+////////////////////////////////////////////////////////////////////////////////////////////
+    FormEmployees* formfmployees = new FormEmployees(k,flag,ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
+
+    formfmployees->setAttribute(Qt::WA_DeleteOnClose);
+
+    formfmployees->show();
+
+    } else {
+
+         ErrorForm::showerror ();
+    }
 
 }
 

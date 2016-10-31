@@ -73,27 +73,27 @@ void FormEmployees::on_ButtonSave_clicked()
 }
 
 bool FormEmployees::isnull (int i,int j){
-qDebug()<<"\n isnull";
+
     return ui->tableEmployees->model()->data(ui->tableEmployees->model()->index(i,j,QModelIndex())).isNull();
 }
 
 
 bool FormEmployees::dataisnull (int i, int j){
-qDebug()<<"\n dataisnull";
+
     if (!isnull(i,j)) {
 
         switch (flag) {
         case true:
             (ir[element].develop->get_number_employees())[i][j].salory = ui->tableEmployees->model()->data( ui->tableEmployees->model()->index(i,j,QModelIndex())  ).toInt();
 
-            qDebug()<<"\n salory "<<(ir[element].develop->get_number_employees())[i][j].salory;
+//            qDebug()<<"\n salory "<<(ir[element].develop->get_number_employees())[i][j].salory;
 
             break;
 
         case false:
             (ir[element].develop->get_number_employees())[i][j].tax = ui->tableEmployees->model()->data(  ui->tableEmployees->model()->index(i,j,QModelIndex())  ).toInt();
 
-            qDebug()<<"\n tax "<<ir[element].develop->get_number_employees()[i][j].tax;
+//            qDebug()<<"\n tax "<<ir[element].develop->get_number_employees()[i][j].tax;
 
             break;
 

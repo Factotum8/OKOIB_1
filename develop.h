@@ -16,7 +16,7 @@ private:
     Employees** number_employees = NULL ; //зарплаты (количество сотрудников), участвующих в разработке ИР, в каждый год разработки
     Employees** salory= NULL; //размер заработной платы каждого из сотрудников, участвующих в разработке ИР, в каждый год разработки
     Employees** tax= NULL; //отчисления (размер отчислений) с заработной платы каждого из сотрудников, участвующих в разработке ИР, в каждый год разработки,
-    int * consumables=NULL; //общие затраты на расходные материалы при разработке ИР в каждый год разработки
+    int* consumables; //общие затраты на расходные материалы при разработке ИР в каждый год разработки
 
 public:
     Develop(int years);
@@ -37,7 +37,7 @@ public:
 
     int* get_consumables ();
 
-    void set_consumables(double * mas );
+    void set_consumables(int count_years);
 
 //    void set_tax(double * mas);
 
