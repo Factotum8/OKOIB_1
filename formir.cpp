@@ -126,7 +126,7 @@ void FormIr::on_ButtonInputTaxMaint_clicked()
 
 void FormIr::on_ButtonConsumablesMain_clicked()
 {
-//    ir[k].maintain->tax = new int [ir[k].get_this_year().year()-ir[k].get_first_year().year()];
+    //    ir[k].maintain->tax = new int [ir[k].get_this_year().year()-ir[k].get_first_year().year()];
 
     ir[k].set_mantain_consumables(ui->textEditEmployeesMaint->text().toInt());
 
@@ -229,3 +229,21 @@ void FormIr::on_ButtonConsumablesDev_clicked()
 }
 
 
+
+void FormIr::on_Save_clicked()
+{
+    if (!ui->textEditAcquire->text().isEmpty()&!ui->textEditProfit->text().isEmpty()&!ui->textEditEmployeesDev->text().isEmpty()
+            &!ui->textEditEmployeesMaint->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()&!ui->textEditYearsDev->text().isEmpty())
+    {
+
+        ir[k].acquire.cost_first_year = ui->textEditAcquire->text().toInt();
+
+        ir[k].profit.profit = ui->textEditProfit->text().toInt();
+
+        close();
+
+    } else {
+
+        ErrorForm::showerror();
+    }
+}

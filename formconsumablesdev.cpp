@@ -19,6 +19,8 @@ FormConsumablesDev::FormConsumablesDev(int element,int count_years,QWidget *pare
 
     this->setAttribute(Qt::WA_DeleteOnClose);
 
+    this->move(10,10);
+
 }
 FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QWidget *parent):
     QWidget(parent),
@@ -55,6 +57,8 @@ FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QW
     ui->tableConsumables->setItemDelegate(new ItemDelegateFloat);
 
     this->setAttribute(Qt::WA_DeleteOnClose);
+
+    this->move(10,10);
 
 }
 

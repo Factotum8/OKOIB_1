@@ -29,13 +29,13 @@ TabWidgetIr::TabWidgetIr(QWidget *parent) :
 
     }
 
-//    for (int i=0;i<count_ir;i++){
+    //    for (int i=0;i<count_ir;i++){
 
-//        if (!ir[i].get_val_develop()){
+    //        if (!ir[i].get_val_develop()){
 
-//            ui->tabWidget;
-//        }
-//    }
+    //            ui->tabWidget;
+    //        }
+    //    }
 
 }
 
@@ -53,4 +53,13 @@ QTabWidget* TabWidgetIr::get_TabWidget (){
 void TabWidgetIr::on_ButtonMainExit_clicked()
 {
     close();
+}
+
+void TabWidgetIr::on_buttCostYears_clicked()
+{
+    for (int i=0;i<count_ir;i++){
+
+        c_index[i].index =
+
+    }
 }

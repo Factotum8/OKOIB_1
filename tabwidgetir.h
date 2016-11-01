@@ -10,6 +10,7 @@
 #include "global.h"
 #include "formir.h"
 
+extern cost_index* c_index;
 
 namespace Ui {
 class TabWidgetIr;
@@ -26,6 +27,8 @@ public:
 
 private slots:
     void on_ButtonMainExit_clicked();
+
+    void on_buttCostYears_clicked();
 
 private:
     Ui::TabWidgetIr *ui;

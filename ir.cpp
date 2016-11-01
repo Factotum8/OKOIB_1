@@ -18,10 +18,10 @@ IR::IR()
     planned_year.setDate(0000,00,00);;
     maintain == NULL;
     acquire.cost_first_year=0;
-//        maintain->number_employees=NULL;
-//        maintain->salory=NULL;
-//        maintain->tax=NULL;
-//        maintain->consumables=NULL;
+    //        maintain->number_employees=NULL;
+    //        maintain->salory=NULL;
+    //        maintain->tax=NULL;
+    //        maintain->consumables=NULL;
     profit.profit=NULL;
 
     name="not name";
@@ -115,7 +115,7 @@ void IR::set_mantain_salory(int count){
 
     } else {
 
-        delete (maintain->salory);
+        free (maintain->salory);
 
         maintain->salory = new int [count];
 
@@ -125,13 +125,29 @@ void IR::set_mantain_salory(int count){
 void IR::set_mantain_tax(int count){
 
     if (maintain->tax == NULL){
+
         maintain->tax = new int [count];
+
+    }  else {
+
+        free (maintain->tax);
+
+        maintain->tax = new int [count];
+
     }
 }
 
 void IR::set_mantain_consumables(int count){
 
     if (maintain->consumables == NULL){
+
         maintain->consumables = new int [count];
+
+    }else {
+
+        free (maintain->consumables);
+
+        maintain->consumables = new int [count];
+
     }
 }
