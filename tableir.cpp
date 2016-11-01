@@ -154,10 +154,13 @@ void TableIr::set_boolval (int i,int j ,int str){
         if (str==1){
 
             ir[i].set_val_maintain(true);
+            ir[i].maintain = new Maintain;
+//                      qDebug()<<"\nmantain"<<ir[i].maintain;
 
         }else{
 
             ir[i].set_val_maintain(false);
+
         }
         break;
     case 5:

@@ -42,6 +42,8 @@ private slots:
 
     void on_ButtonConsumablesDev_clicked();
 
+    void on_ButtonConsumablesMain_clicked();
+
 private:
     Ui::FormIr *ui;
 };

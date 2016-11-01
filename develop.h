@@ -25,28 +25,30 @@ public:
 
     QDate get_first_year();
 
+    QDate set_first_year (QDate time);
+
+    QDate set_first_year (int time);
+
+
     Employees** get_number_employees();
-
-    void init_number_employees(int count_employees, int count_years);
-
-    void set_number_employees(Employees** pEmployees);
 
     Employees** get_salory ();
 
     Employees** get_tax ();
 
-    int* get_consumables ();
+    void init_number_employees(int count_employees, int count_years);
+
+    void set_number_employees(Employees** pEmployees);
 
     void set_consumables(int count_years);
 
-//    void set_tax(double * mas);
+    int* get_consumables ();
+
+    //    void set_tax(double * mas);
 
 //    void set_salory(double * mas );
 
 
-    QDate set_first_year (QDate time);
-
-    QDate set_first_year (int time);
 
 };
 

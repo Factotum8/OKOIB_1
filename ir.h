@@ -44,6 +44,9 @@ public:
     void set_val_develop (bool val);
     void set_val_maintain (bool val);
     void set_val_profit (bool val);
+    void set_mantain_salory(int count);
+    void set_mantain_tax(int count);
+    void set_mantain_consumables(int count);
 
 
 };

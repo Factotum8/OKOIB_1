@@ -84,28 +84,60 @@ void FormIr::on_TableDev_clicked()
 
 void FormIr::on_TableMaintain_clicked()
 {
-    if (ui->textEditEmployeesMaint->text().isEmpty()){
+    if (!ui->textEditEmployeesMaint->text().isEmpty()){
 
-    ir[k].maintain->salory = new int[ui->textEditEmployeesMaint->text().toInt()];
-////////////////////////////////////////////////////////////////////////////////////////////
-    FormEmployees* formfmployees = new FormEmployees(k,flag,ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
+        //        ir[k].maintain->salory = new int[ui->textEditEmployeesMaint->text().toInt()];
 
-    formfmployees->setAttribute(Qt::WA_DeleteOnClose);
+        ir[k].set_mantain_salory(ui->textEditEmployeesMaint->text().toInt());
+        ////////////////////////////////////////////////////////////////////////////////////////////
 
-    formfmployees->show();
+        FormConsumablesDev* formconsumablesmain = new FormConsumablesDev(3,k,ui->textEditEmployeesMaint->text().toInt());
+
+        formconsumablesmain->setAttribute(Qt::WA_DeleteOnClose);
+
+        formconsumablesmain->show();
 
     } else {
 
-         ErrorForm::showerror ();
+        ErrorForm::showerror ();
     }
 
 }
 
 void FormIr::on_ButtonInputTaxMaint_clicked()
 {
+    if (!ui->textEditEmployeesMaint->text().isEmpty()){
 
+        //        ir[k].maintain->tax = new int[ui->textEditEmployeesMaint->text().toInt()];
+
+        ir[k].set_mantain_tax(ui->textEditEmployeesMaint->text().toInt());
+
+        FormConsumablesDev* formtaxmain = new FormConsumablesDev(2,k,ui->textEditEmployeesMaint->text().toInt());
+
+        formtaxmain->setAttribute(Qt::WA_DeleteOnClose);
+
+        formtaxmain->show();
+
+    } else {
+
+        ErrorForm::showerror ();
+    }
 }
 
+void FormIr::on_ButtonConsumablesMain_clicked()
+{
+//    ir[k].maintain->tax = new int [ir[k].get_this_year().year()-ir[k].get_first_year().year()];
+
+    ir[k].set_mantain_consumables(ui->textEditEmployeesMaint->text().toInt());
+
+    FormConsumablesDev* buttonconsumablesmain = new FormConsumablesDev(1,k,ui->textEditEmployeesMaint->text().toInt());
+
+    buttonconsumablesmain->setAttribute(Qt::WA_DeleteOnClose);
+
+    buttonconsumablesmain->show();
+
+
+}
 
 void FormIr::on_ButtTaxDev_clicked()
 {
@@ -186,7 +218,7 @@ void FormIr::on_ButtonConsumablesDev_clicked()
 
         FormConsumablesDev* formconsumablesdev = new FormConsumablesDev(k,ui->textEditYearsDev->text().toInt());
 
-//        formfmployees->setAttribute(Qt::WA_DeleteOnClose);
+        //        formfmployees->setAttribute(Qt::WA_DeleteOnClose);
 
         formconsumablesdev->show();
 
@@ -195,3 +227,5 @@ void FormIr::on_ButtonConsumablesDev_clicked()
         ErrorForm::showerror ();
     }
 }
+
+

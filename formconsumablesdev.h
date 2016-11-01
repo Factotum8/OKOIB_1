@@ -16,9 +16,12 @@ class FormConsumablesDev : public QWidget
 
 public:
     explicit FormConsumablesDev(int element,int count_years,QWidget *parent = 0);
+    explicit FormConsumablesDev(int flagbutt,int element,int employees,QWidget *parent = 0);
+
     ~FormConsumablesDev();
 
     bool isnull (int j);
+    void filling_mantain();
 
 private slots:
     void on_ButtonExit_clicked();
@@ -30,6 +33,9 @@ private:
 
     int element;
     int count_years;
+    int count_employees;
+    int flagbutt;
+    int delta_years;
 };
 
 #endif // FORMCONSUMABLESDEV_H
