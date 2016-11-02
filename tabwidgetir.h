@@ -11,6 +11,8 @@
 #include "formir.h"
 
 extern cost_index* c_index;
+extern int count_cost_index;
+extern int count_ir;
 
 namespace Ui {
 class TabWidgetIr;

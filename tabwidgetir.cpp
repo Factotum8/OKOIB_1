@@ -29,13 +29,7 @@ TabWidgetIr::TabWidgetIr(QWidget *parent) :
 
     }
 
-    //    for (int i=0;i<count_ir;i++){
-
-    //        if (!ir[i].get_val_develop()){
-
-    //            ui->tabWidget;
-    //        }
-    //    }
+    qDebug()<<"\ncount_ir"<<count_ir;
 
 }
 
@@ -57,9 +51,44 @@ void TabWidgetIr::on_ButtonMainExit_clicked()
 
 void TabWidgetIr::on_buttCostYears_clicked()
 {
-    for (int i=0;i<count_ir;i++){
+    int min = 3000, max=0;
 
-        c_index[i].index =
+//     qDebug()<<"\ncount_ir"<<count_ir;
+
+    for (int i=0;i<count_ir;i++){
+//        qDebug()<<"\nir[i]:"<< ir[i].get_this_year().year();
+
+
+        if (max < ir[i].get_this_year().year()){
+
+            max = ir[i].get_this_year().year();
+        }
+
+        if (min > ir[i].get_first_year().year()){
+
+            min = ir[i].get_first_year().year();
+        }
+    }
+
+    count_cost_index = max-min;
+
+//    qDebug()<<"\nmin_cost_index :"<< min;
+
+//    qDebug()<<"\nmax_cost_index :"<< max;
+
+    qDebug()<<"\ncount_cost_index :"<< count_cost_index;
+
+    c_index = new cost_index [count_cost_index];
+
+    * form_cost_index = new (4);
+
+    form_cost_index->show();
+
+    for (int i=0;i<count_cost_index;i++){
+
+        c_index[i].year.setDate(min+i,1,1);
+
+
 
     }
 }

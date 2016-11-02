@@ -10,6 +10,7 @@
 extern IR *ir;
 extern int count_ir;
 extern cost_index* c_index;
+extern int count_cost_index;
 //extern class TabWidgetIr *twi;
 
 #endif // GLOBAL_H

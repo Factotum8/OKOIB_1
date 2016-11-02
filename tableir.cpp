@@ -111,6 +111,8 @@ void TableIr::on_save_butt_clicked()
 
     }
 
+    qDebug()<<"\ncount_ir"<<count_ir;
+
     TabWidgetIr *twi= new TabWidgetIr;
 
     twi->setAttribute(Qt::WA_DeleteOnClose);
@@ -128,9 +130,7 @@ void TableIr::on_exit_butt_clicked()
 
 QDate TableIr::set_dateval (int str){
 
-    QDate date(0000,00,00);
-
-    date.addYears(str);
+    QDate date(str,1,1);
 
     return date;
 
@@ -216,15 +216,20 @@ bool TableIr::dataisnull (int i, int j){
         case 1:
 
             ir[i].set_first_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,1,QModelIndex())).toInt()));
+
+            qDebug()<<"\nfirst years "<<ir[i].get_first_year().year();
+
             break;
 
         case 2:
             ir[i].set_this_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,2,QModelIndex())).toInt()));
+            qDebug()<<"this years "<<ir[i].get_first_year().year();
             break;
 
         case 3:
 
             ir[i].set_planned_year(set_dateval(ui->tableViewIR->model()->data(ui->tableViewIR->model()->index(i,3,QModelIndex())).toInt()));
+            qDebug()<<"\nplanned years "<<ir[i].get_first_year().year();
             break;
         case 4:
 

@@ -62,6 +62,22 @@ FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QW
 
 }
 
+FormConsumablesDev::FormConsumablesDev (int flagbutt,QWidget *parent)
+{
+    this->flagbutt=flagbutt;
+
+    qDebug()<<"\ncount_cost_index :"<< count_cost_index;
+
+    ui->tableConsumables->setModel(new QStandardItemModel (1,count_cost_index));
+
+    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat);
+
+    this->setAttribute(Qt::WA_DeleteOnClose);
+
+    this->move(10,10);
+
+}
+
 FormConsumablesDev::~FormConsumablesDev()
 {
     delete ui;
@@ -147,26 +163,41 @@ void FormConsumablesDev::filling_mantain(){
         }
 
         break;
-    case 3:
+//    case 3:
 
-        for (int i=0;i<count_employees;i++){
+//        for (int i=0;i<count_employees;i++){
 
-            if (!isnull(i)){
+//            if (!isnull(i)){
 
-                ir[element].maintain->salory[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
+//                ir[element].maintain->salory[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-                qDebug()<<"\n salory "<<ir[element].maintain->salory[i];
+//                qDebug()<<"\n salory "<<ir[element].maintain->salory[i];
 
-            }else {
+//            }else {
 
-                ErrorForm::showerror();
+//                ErrorForm::showerror();
 
-                return;
-            }
+//                return;
+//            }
 
-        }
+//        }
+//        break;
+//    case 4:
+//        for (int i=0;i<count_cost_index;i++){
 
-        break;
+//            if (!isnull(i)){
+
+//                c_index->index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
+
+//            }else {
+
+//                ErrorForm::showerror();
+
+//                return;
+//            }
+
+//        }
+//        break;
     default:
         ErrorForm::showerror();
 

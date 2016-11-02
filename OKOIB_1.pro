@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     itemdelegate.cpp \
     formemployees.cpp \
     itemdelegatefloat.cpp \
-    formconsumablesdev.cpp
+    formconsumablesdev.cpp \
+    formcostindex.cpp
 
 HEADERS  += mainwindow.h \
     ir.h \
@@ -38,7 +39,8 @@ HEADERS  += mainwindow.h \
     itemdelegate.h \
     formemployees.h \
     itemdelegatefloat.h \
-    formconsumablesdev.h
+    formconsumablesdev.h \
+    formcostindex.h
 
 FORMS    += mainwindow.ui \
     tableir.ui \
@@ -46,4 +48,5 @@ FORMS    += mainwindow.ui \
     tabwidgetir.ui \
     formir.ui \
     formemployees.ui \
-    formconsumablesdev.ui
+    formconsumablesdev.ui \
+    formcostindex.ui

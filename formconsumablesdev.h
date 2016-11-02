@@ -6,6 +6,8 @@
 #include "global.h"
 //#include "itemdelegatefloat.h"
 
+extern int count_cost_index;
+
 namespace Ui {
 class FormConsumablesDev;
 }
@@ -15,7 +17,8 @@ class FormConsumablesDev : public QWidget
     Q_OBJECT
 
 public:
-    explicit FormConsumablesDev(int element,int count_years,QWidget *parent = 0);
+    explicit FormConsumablesDev(int flagbutt,QWidget *parent = 0);
+    explicit FormConsumablesDev(int element ,int count_years,QWidget *parent = 0);
     explicit FormConsumablesDev(int flagbutt,int element,int employees,QWidget *parent = 0);
 
     ~FormConsumablesDev();
