@@ -36,7 +36,7 @@ private slots:
 
     void buttclickeddev (bool flag);
 
-    void buttclickedmain (bool flag);
+    bool buttclickedmain (int flagbutt, int employees);
 
     void on_ButtonInputTaxMaint_clicked();
 
@@ -49,6 +49,9 @@ private slots:
 private:
     Ui::FormIr *ui;
 };
+
+
+void init_mantain (int element);
 
 #endif // FORMIR_H
 

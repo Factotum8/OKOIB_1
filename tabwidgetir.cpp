@@ -80,7 +80,7 @@ void TabWidgetIr::on_buttCostYears_clicked()
 
     c_index = new cost_index [count_cost_index];
 
-    * form_cost_index = new (4);
+    FormConsumablesDev* form_cost_index = new FormConsumablesDev (4);
 
     form_cost_index->show();
 

@@ -109,6 +109,8 @@ void IR::set_val_profit(bool val){
 
 void IR::set_mantain_salory(int count){
 
+    if (maintain == NULL) qDebug ()<< "ALL PIZDA";
+
     if (maintain->salory == NULL){
 
         maintain->salory = new int [count];
@@ -151,3 +153,5 @@ void IR::set_mantain_consumables(int count){
 
     }
 }
+
+//void is

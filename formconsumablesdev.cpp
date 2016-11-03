@@ -34,11 +34,11 @@ FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QW
 
     delta_years=ir[element].get_this_year().year()-ir[element].get_first_year().year();
 
-    if (ir[element].maintain->salory== NULL){
+    //    if (ir[element].maintain->salory== NULL){
 
-        ir[element].maintain->salory = new int[employees];
+    //        ir[element].maintain->salory = new int[employees];
 
-    }
+    //    }
 
     if (ir[element].maintain->consumables== NULL){
 
@@ -46,11 +46,11 @@ FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QW
 
     }
 
-    if (ir[element].maintain->tax== NULL){
+    //    if (ir[element].maintain->tax== NULL){
 
-        ir[element].maintain->tax = new int[employees];
+    //        ir[element].maintain->tax = new int[employees];
 
-    }
+    //    }
 
     ui->tableConsumables->setModel(new QStandardItemModel (1,employees));
 
@@ -62,11 +62,15 @@ FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QW
 
 }
 
-FormConsumablesDev::FormConsumablesDev (int flagbutt,QWidget *parent)
+FormConsumablesDev::FormConsumablesDev (int flagbutt,QWidget *parent):
+    QWidget(parent),
+    ui(new Ui::FormConsumablesDev)
 {
+     ui->setupUi(this);
+
     this->flagbutt=flagbutt;
 
-    qDebug()<<"\ncount_cost_index :"<< count_cost_index;
+    qDebug()<<"\nconstructor count_cost_index :"<< count_cost_index;
 
     ui->tableConsumables->setModel(new QStandardItemModel (1,count_cost_index));
 
@@ -106,6 +110,7 @@ void FormConsumablesDev::on_ButtonSave_clicked()
         }else{
 
             ErrorForm::showerror ();
+
             return;
 
         }
@@ -123,26 +128,26 @@ bool FormConsumablesDev::isnull (int j){
 void FormConsumablesDev::filling_mantain(){
 
     switch (flagbutt) {
-    case 1:
+    //    case 1:
 
-        for (int i=0;i<delta_years;i++){
+    //        for (int i=0;i<delta_years;i++){
 
-            if (!isnull(i)){
+    //            if (!isnull(i)){
 
-                ir[element].maintain->consumables[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
+    //                ir[element].maintain->consumables[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-                qDebug()<<"\n tax "<<ir[element].maintain->consumables[i];
+    //                qDebug()<<"\n tax "<<ir[element].maintain->consumables[i];
 
 
-            }else {
+    //            }else {
 
-                ErrorForm::showerror();
+    //                ErrorForm::showerror();
 
-                return;
-            }
-        }
+    //                return;
+    //            }
+    //        }
 
-        break;
+    //        break;
     case 2:
 
         for (int i=0;i<count_employees;i++){
@@ -163,41 +168,43 @@ void FormConsumablesDev::filling_mantain(){
         }
 
         break;
-//    case 3:
+    case 3:
 
-//        for (int i=0;i<count_employees;i++){
+        for (int i=0;i<count_employees;i++){
 
-//            if (!isnull(i)){
+            if (!isnull(i)){
 
-//                ir[element].maintain->salory[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
+                ir[element].maintain->salory[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-//                qDebug()<<"\n salory "<<ir[element].maintain->salory[i];
+                qDebug()<<"\n salory "<<ir[element].maintain->salory[i];
 
-//            }else {
+            }else {
 
-//                ErrorForm::showerror();
+                ErrorForm::showerror();
 
-//                return;
-//            }
+                return;
+            }
 
-//        }
-//        break;
-//    case 4:
-//        for (int i=0;i<count_cost_index;i++){
+        }
+        break;
+            case 4:
+                for (int i=0;i<count_cost_index;i++){
 
-//            if (!isnull(i)){
+                    if (!isnull(i)){
 
-//                c_index->index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
+                        c_index->index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-//            }else {
+                        qDebug()<<"\nc_index "<<c_index->index;
 
-//                ErrorForm::showerror();
+                    }else {
 
-//                return;
-//            }
+                        ErrorForm::showerror();
 
-//        }
-//        break;
+                        return;
+                    }
+
+                }
+                break;
     default:
         ErrorForm::showerror();
 
