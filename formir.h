@@ -46,6 +46,8 @@ private slots:
 
     void on_Save_clicked();
 
+    bool isEmptyformIR ();
+
 private:
     Ui::FormIr *ui;
 };

@@ -40,11 +40,13 @@ FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QW
 
     //    }
 
-    if (ir[element].maintain->consumables== NULL){
+//    if (ir[element].maintain->consumables== NULL){
 
-        ir[element].maintain->consumables = new int[delta_years];
+//        ir[element].maintain->consumables = new int[delta_years];
 
-    }
+//    }
+
+    ir[element].maintain->consumables = 0;
 
     //    if (ir[element].maintain->tax== NULL){
 

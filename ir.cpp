@@ -1,7 +1,7 @@
 #include "ir.h"
-#include "develop.h"
-#include "struct.h"
 
+int count_cost_index=40;
+cost_index* c_index=NULL;
 
 IR::IR()
 {
@@ -13,16 +13,17 @@ IR::IR()
     val_maintain=0;
     val_profit=0;
 
-    first_year.setDate(0000,00,00);;
-    this_year.setDate(0000,00,00);;
-    planned_year.setDate(0000,00,00);;
-    maintain == NULL;
+    first_year.setDate(1,1,1);;
+    this_year.setDate(1,1,1);;
+    planned_year.setDate(1,1,1);;
+    maintain = NULL;
     acquire.cost_first_year=0;
+    develop=NULL;
     //        maintain->number_employees=NULL;
     //        maintain->salory=NULL;
     //        maintain->tax=NULL;
     //        maintain->consumables=NULL;
-    profit.profit=NULL;
+    profit.profit=0;
 
     name="not name";
 }
@@ -139,19 +140,37 @@ void IR::set_mantain_tax(int count){
     }
 }
 
-void IR::set_mantain_consumables(int count){
+void IR::set_mantain_consumables(int consum){
 
-    if (maintain->consumables == NULL){
-
-        maintain->consumables = new int [count];
-
-    }else {
-
-        free (maintain->consumables);
-
-        maintain->consumables = new int [count];
-
-    }
+    maintain->consumables=consum;
 }
 
-//void is
+int IR::cost_acquire(){
+
+    double Ig=1;
+
+    for (int i=0;i<count_cost_index;i++){
+
+        Ig= c_index[i].index * Ig;
+
+    }
+
+    return round (  acquire.cost_first_year*Ig*( 1-this_year.year()/planned_year.year())  );
+
+}
+
+int IR::cost_development(){
+
+    int base_salory_tax =0,provided_salory_tax=0;
+
+        for(int j=0;j<develop->get_count_years();j++){
+            for (int i=0;i<develop->get_count_employees();i++){
+
+            base_salory_tax+=develop->get_number_employees()[i][j].salory+develop->get_number_employees()[i][j].tax;
+        }
+
+        base_salory_tax+=develop->get_consumables()[j];
+
+    }
+
+}

@@ -92,3 +92,8 @@ void TabWidgetIr::on_buttCostYears_clicked()
 
     }
 }
+
+void TabWidgetIr::on_ButtonCalculate_clicked()
+{
+
+}
