@@ -23,6 +23,8 @@ public:
     explicit FormIr(int i, QWidget *parent = 0);
     ~FormIr();
 
+    static bool isEmptyformIR (int k);
+
 private slots:
     void on_Exit_clicked();
 
@@ -45,8 +47,6 @@ private slots:
     void on_ButtonConsumablesMain_clicked();
 
     void on_Save_clicked();
-
-    bool isEmptyformIR ();
 
 private:
     Ui::FormIr *ui;

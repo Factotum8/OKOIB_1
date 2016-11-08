@@ -12,7 +12,7 @@ FormEmployees::FormEmployees(int element, bool flag,int count_employees,int coun
     this->count_employees=count_employees;
     this->count_years=count_years;
 
-    this->setAttribute(Qt::WA_DeleteOnClose);
+//    this->setAttribute(Qt::WA_DeleteOnClose);
 
     this->move(10,10);
 
@@ -60,7 +60,7 @@ void FormEmployees::on_ButtonExit_clicked()
 }
 
 void FormEmployees::on_ButtonSave_clicked()
-{   qDebug()<<"\n on_ButtonSave_clicked";
+{  // qDebug()<<"\n on_ButtonSave_clicked";
 
     for(int i=0;i<count_employees;i++){
         for(int j=0;j<count_years;j++){
@@ -70,6 +70,8 @@ void FormEmployees::on_ButtonSave_clicked()
     }
 
     close();
+
+    return;
 }
 
 bool FormEmployees::isnull (int i,int j){

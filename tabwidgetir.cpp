@@ -95,5 +95,43 @@ void TabWidgetIr::on_buttCostYears_clicked()
 
 void TabWidgetIr::on_ButtonCalculate_clicked()
 {
+    if (c_index==NULL) {
+
+        ErrorForm::showerror();
+
+        return;
+    }
+
+    for (int i=0;i<count_ir;i++){
+
+        if (FormIr::isEmptyformIR(i)){
+
+            ErrorForm::showerror();
+
+            return;
+        }
+    }
+
+    QTableWidget* result=new QTableWidget();
+
+    result->setRowCount(count_ir);
+
+    result->setColumnCount(2);
+
+    for (int i=0;i<count_ir;i++){
+
+        int result_cost=0;
+
+        result->setItem(0,i,new QTableWidgetItem (ir[i].get_name()));
+
+        result_cost=ir[i].get_val_acquire()?ir[i].cost_acquire():0 +ir[i].get_val_develop()?ir[i].cost_development():0
+                            +ir[i].get_val_maintain()?ir[i].cost_maintain():0 +ir[i].get_val_profit()?ir[i].profit.profit:0;
+
+        QString str= QString::number(result_cost);
+
+        result->setItem(1,i,new QTableWidgetItem(str));
+    }
+
+    result->show();
 
 }

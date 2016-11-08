@@ -203,7 +203,7 @@ void FormIr::on_Save_clicked()
 
         ir[k].maintain->consumables = ui->lineEditConsumablesMain->text().toInt();
 
-        if (isEmptyformIR()) {
+        if (isEmptyformIR(k)) {
 
             ErrorForm::showerror();
 
@@ -221,7 +221,7 @@ void FormIr::on_Save_clicked()
     }
 }
 
-bool FormIr::isEmptyformIR(){
+bool FormIr::isEmptyformIR(int k){
 
     if (ir[k].get_val_develop())  {
         if (   ir[k].develop!=NULL) {

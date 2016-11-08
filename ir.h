@@ -57,6 +57,7 @@ public:
     void set_mantain_consumables(int count);
     int cost_acquire();
     int cost_development();
+    int cost_maintain();
 
 
 };

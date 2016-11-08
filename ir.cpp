@@ -140,6 +140,8 @@ void IR::set_mantain_tax(int count){
     }
 }
 
+
+
 void IR::set_mantain_consumables(int consum){
 
     maintain->consumables=consum;
@@ -147,9 +149,20 @@ void IR::set_mantain_consumables(int consum){
 
 int IR::cost_acquire(){
 
-    double Ig=1;
+    int index_year=0;
 
     for (int i=0;i<count_cost_index;i++){
+
+        if (develop->get_first_year().year()== c_index[i].year.year()){
+
+            index_year=i;
+        }
+
+    }
+
+    double Ig=1;
+
+    for (int i=index_year;i<count_cost_index;i++){
 
         Ig= c_index[i].index * Ig;
 
@@ -159,11 +172,22 @@ int IR::cost_acquire(){
 
 }
 
+
 int IR::cost_development(){
 
-    int base_salory_tax =0,provided_salory_tax=0;
+    int base_salory_tax =0, accumulated_salory_tax=0,index_year=0;
+
+    for (int i=0;i<count_cost_index;i++){
+
+        if (develop->get_first_year().year()== c_index[i].year.year()){
+
+            index_year=i;
+        }
+
+    }
 
         for(int j=0;j<develop->get_count_years();j++){
+
             for (int i=0;i<develop->get_count_employees();i++){
 
             base_salory_tax+=develop->get_number_employees()[i][j].salory+develop->get_number_employees()[i][j].tax;
@@ -171,6 +195,32 @@ int IR::cost_development(){
 
         base_salory_tax+=develop->get_consumables()[j];
 
+        accumulated_salory_tax=c_index[index_year+j].index*accumulated_salory_tax+base_salory_tax;
+
+        base_salory_tax=0;
+
     }
+
+    double Ig=1;
+
+    for (int i=index_year;i<count_cost_index;i++){
+
+        Ig= c_index[i].index * Ig;
+
+    }
+
+    return round( accumulated_salory_tax*Ig*(1-( develop->get_first_year().year() + develop->get_count_years())/planned_year.year() ) );
+}
+
+int IR::cost_maintain(){
+
+    int cost=0;
+
+    for (int i=0;i<maintain->count_employees;i++){
+
+        cost+=maintain->salory[i]+maintain->tax[i];
+    }
+
+    return cost+maintain->consumables;
 
 }
