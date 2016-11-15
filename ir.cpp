@@ -13,16 +13,11 @@ IR::IR()
     val_maintain=0;
     val_profit=0;
 
-    first_year.setDate(0000,00,00);;
-    this_year.setDate(0000,00,00);;
-    planned_year.setDate(0000,00,00);;
+    this_year.setDate(1,1,1);
+    planned_year.setDate(1,1,1);;
     maintain == NULL;
     acquire.cost_first_year=0;
-    //        maintain->number_employees=NULL;
-    //        maintain->salory=NULL;
-    //        maintain->tax=NULL;
-    //        maintain->consumables=NULL;
-    profit.profit=NULL;
+    profit.profit=0;
 
     name="not name";
 }
@@ -117,7 +112,7 @@ void IR::set_mantain_salory(int count){
 
     } else {
 
-        free (maintain->salory);
+        delete maintain->salory;
 
         maintain->salory = new int [count];
 
@@ -132,7 +127,7 @@ void IR::set_mantain_tax(int count){
 
     }  else {
 
-        free (maintain->tax);
+        delete maintain->tax;
 
         maintain->tax = new int [count];
 
@@ -141,17 +136,7 @@ void IR::set_mantain_tax(int count){
 
 void IR::set_mantain_consumables(int count){
 
-    if (maintain->consumables == NULL){
-
-        maintain->consumables = new int [count];
-
-    }else {
-
-        free (maintain->consumables);
-
-        maintain->consumables = new int [count];
-
-    }
+    maintain->consumables=count;
 }
 
 //void is

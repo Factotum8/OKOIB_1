@@ -5,26 +5,23 @@
 Develop::Develop(int years){
 
     years_develop=years;
-    first_year.setDate(0000,00,00);
+    first_year.setDate(1,1,1);
     number_employees = NULL;
     consumables= NULL;
-    salory = NULL;
-    tax = NULL;
+//    salory = NULL;
+//    tax = NULL;
 }
 
 Develop::Develop(int first_year,int count_employees, int count_years){
 
     years_develop=count_years;
 
-    this->first_year.setDate(first_year,00,00);
+    this->first_year.setDate(first_year,1,1);
 
-    if ( NULL != (salory = new Employees* [count_employees]) && NULL != (tax = new Employees* [count_employees])
-         && NULL != (number_employees = new Employees* [count_employees]) ){
+    if (  NULL != (number_employees = new Employees* [count_employees]) ){
 
         for (int i=0;i<count_employees;i++){
 
-            this->salory[i] = new Employees [count_years];
-            this->tax[i] = new Employees [count_years];
             this->number_employees[i] = new Employees [count_years];
         }
     }
@@ -42,8 +39,6 @@ Develop::Develop(int first_year,int count_employees, int count_years){
 
     }
 
-    //    consumables=new int [(count_years!=0)?count_years:1];
-    consumables= NULL;
 }
 
 Employees** Develop::get_number_employees(){
@@ -53,15 +48,15 @@ Employees** Develop::get_number_employees(){
 
 
 
-Employees** Develop::get_salory(){
+//Employees** Develop::get_salory(){
 
-    return salory;
-}
+//    return salory;
+//}
 
-Employees** Develop::get_tax(){
+//Employees** Develop::get_tax(){
 
-    return tax;
-}
+//    return tax;
+//}
 
 int* Develop::get_consumables(){
 
@@ -99,27 +94,21 @@ void Develop::set_number_employees(Employees** pEmployees){
 }
 
 
-//void Develop::set_salory(double * mas){
-
-//    for (int i=0;i<years_develop;i++){
-
-//        salory[i]=mas[i];
-//    }
-//}
-
-//void Develop::set_tax(double * mas){
-
-//    for (int i=0;i<years_develop;i++){
-
-//        tax[i]=mas[i];
-//    }
-//}
 
 QDate Develop::set_first_year(int time){
 
-    QDate date(0000,00,00);
-
-    date.addYears(time);
+    QDate date(time,1,1);
 
     return date;
+}
+
+int Develop::get_years_develop(){
+
+    return this->years_develop;
+}
+
+QDate Develop::get_first_year(){
+
+   return first_year;
+
 }

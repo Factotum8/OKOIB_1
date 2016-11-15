@@ -68,26 +68,7 @@ void FormIr::on_TableDev_clicked()
 
 void FormIr::on_TableMaintain_clicked()
 {
-    //    if (!ui->textEditEmployeesMaint->text().isEmpty()){
 
-    //        ir[k].set_mantain_salory(ui->textEditEmployeesMaint->text().toInt());
-
-    //        FormConsumablesDev* formconsumablesmain = new FormConsumablesDev(3,k,ui->textEditEmployeesMaint->text().toInt());
-
-    //        formconsumablesmain->setAttribute(Qt::WA_DeleteOnClose);
-
-    //        formconsumablesmain->show();
-
-    //    } else {
-
-    //        ErrorForm::showerror ();
-    //    }
-
-    //    if (!ui->textEditEmployeesMaint->text().isEmpty()){
-
-    //        ir[k].set_mantain_salory(ui->textEditEmployeesMaint->text().toInt());
-
-    //    }
 
     buttclickedmain(3,ui->textEditEmployeesMaint->text().toInt());
 
@@ -95,26 +76,6 @@ void FormIr::on_TableMaintain_clicked()
 
 void FormIr::on_ButtonInputTaxMaint_clicked()
 {
-    //    if (!ui->textEditEmployeesMaint->text().isEmpty()){
-
-    //        ir[k].set_mantain_tax(ui->textEditEmployeesMaint->text().toInt());
-
-    //        FormConsumablesDev* formtaxmain = new FormConsumablesDev(2,k,ui->textEditEmployeesMaint->text().toInt());
-
-    //        formtaxmain->setAttribute(Qt::WA_DeleteOnClose);
-
-    //        formtaxmain->show();
-
-    //    } else {
-
-    //        ErrorForm::showerror ();
-    //    }
-
-    //    if (!ui->textEditEmployeesMaint->text().isEmpty()){
-
-    //        ir[k].set_mantain_tax(ui->textEditEmployeesMaint->text().toInt());
-
-    //    }
 
     buttclickedmain(2,ui->textEditEmployeesMaint->text().toInt());
 
@@ -122,7 +83,6 @@ void FormIr::on_ButtonInputTaxMaint_clicked()
 
 void FormIr::on_ButtonConsumablesMain_clicked()
 {
-    //    ir[k].maintain->tax = new int [ir[k].get_this_year().year()-ir[k].get_first_year().year()];
 
     ir[k].set_mantain_consumables(ui->textEditEmployeesMaint->text().toInt());
 
@@ -145,16 +105,23 @@ void FormIr::buttclickeddev (bool flag){
     if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()
             &!ui->textEditYearsDev->text().isEmpty()){
 
-        if (ir[k].develop == NULL){
+        //        if (ir[k].develop == NULL){
 
-            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+        //            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
 
-        } else {
+        //        } else {
+
+        //            delete (ir[k].develop);
+
+        //            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+        //        }
+
+        if (ir[k].develop != NULL){
 
             delete (ir[k].develop);
-
-            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
         }
+
+        ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
 
         FormEmployees* formfmployees = new FormEmployees(k,flag,ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
 
@@ -176,21 +143,24 @@ bool FormIr::buttclickedmain (int flagbutt, int employees){
         if (ir[k].maintain != NULL){
 
             delete ir[k].maintain;
-
-            ir[k].maintain = new Maintain;
-
-            init_mantain(k);
-
-            FormConsumablesDev* formconsumablesmain = new FormConsumablesDev(flagbutt,k,employees);
-
-            formconsumablesmain->setAttribute(Qt::WA_DeleteOnClose);
-
-            formconsumablesmain->show();
         }
+
+        ir[k].maintain = new Maintain;
+
+        init_mantain(k);
 
         ir[k].set_mantain_salory(employees);
 
         ir[k].set_mantain_tax(employees);
+
+        FormConsumablesDev* formconsumablesmain = new FormConsumablesDev(flagbutt,k,employees);
+
+        formconsumablesmain->setAttribute(Qt::WA_DeleteOnClose);
+
+        formconsumablesmain->show();
+
+
+
 
     }else{
 
@@ -234,13 +204,22 @@ void FormIr::on_ButtonConsumablesDev_clicked()
 
 void FormIr::on_Save_clicked()
 {
-    if (!ui->textEditAcquire->text().isEmpty()&!ui->textEditProfit->text().isEmpty()&!ui->textEditEmployeesDev->text().isEmpty()
-            &!ui->textEditEmployeesMaint->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()&!ui->textEditYearsDev->text().isEmpty())
+    if (!ui->textEditAcquire->text().isEmpty()
+            &!ui->textEditEmployeesDev->text().isEmpty()
+            &!ui->textEditYearsDev->text().isEmpty()
+            &!ui->textEditFirstYearDev->text().isEmpty()
+            &!ui->textEditEmployeesMaint->text().isEmpty()
+            &!ui->lineEditConsumablesMain->text().isEmpty()
+            &!ui->textEditProfit->text().isEmpty()
+            )
+
     {
 
         ir[k].acquire.cost_first_year = ui->textEditAcquire->text().toInt();
 
         ir[k].profit.profit = ui->textEditProfit->text().toInt();
+
+        ir[k].maintain->consumables = ui->lineEditConsumablesMain->text().toInt();
 
         this->hide();
 
@@ -253,8 +232,58 @@ void FormIr::on_Save_clicked()
 void init_mantain (int element){
 
     ir[element].maintain->consumables = NULL;
-    ir[element].maintain->number_employees = NULL;
+    ir[element].maintain->count_employees = 0;
     ir[element].maintain->salory = NULL;
     ir[element].maintain->tax = NULL;
 
+}
+
+bool FormIr::isEmptyformIR(){
+
+    if (ir[k].get_val_develop())  {
+        if (   ir[k].develop!=NULL) {
+
+            if (ir[k].develop->get_first_year().isNull()) {return true;}
+
+            if (ir[k].develop->get_years_develop()<=0)    {return true;}
+
+            if ((ir[k].develop->get_number_employees() != NULL) && (ir[k].develop->get_consumables() != NULL)) {
+
+                for (int i=0;i<ir[k].develop->get_years_develop();i++){
+
+                    if (ir[k].develop->get_number_employees()[i] == NULL) {return true;}
+
+                }
+
+            }else{
+                return  true;
+            }
+        }else{
+            return true;
+        }
+
+    }
+
+    if(ir[k].get_val_maintain()){
+
+        if (ir[k].maintain != NULL){
+
+            qDebug()<<"nval_maintain==1 and mantain != NULL";
+
+            if (ir[k].maintain->consumables <= 0) {return true;}
+
+            if (ir[k].maintain->count_employees <= 0) {return true;}
+
+            if (ir[k].maintain->salory == NULL) {return true;}
+            if (ir[k].maintain->tax == NULL) {return true;}
+
+        }
+
+        else
+        {   qDebug()<<"nval_maintain==1 or mantain == NULL";
+            return true;
+        }
+    }
+
+    return false;
 }

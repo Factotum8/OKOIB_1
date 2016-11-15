@@ -34,24 +34,6 @@ FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QW
 
     delta_years=ir[element].get_this_year().year()-ir[element].get_first_year().year();
 
-    //    if (ir[element].maintain->salory== NULL){
-
-    //        ir[element].maintain->salory = new int[employees];
-
-    //    }
-
-    if (ir[element].maintain->consumables== NULL){
-
-        ir[element].maintain->consumables = new int[delta_years];
-
-    }
-
-    //    if (ir[element].maintain->tax== NULL){
-
-    //        ir[element].maintain->tax = new int[employees];
-
-    //    }
-
     ui->tableConsumables->setModel(new QStandardItemModel (1,employees));
 
     ui->tableConsumables->setItemDelegate(new ItemDelegateFloat);

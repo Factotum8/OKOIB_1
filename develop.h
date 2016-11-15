@@ -14,8 +14,8 @@ private:
     QDate first_year; //первый календарный год разработки,
     int years_develop; //количество лет разработки,
     Employees** number_employees = NULL ; //зарплаты (количество сотрудников), участвующих в разработке ИР, в каждый год разработки
-    Employees** salory= NULL; //размер заработной платы каждого из сотрудников, участвующих в разработке ИР, в каждый год разработки
-    Employees** tax= NULL; //отчисления (размер отчислений) с заработной платы каждого из сотрудников, участвующих в разработке ИР, в каждый год разработки,
+//    Employees** salory= NULL; //размер заработной платы каждого из сотрудников, участвующих в разработке ИР, в каждый год разработки
+//    Employees** tax= NULL; //отчисления (размер отчислений) с заработной платы каждого из сотрудников, участвующих в разработке ИР, в каждый год разработки,
     int* consumables; //общие затраты на расходные материалы при разработке ИР в каждый год разработки
 
 public:
@@ -25,6 +25,8 @@ public:
 
     QDate get_first_year();
 
+    int  get_years_develop();
+
     QDate set_first_year (QDate time);
 
     QDate set_first_year (int time);
@@ -32,9 +34,9 @@ public:
 
     Employees** get_number_employees();
 
-    Employees** get_salory ();
+//    Employees** get_salory ();
 
-    Employees** get_tax ();
+//    Employees** get_tax ();
 
     void init_number_employees(int count_employees, int count_years);
 
@@ -44,7 +46,7 @@ public:
 
     int* get_consumables ();
 
-    //    void set_tax(double * mas);
+ //    void set_tax(double * mas);
 
 //    void set_salory(double * mas );
 
