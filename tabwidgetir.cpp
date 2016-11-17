@@ -80,6 +80,12 @@ void TabWidgetIr::on_buttCostYears_clicked()
 
     c_index = new cost_index [count_cost_index];
 
+    for (int i=0;i<count_cost_index;i++){
+
+        c_index->index = 0;
+        c_index->year.setDate(1,1,1);
+    }
+
     FormConsumablesDev* form_cost_index = new FormConsumablesDev (4);
 
     form_cost_index->show();
@@ -88,6 +94,15 @@ void TabWidgetIr::on_buttCostYears_clicked()
 
         c_index[i].year.setDate(min+i,1,1);
 
+
+
+    }
+}
+
+void TabWidgetIr::on_ButtonCalculateCostIr_clicked()
+{
+
+    for (int i=0;i<count_cost_index;i++){
 
 
     }

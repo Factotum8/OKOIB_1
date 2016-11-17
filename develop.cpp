@@ -8,6 +8,7 @@ Develop::Develop(int years){
     first_year.setDate(1,1,1);
     number_employees = NULL;
     consumables= NULL;
+    count_employees=0;
 //    salory = NULL;
 //    tax = NULL;
 }
@@ -102,13 +103,34 @@ QDate Develop::set_first_year(int time){
     return date;
 }
 
-int Develop::get_years_develop(){
+void Develop::set_count_employees(int val){
 
-    return this->years_develop;
+    count_employees = val;
 }
+
+void Develop::set_years_develop(int val){
+
+    years_develop = val;
+}
+
+//int Develop::get_years_develop(){
+
+//    return this->years_develop;
+//}
 
 QDate Develop::get_first_year(){
 
    return first_year;
 
+}
+
+int  Develop::get_years_develop(){
+
+
+    return years_develop;
+}
+
+int  Develop::get_count_employees(){
+
+    return count_employees;
 }

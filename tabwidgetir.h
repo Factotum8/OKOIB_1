@@ -32,6 +32,8 @@ private slots:
 
     void on_buttCostYears_clicked();
 
+    void on_ButtonCalculateCostIr_clicked();
+
 private:
     Ui::TabWidgetIr *ui;
 };

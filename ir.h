@@ -5,6 +5,10 @@
 #include "develop.h"
 #include "struct.h"
 #include <QString>
+#include <math.h>
+
+extern int count_cost_index;
+extern cost_index* c_index;
 
 class IR
 {
@@ -48,7 +52,9 @@ public:
     void set_mantain_tax(int count);
     void set_mantain_consumables(int count);
 
-
+    int cost_acquire();
+    int cost_development();
+    int cost_maintain();
 };
 
 

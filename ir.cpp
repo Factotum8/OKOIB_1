@@ -2,6 +2,8 @@
 #include "develop.h"
 #include "struct.h"
 
+int count_cost_index=40;
+cost_index* c_index=NULL;
 
 IR::IR()
 {
@@ -15,7 +17,7 @@ IR::IR()
 
     this_year.setDate(1,1,1);
     planned_year.setDate(1,1,1);;
-    maintain == NULL;
+    maintain = NULL;
     acquire.cost_first_year=0;
     profit.profit=0;
 
@@ -134,9 +136,87 @@ void IR::set_mantain_tax(int count){
     }
 }
 
+//////////////////////
+
 void IR::set_mantain_consumables(int count){
 
     maintain->consumables=count;
 }
 
-//void is
+int IR::cost_acquire(){
+
+    int index_year=0;
+
+    for (int i=0;i<count_cost_index;i++){
+
+        if (develop->get_first_year().year()== c_index[i].year.year()){
+
+            index_year=i;
+        }
+
+    }
+
+    double Ig=1;
+
+    for (int i=index_year;i<count_cost_index;i++){
+
+        Ig= c_index[i].index * Ig;
+
+    }
+
+    return round (  acquire.cost_first_year*Ig*( 1-this_year.year()/planned_year.year())  );
+
+}
+
+
+int IR::cost_development(){
+
+    int base_salory_tax =0, accumulated_salory_tax=0,index_year=0;
+
+    for (int i=0;i<count_cost_index;i++){
+
+        if (develop->get_first_year().year()== c_index[i].year.year()){
+
+            index_year=i;
+        }
+
+    }
+
+        for(int j=0;j<develop->get_years_develop();j++){
+
+            for (int i=0;i<develop->get_count_employees();i++){
+
+            base_salory_tax+=develop->get_number_employees()[i][j].salory+develop->get_number_employees()[i][j].tax;
+        }
+
+        base_salory_tax+=develop->get_consumables()[j];
+
+        accumulated_salory_tax=c_index[index_year+j].index*accumulated_salory_tax+base_salory_tax;
+
+        base_salory_tax=0;
+
+    }
+
+    double Ig=1;
+
+    for (int i=index_year;i<count_cost_index;i++){
+
+        Ig= c_index[i].index * Ig;
+
+    }
+
+    return round( accumulated_salory_tax*Ig*(1-( develop->get_first_year().year() + develop->get_years_develop())/planned_year.year() ) );
+}
+
+int IR::cost_maintain(){
+
+    int cost=0;
+
+    for (int i=0;i<maintain->count_employees;i++){
+
+        cost+=maintain->salory[i]+maintain->tax[i];
+    }
+
+    return cost+maintain->consumables;
+
+}

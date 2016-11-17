@@ -105,23 +105,16 @@ void FormIr::buttclickeddev (bool flag){
     if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()
             &!ui->textEditYearsDev->text().isEmpty()){
 
-        //        if (ir[k].develop == NULL){
-
-        //            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
-
-        //        } else {
-
-        //            delete (ir[k].develop);
-
-        //            ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
-        //        }
-
         if (ir[k].develop != NULL){
 
             delete (ir[k].develop);
         }
 
-        ir[k].develop =new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+        ir[k].develop = new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+
+        ir[k].develop->set_count_employees(ui->textEditEmployeesDev->text().toInt());
+
+        ir[k].develop->set_years_develop(ui->textEditYearsDev->text().toInt());
 
         FormEmployees* formfmployees = new FormEmployees(k,flag,ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
 
@@ -152,6 +145,10 @@ bool FormIr::buttclickedmain (int flagbutt, int employees){
         ir[k].set_mantain_salory(employees);
 
         ir[k].set_mantain_tax(employees);
+
+        ir[k].maintain->consumables = ui->lineEditConsumablesMain->text().toInt();
+
+        ir[k].maintain->count_employees = ui->textEditEmployeesMaint->text().toInt();
 
         FormConsumablesDev* formconsumablesmain = new FormConsumablesDev(flagbutt,k,employees);
 
@@ -204,44 +201,59 @@ void FormIr::on_ButtonConsumablesDev_clicked()
 
 void FormIr::on_Save_clicked()
 {
-    if (!ui->textEditAcquire->text().isEmpty()
-            &!ui->textEditEmployeesDev->text().isEmpty()
-            &!ui->textEditYearsDev->text().isEmpty()
-            &!ui->textEditFirstYearDev->text().isEmpty()
-            &!ui->textEditEmployeesMaint->text().isEmpty()
-            &!ui->lineEditConsumablesMain->text().isEmpty()
-            &!ui->textEditProfit->text().isEmpty()
-            )
+    //    if (!ui->textEditAcquire->text().isEmpty()
+    //            &!ui->textEditEmployeesDev->text().isEmpty()
+    //            &!ui->textEditYearsDev->text().isEmpty()
+    //            &!ui->textEditFirstYearDev->text().isEmpty()
+    //            &!ui->textEditEmployeesMaint->text().isEmpty()
+    //            &!ui->lineEditConsumablesMain->text().isEmpty()
+    //            &!ui->textEditProfit->text().isEmpty()
+    //            )
 
-    {
+    //    {
 
-        ir[k].acquire.cost_first_year = ui->textEditAcquire->text().toInt();
-
-        ir[k].profit.profit = ui->textEditProfit->text().toInt();
-
-
-        if (ir[k].maintain != NULL){
-
-            ir[k].maintain->consumables = ui->lineEditConsumablesMain->text().toInt();
-
-            ir[k].maintain->count_employees = ui->textEditEmployeesMaint->text().toInt();
-        }
-
-        if (isEmptyformIR()){
-
-            ErrorForm::showerror();
-
-            return;
-        }
-
-        ;
-
-        this->hide();
-
-    } else {
+    if (ir[k].get_val_acquire()&&ui->textEditAcquire->text().isEmpty() ){
 
         ErrorForm::showerror();
+
+        return;
     }
+
+    if (ir[k].get_val_profit()&&ui->textEditProfit->text().isEmpty() ){
+
+        ErrorForm::showerror();
+
+        return;
+    }
+
+    if (ir[k].get_val_maintain()&&ui->textEditAcquire->text().isEmpty() ){
+
+        ErrorForm::showerror();
+
+        return;
+    }
+
+    ir[k].acquire.cost_first_year = ui->textEditAcquire->text().toInt();
+
+
+    ir[k].profit.profit = ui->textEditProfit->text().toInt();
+
+
+    if (isEmptyformIR()){
+
+        ErrorForm::showerror();
+
+        return;
+    }
+
+    ;
+
+    this->hide();
+
+    //    } else {
+
+    //        ErrorForm::showerror();
+    //    }
 }
 
 void init_mantain (int element){

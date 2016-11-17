@@ -13,9 +13,8 @@ class Develop
 private:
     QDate first_year; //первый календарный год разработки,
     int years_develop; //количество лет разработки,
-    Employees** number_employees = NULL ; //зарплаты (количество сотрудников), участвующих в разработке ИР, в каждый год разработки
-//    Employees** salory= NULL; //размер заработной платы каждого из сотрудников, участвующих в разработке ИР, в каждый год разработки
-//    Employees** tax= NULL; //отчисления (размер отчислений) с заработной платы каждого из сотрудников, участвующих в разработке ИР, в каждый год разработки,
+    Employees** number_employees = NULL ; //зарплаты и отчисления сотрудников, участвующих в разработке ИР, в каждый год разработки
+    int count_employees; // кол-во сорудников учасвующих в разработке
     int* consumables; //общие затраты на расходные материалы при разработке ИР в каждый год разработки
 
 public:
@@ -25,12 +24,17 @@ public:
 
     QDate get_first_year();
 
-    int  get_years_develop();
-
     QDate set_first_year (QDate time);
 
     QDate set_first_year (int time);
 
+    int  get_years_develop();
+
+//    int  get_count_years();
+
+    int  get_count_employees();
+
+    int* get_consumables ();
 
     Employees** get_number_employees();
 
@@ -44,7 +48,10 @@ public:
 
     void set_consumables(int count_years);
 
-    int* get_consumables ();
+    void set_count_employees(int val);
+
+    void set_years_develop(int val);
+
 
  //    void set_tax(double * mas);
 

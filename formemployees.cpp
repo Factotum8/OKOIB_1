@@ -107,4 +107,5 @@ bool FormEmployees::dataisnull (int i, int j){
 
         return 1;
     }
+    return false;
 }

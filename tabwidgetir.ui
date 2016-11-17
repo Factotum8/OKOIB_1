@@ -42,7 +42,7 @@
    <property name="geometry">
     <rect>
      <x>830</x>
-     <y>280</y>
+     <y>260</y>
      <width>211</width>
      <height>41</height>
     </rect>
@@ -62,6 +62,19 @@
    </property>
    <property name="text">
     <string>Выход</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ButtonCalculateCostIr">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>310</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Расчитать стоимость ИР</string>
    </property>
   </widget>
  </widget>
