@@ -219,7 +219,22 @@ void FormIr::on_Save_clicked()
 
         ir[k].profit.profit = ui->textEditProfit->text().toInt();
 
-        ir[k].maintain->consumables = ui->lineEditConsumablesMain->text().toInt();
+
+        if (ir[k].maintain != NULL){
+
+            ir[k].maintain->consumables = ui->lineEditConsumablesMain->text().toInt();
+
+            ir[k].maintain->count_employees = ui->textEditEmployeesMaint->text().toInt();
+        }
+
+        if (isEmptyformIR()){
+
+            ErrorForm::showerror();
+
+            return;
+        }
+
+        ;
 
         this->hide();
 
@@ -231,7 +246,7 @@ void FormIr::on_Save_clicked()
 
 void init_mantain (int element){
 
-    ir[element].maintain->consumables = NULL;
+    ir[element].maintain->consumables = 0;
     ir[element].maintain->count_employees = 0;
     ir[element].maintain->salory = NULL;
     ir[element].maintain->tax = NULL;
@@ -270,7 +285,12 @@ bool FormIr::isEmptyformIR(){
 
             qDebug()<<"nval_maintain==1 and mantain != NULL";
 
-            if (ir[k].maintain->consumables <= 0) {return true;}
+            if (ir[k].maintain->consumables <= 0) {
+                qDebug()<<"\nir[k].maintain->consumables: "<<ir[k].maintain->consumables;
+                qDebug()<<"\nacquire.cost_first_year: "<<ir[k].acquire.cost_first_year;
+                qDebug()<<"\nir[k].profit.profit: "<< ir[k].profit.profit;
+
+                return true;}
 
             if (ir[k].maintain->count_employees <= 0) {return true;}
 
