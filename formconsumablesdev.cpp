@@ -176,7 +176,7 @@ void FormConsumablesDev::filling_mantain(){
 
                         c_index->index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-                        qDebug()<<"\nc_index "<<c_index->index;
+//                        qDebug()<<"\nc_index "<<c_index->index;
 
                     }else {
 

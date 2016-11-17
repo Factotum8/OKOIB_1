@@ -1,0 +1,25 @@
+<?xml version = "1.0"?>
+<!-- Информационные ресурсы -->
+<informational_resources>
+    <ir number = "1">
+        <name>сведения о новых технологиях</name>
+        <fisrst_years>2011</fisrst_years>
+        <this_year>2013</this_year>
+        <planned_year>2014</planned_year>
+        <develop>
+            <start_year>2010</start_year>
+            <years_develop>2</years_develop>
+            <year = "1">
+                <employees = "1">350</employees>
+                <employees = "2">400</employees>
+            </year>
+            <year = "2">
+                <employees = "1">380</employees>
+                <employees = "1">420</employees>
+                <employees = "1">500</employees>
+            </year>
+        </develop>
+        <profit>7000</profit>
+    </ir>
+</informational_resources>
+

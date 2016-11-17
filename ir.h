@@ -35,10 +35,13 @@ public:
     QDate get_first_year();
     QDate get_this_year();
     QDate get_planned_year();
+
     bool get_val_acquire();
     bool get_val_develop();
     bool get_val_maintain();
     bool get_val_profit();
+
+    bool isEmptyIR();
 
     void set_name (QString str);
     void set_first_year (QDate date);

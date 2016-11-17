@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       +=xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,7 +26,8 @@ SOURCES += main.cpp\
     formemployees.cpp \
     itemdelegatefloat.cpp \
     formconsumablesdev.cpp \
-    formcostindex.cpp
+    formcostindex.cpp \
+    wrfile.cpp
 
 HEADERS  += mainwindow.h \
     ir.h \
@@ -40,7 +42,8 @@ HEADERS  += mainwindow.h \
     formemployees.h \
     itemdelegatefloat.h \
     formconsumablesdev.h \
-    formcostindex.h
+    formcostindex.h \
+    wrfile.h
 
 FORMS    += mainwindow.ui \
     tableir.ui \

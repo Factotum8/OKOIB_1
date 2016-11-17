@@ -239,14 +239,12 @@ void FormIr::on_Save_clicked()
     ir[k].profit.profit = ui->textEditProfit->text().toInt();
 
 
-    if (isEmptyformIR()){
+    if (ir[k].isEmptyIR()){
 
         ErrorForm::showerror();
 
         return;
     }
-
-    ;
 
     this->hide();
 
@@ -265,57 +263,57 @@ void init_mantain (int element){
 
 }
 
-bool FormIr::isEmptyformIR(){
+//bool FormIr::isEmptyformIR(){
 
-    if (ir[k].get_val_develop())  {
-        if (   ir[k].develop!=NULL) {
+//    if (ir[k].get_val_develop())  {
+//        if (   ir[k].develop!=NULL) {
 
-            if (ir[k].develop->get_first_year().isNull()) {return true;}
+//            if (ir[k].develop->get_first_year().isNull()) {return true;}
 
-            if (ir[k].develop->get_years_develop()<=0)    {return true;}
+//            if (ir[k].develop->get_years_develop()<=0)    {return true;}
 
-            if ((ir[k].develop->get_number_employees() != NULL) && (ir[k].develop->get_consumables() != NULL)) {
+//            if ((ir[k].develop->get_number_employees() != NULL) && (ir[k].develop->get_consumables() != NULL)) {
 
-                for (int i=0;i<ir[k].develop->get_years_develop();i++){
+//                for (int i=0;i<ir[k].develop->get_years_develop();i++){
 
-                    if (ir[k].develop->get_number_employees()[i] == NULL) {return true;}
+//                    if (ir[k].develop->get_number_employees()[i] == NULL) {return true;}
 
-                }
+//                }
 
-            }else{
-                return  true;
-            }
-        }else{
-            return true;
-        }
+//            }else{
+//                return  true;
+//            }
+//        }else{
+//            return true;
+//        }
 
-    }
+//    }
 
-    if(ir[k].get_val_maintain()){
+//    if(ir[k].get_val_maintain()){
 
-        if (ir[k].maintain != NULL){
+//        if (ir[k].maintain != NULL){
 
-            qDebug()<<"nval_maintain==1 and mantain != NULL";
+//            qDebug()<<"nval_maintain==1 and mantain != NULL";
 
-            if (ir[k].maintain->consumables <= 0) {
-                qDebug()<<"\nir[k].maintain->consumables: "<<ir[k].maintain->consumables;
-                qDebug()<<"\nacquire.cost_first_year: "<<ir[k].acquire.cost_first_year;
-                qDebug()<<"\nir[k].profit.profit: "<< ir[k].profit.profit;
+//            if (ir[k].maintain->consumables <= 0) {
+//                qDebug()<<"\nir[k].maintain->consumables: "<<ir[k].maintain->consumables;
+//                qDebug()<<"\nacquire.cost_first_year: "<<ir[k].acquire.cost_first_year;
+//                qDebug()<<"\nir[k].profit.profit: "<< ir[k].profit.profit;
 
-                return true;}
+//                return true;}
 
-            if (ir[k].maintain->count_employees <= 0) {return true;}
+//            if (ir[k].maintain->count_employees <= 0) {return true;}
 
-            if (ir[k].maintain->salory == NULL) {return true;}
-            if (ir[k].maintain->tax == NULL) {return true;}
+//            if (ir[k].maintain->salory == NULL) {return true;}
+//            if (ir[k].maintain->tax == NULL) {return true;}
 
-        }
+//        }
 
-        else
-        {   qDebug()<<"nval_maintain==1 or mantain == NULL";
-            return true;
-        }
-    }
+//        else
+//        {   qDebug()<<"nval_maintain==1 or mantain == NULL";
+//            return true;
+//        }
+//    }
 
-    return false;
-}
+//    return false;
+//}

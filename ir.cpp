@@ -220,3 +220,60 @@ int IR::cost_maintain(){
     return cost+maintain->consumables;
 
 }
+
+
+bool IR::isEmptyIR()
+{
+
+    if (get_val_develop())  {
+        if (   develop!=NULL) {
+
+            if (develop->get_first_year().isNull()) {return true;}
+
+            if (develop->get_years_develop()<=0)    {return true;}
+
+            if ((develop->get_number_employees() != NULL) && (develop->get_consumables() != NULL)) {
+
+                for (int i=0;i<develop->get_years_develop();i++){
+
+                    if (develop->get_number_employees()[i] == NULL) {return true;}
+
+                }
+
+            }else{
+                return  true;
+            }
+        }else{
+            return true;
+        }
+
+    }
+
+    if(get_val_maintain()){
+
+        if (maintain != NULL){
+
+            qDebug()<<"nval_maintain==1 and mantain != NULL";
+
+            if (maintain->consumables <= 0) {
+                qDebug()<<"\nir[k].maintain->consumables: "<<maintain->consumables;
+                qDebug()<<"\nacquire.cost_first_year: "<<acquire.cost_first_year;
+                qDebug()<<"\nir[k].profit.profit: "<< profit.profit;
+
+                return true;}
+
+            if (maintain->count_employees <= 0) {return true;}
+
+            if (maintain->salory == NULL) {return true;}
+            if (maintain->tax == NULL) {return true;}
+
+        }
+
+        else
+        {   qDebug()<<"nval_maintain==1 or mantain == NULL";
+            return true;
+        }
+    }
+
+    return false;
+}
