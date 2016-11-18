@@ -1,9 +1,9 @@
 <?xml version = "1.0"?>
 <!-- Информационные ресурсы -->
 <informational_resources>
-    <ir number = "1">
+    <info_resource number = "1">
         <name>сведения о новых технологиях</name>
-        <fisrst_years>2011</fisrst_years>
+        <fisrst_year>2011</fisrst_year>
         <this_year>2013</this_year>
         <planned_year>2014</planned_year>
         <develop>
@@ -20,6 +20,6 @@
             </year>
         </develop>
         <profit>7000</profit>
-    </ir>
+    </info_resource>
 </informational_resources>
 
