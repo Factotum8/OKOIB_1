@@ -36,17 +36,4 @@ struct cost_index{ // индексы увеличения ценн
 
 };
 
-enum Tag {
-    info_resource =0,         //0
-    name =1,         //1
-    first_year =2, //0
-    planned_year =3,       //1
-    develop =4,
-    start_year =5,
-    years_develop =6,
-    year =7, // скорее всего переделаешь на year_develop
-    employees =8,
-    profit =9
-};
-
 #endif // STRUCT_H
