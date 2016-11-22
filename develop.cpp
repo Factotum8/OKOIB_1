@@ -42,6 +42,8 @@ Develop::Develop(int first_year,int count_employees, int count_years){
 
 }
 
+
+
 Employees** Develop::get_number_employees(){
 
     return number_employees;
@@ -85,6 +87,13 @@ void Develop::init_number_employees(int count_employees, int count_years){
 
         ErrorForm::showerror();
 
+    }
+
+    for (int i;i<count_employees;i++){
+        for(int j;j<count_employees;j++){
+            this->number_employees[i][j].salory = 0;
+            this->number_employees[i][j].tax = 0;
+        }
     }
 
 }

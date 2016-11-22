@@ -10,6 +10,7 @@
 #include "glob.h"
 #include "ir.h"
 #include "itemdelegate.h"
+#include "wrfile.h"
 
 
 extern IR *ir;
@@ -31,6 +32,8 @@ private slots:
     void on_butt_enter_clicked();
 
     void on_edit_quantity_editingFinished();
+
+    void on_butt_fileName_clicked();
 
 private:
     Ui::MainWindow *ui;

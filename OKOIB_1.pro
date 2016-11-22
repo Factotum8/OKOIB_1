@@ -53,3 +53,6 @@ FORMS    += mainwindow.ui \
     formemployees.ui \
     formconsumablesdev.ui \
     formcostindex.ui
+
+OTHER_FILES += \
+    data.xml

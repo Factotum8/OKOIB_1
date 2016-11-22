@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.move(300,300);
-    w.setFixedHeight(169);
+    w.setFixedHeight(250);
     w.setFixedWidth(226);
 
     w.show();

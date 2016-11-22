@@ -95,3 +95,28 @@ void MainWindow::on_edit_quantity_editingFinished()
 //    w2->show();
 
 }
+
+void MainWindow::on_butt_fileName_clicked()
+{
+    if (!ui->edit_fileName->text().isEmpty() && !ui->edit_quantity->text().isEmpty())
+    {
+        WRFile wrfile(ui->edit_fileName->text());
+
+        for (int i=0;count_ir;i++)
+        {
+            if (ir[i].isEmptyIR())
+            {
+                ErrorForm::showerror();
+
+                return;
+            }
+        }
+
+    }
+    else
+    {
+        ErrorForm::showerror();
+
+        return;
+    }
+}
