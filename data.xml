@@ -13,16 +13,32 @@
             <year_develop number ="1">
                 <employee_develop number ="1">350</employee_develop>
                 <employee_develop number = "2">400</employee_develop>
+                <tax_employee_develop number = "1">91</tax_employee_develop>
+                <tax_employee_develop number = "2">104</tax_employee_develop>
+                <consumables_develop number = "1">100</consumables_develop>
             </year_develop>
             <year_develop number ="2">
                 <employee_develop number ="1">380</employee_develop>
                 <employee_develop number ="2">420</employee_develop>
                 <employee_develop number ="3">500</employee_develop>
+                <tax_employee_develop number = "1">99</tax_employee_develop>
+                <tax_employee_develop number = "2">109</tax_employee_develop>
+                <tax_employee_develop number = "3">130</tax_employee_develop>
+                <consumables_develop number = "2">140</consumables_develop>
             </year_develop>
         </develop>
         <profit>7000</profit>
     </info_resource>
- <!--    <info_resource number = "2">
-    </info_resource>-->
+     <info_resource number = "2">
+     <name>решения совещаний</name>
+     <first_year>2012</first_year>
+     <this_year>2013</this_year>
+     <planned_year>2015</planned_year>
+     <maintain>
+         <maintain_employees_count>1</maintain_employees_count>
+         <employees_maintain number = "1">300</employees_maintain>
+         <tax_employee_maintain number = "1">78</tax_employee_maintain>
+         <consumable_maintain>120</consumable_maintain>
+     </maintain>
+    </info_resource>
 </informational_resources>
-

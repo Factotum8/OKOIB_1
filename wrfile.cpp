@@ -114,6 +114,7 @@ void WRFile::traverseNode(const QDomNode& node)
                 case 7:
 
                     ir[i].develop->init_number_employees(domElement.text().toInt(),ir[i].develop->get_years_develop());
+                    ir[i].develop->set_consumables(ir[i].develop->get_years_develop());
                     break;
 
                 case 8:
@@ -136,8 +137,51 @@ void WRFile::traverseNode(const QDomNode& node)
                     break;
 
                 case 11:
+
                     ir[i].set_this_year(QDate(domElement.text().toInt(),1,1));
                     break;
+
+                case 12:
+
+                    m = domElement.attribute("number", "").toInt()-1;
+                    ir[i].develop->get_number_employees()[m][n].tax = domElement.text().toInt();
+                    qDebug()<<"\ndevelop employees tax"<<ir[i].develop->get_number_employees()[m][n].tax;
+                    break;
+
+                case 13:
+                    ir[i].develop->get_consumables()[n] = domElement.text().toInt();
+                    qDebug()<<"\nconsumables develop: "<<ir[i].develop->get_consumables()[n];
+                    break;
+
+                case 14:
+
+                    ir[i].set_val_maintain(true);
+                    ir[i].maintain = new Maintain;
+                    break;
+
+                case 15:
+
+                    ir[i].maintain->count_employees=domElement.text().toInt();
+                    ir[i].maintain->salory = new int[ir[i].maintain->count_employees];
+                    ir[i].maintain->tax = new int[ir[i].maintain->count_employees];
+                    qDebug()<<"maintain count employees: "<<ir[i].maintain->count_employees;
+                    break;
+
+                case 16:
+
+                    ir[i].maintain->salory[domElement.attribute("number","").toInt()-1] = domElement.text().toInt();
+                    break;
+
+                case 17:
+
+                    ir[i].maintain->tax[domElement.attribute("number","").toInt()-1] = domElement.text().toInt();
+                    break;
+
+                case 18:
+                    ir[i].maintain->consumables = domElement.text().toInt();
+                    break;
+
+
                 default:
 
                      qDebug()<<"\nInknow tag: "<<domElement.tagName();
