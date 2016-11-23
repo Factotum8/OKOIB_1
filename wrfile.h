@@ -32,18 +32,17 @@ public:
 
     enum Tag {
         info_resource=0,         //0
-        name =1,         //1
-        first_year =2, //0
-        planned_year =3,       //1
+        name=1,         //1
+        first_year=2, //0
+        planned_year=3,       //1
         develop =4,
         start_year_develop =5,
         years_develop =6,
         develop_employees_count = 7,
         year_develop =8, // скорее всего переделаешь на year_develop
         employee_develop =9,
-        profit =10,
-        this_year = 11
-
+        profit=10,
+        this_year=11
     };
 
 private:

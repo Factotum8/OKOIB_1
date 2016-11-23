@@ -19,6 +19,8 @@ WRFile::WRFile(QString nameFile)
 
             count_ir = calculate_count_ir(domElement);
 
+            qDebug()<<"\ncount_ir: "<<count_ir;
+
             ir = new IR [count_ir];
 
             traverseNode(domElement);
@@ -40,7 +42,7 @@ int WRFile::calculate_count_ir (const QDomNode& node)
         if(domNode.isElement()) {
             QDomElement domElement = domNode.toElement();
             if(!domElement.isNull()) {
-                if(domElement.tagName() == "ir") {
+                if(domElement.tagName() == "info_resource") {
 
                     count_ir = domElement.attribute("number", "").toInt();
 
@@ -57,9 +59,7 @@ int WRFile::calculate_count_ir (const QDomNode& node)
 
 void WRFile::traverseNode(const QDomNode& node)
 {
-    int i=0,m=0,n=0;
-    QString str,str2;
-    QStringList list;
+    static int i=0,m=0,n=0;
 
     QDomNode domNode = node.firstChild();
 
@@ -71,19 +71,13 @@ void WRFile::traverseNode(const QDomNode& node)
 
             if(!domElement.isNull())
             {
+                cout<<"\ndomElement.tagName(): "<<domElement.tagName().toStdString();
                 switch (this->get_numb_tag(domElement.tagName())) {
 
                 case 0:
-                    str = regexp_numb(domElement.attribute("number",""));
-
-                    cout<<"\ncase 0 domElement.attribute: "<<str.toStdString();
-                    i = domElement.attribute("number").toInt();
-                    qDebug()<<"\ni: "<<i;
-                    list = str.split("\"");
-                    foreach (str2, list) {
-
-                        qDebug()<<"\ncase 0 list: "<<str2;
-                    }
+                    qDebug()<<"\ncase 0 domElement.attribute: "<<domElement.attribute("number","").toInt();
+                    i = domElement.attribute("number").toInt()-1;
+                    qDebug()<<"\ncase 0 i: "<<i;
                     break;
 
                 case 1:
@@ -114,7 +108,7 @@ void WRFile::traverseNode(const QDomNode& node)
                 case 6:
 
                     ir[i].develop->set_years_develop(domElement.text().toInt());
-                    qDebug()<<"\nyears_develop = "<<ir[i].develop->get_years_develop();
+                    qDebug()<<"\n case 6 years_develop = "<<ir[i].develop->get_years_develop();
                     break;
 
                 case 7:
@@ -123,19 +117,22 @@ void WRFile::traverseNode(const QDomNode& node)
                     break;
 
                 case 8:
-                    qDebug()<<"\ndomElement.attribute: "<<domElement.attribute("number", "");
-                    n = domElement.attribute("number", "").toInt();
+//                    qDebug()<<"\n  case 8 domElement.attribute: "<<domElement.attribute("number", "").toInt();
+                    n = domElement.attribute("number", "").toInt()-1;
+                    qDebug()<<"\n  case 8 domElement.attribute: "<<n;
                     break;
 
                 case 9:
 
-                    m = domElement.attribute("number", "").toInt();
-                    qDebug()<<"\nm="<<i<<" n= "<<n;
+                    m = domElement.attribute("number", "").toInt()-1;
+                    qDebug()<<"\n  case 9 m="<<m<<" n= "<<n;
                     ir[i].develop->get_number_employees()[m][n].salory = domElement.text().toInt();
                     break;
 
                 case 10:
 
+                    ir[i].profit.profit =domElement.text().toInt();
+                    qDebug()<<"\ncase 10 domElement.text "<<ir[i].profit.profit;
                     break;
 
                 case 11:
@@ -164,20 +161,6 @@ int WRFile::get_numb_tag(QString str)
 
 QString WRFile::regexp_numb(QString pnumb){
 
-//        QRegExp RX ("(\\d+)");
-//        int pos=0;
-
-//        while ((pos = RX.indexIn(pnumb, pos)) != -1) {
-//            pnumb = RX.cap(1);
-//            pos += RX.matchedLength();
-//        }
-
-
-//        while (pnumb.indexOf("\"")!=-1)
-//                    {
-//                        pnumb.remove(pnumb.indexOf("\""),1);
-//                    }
-    char c = '\"';
-    pnumb.remove(c);
-    return pnumb;
+//    cout<<"\nStdstring"<<pnumb.toStdString();
+        return pnumb.remove('\"');
 }

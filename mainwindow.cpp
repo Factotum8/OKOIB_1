@@ -98,11 +98,11 @@ void MainWindow::on_edit_quantity_editingFinished()
 
 void MainWindow::on_butt_fileName_clicked()
 {
-    if (!ui->edit_fileName->text().isEmpty() && !ui->edit_quantity->text().isEmpty())
+    if (!ui->edit_fileName->text().isEmpty())
     {
         WRFile wrfile(ui->edit_fileName->text());
 
-        for (int i=0;count_ir;i++)
+        for (int i=0;i<count_ir;i++)
         {
             if (ir[i].isEmptyIR())
             {

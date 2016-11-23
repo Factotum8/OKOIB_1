@@ -1,7 +1,7 @@
 <?xml version = "1.0"?>
 <!-- Информационные ресурсы -->
 <informational_resources>
-    <info_resource number = "0">
+    <info_resource number = "1">
         <name>сведения о новых технологиях</name>
         <first_year>2011</first_year>
         <this_year>2013</this_year>
@@ -10,17 +10,19 @@
             <start_year_develop>2010</start_year_develop>
             <years_develop>2</years_develop>
             <develop_employees_count>3</develop_employees_count>
-            <year_develop number = "1">
-                <employee_develop number = "1">350</employee_develop>
+            <year_develop number ="1">
+                <employee_develop number ="1">350</employee_develop>
                 <employee_develop number = "2">400</employee_develop>
             </year_develop>
-            <year_develop number = "2">
-                <employee_develop number = "1">380</employee_develop>
-                <employee_develop number = "2">420</employee_develop>
-                <employee_develop number = "3">500</employee_develop>
+            <year_develop number ="2">
+                <employee_develop number ="1">380</employee_develop>
+                <employee_develop number ="2">420</employee_develop>
+                <employee_develop number ="3">500</employee_develop>
             </year_develop>
         </develop>
         <profit>7000</profit>
     </info_resource>
+ <!--    <info_resource number = "2">
+    </info_resource>-->
 </informational_resources>
 
