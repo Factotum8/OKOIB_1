@@ -5,11 +5,13 @@
 #include <QMetaEnum>
 #include <QDebug>
 #include <QObject>
+#include <iostream>
 
 
 #include "global.h"
 #include "struct.h"
 
+using std::cout;
 
 extern IR *ir;
 extern int count_ir;

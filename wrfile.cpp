@@ -76,7 +76,7 @@ void WRFile::traverseNode(const QDomNode& node)
                 case 0:
                     str = regexp_numb(domElement.attribute("number",""));
 
-                    qDebug()<<"\ncase 0 domElement.attribute: "<<str;
+                    cout<<"\ncase 0 domElement.attribute: "<<str.toStdString();
                     i = domElement.attribute("number").toInt();
                     qDebug()<<"\ni: "<<i;
                     list = str.split("\"");
