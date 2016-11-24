@@ -10,13 +10,13 @@ struct Employees {
     int tax; //размер отчислений с заработной платы каждого из сотрудников, обслуживающих ИР
 };
 
-struct Acquire {
+struct Acquire { //приобретаемый
 
     double cost_first_year;
 };
 
 
-struct Maintain{
+struct Maintain{//обслуживаемый
 
     int count_employees; //количество сотрудников, обслуживающих  ИР
     int* salory; //размер заработной платы каждого из сотрудников, обслуживающих ИР

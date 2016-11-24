@@ -73,7 +73,7 @@ void Develop::set_consumables(int count_years){
 
 void Develop::init_number_employees(int count_employees, int count_years){
 
-    qDebug()<<count_employees<<" "<<count_years;
+    qDebug()<<"\ncount_employees: "<<count_employees<<" count_years: "<<count_years;
 
     if (this->number_employees == NULL){
 
@@ -87,10 +87,12 @@ void Develop::init_number_employees(int count_employees, int count_years){
 
         ErrorForm::showerror();
 
+        return;
+
     }
 
-    for (int i;i<count_employees;i++){
-        for(int j;j<count_employees;j++){
+    for (int i=0;i<count_employees;i++){
+        for(int j=0;j<count_employees;j++){
             this->number_employees[i][j].salory = 0;
             this->number_employees[i][j].tax = 0;
         }

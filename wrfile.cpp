@@ -1,6 +1,9 @@
 #include "wrfile.h"
 
-WRFile::WRFile(QString nameFile)
+
+
+
+WRFile::WRFile(QString nameFile, bool* flag)
 {
     const QMetaObject &mo = staticMetaObject;
     int idx = mo.indexOfEnumerator("Tag");
@@ -11,13 +14,16 @@ WRFile::WRFile(QString nameFile)
     QDomDocument domDoc;
 
     QFile file(nameFile);
-
+    ///////////////////////////
+    QTime midnight(0,0,0);
+    qsrand(midnight.secsTo(QTime::currentTime()));
+////////////////////////////////////
     if (file.open(QIODevice::ReadOnly)){
         if(domDoc.setContent(&file)){
 
             QDomElement domElement = domDoc.documentElement();
 
-            count_ir = calculate_count_ir(domElement);
+            count_ir = calculate_count_ir_and_indexs(domElement);
 
             qDebug()<<"\ncount_ir: "<<count_ir;
 
@@ -29,13 +35,16 @@ WRFile::WRFile(QString nameFile)
     }
     else
     {
-    ErrorForm::showerror();
+        //    ErrorForm::showerror();
+        *flag = 1;
     }
 }
 
-int WRFile::calculate_count_ir (const QDomNode& node)
+int WRFile::calculate_count_ir_and_indexs (const QDomNode& node)
 {
     int count_ir=0;
+    count_cost_index = 0;
+    QString str;
 
     QDomNode domNode = node.firstChild();
     while(!domNode.isNull()) {
@@ -47,10 +56,14 @@ int WRFile::calculate_count_ir (const QDomNode& node)
                     count_ir = domElement.attribute("number", "").toInt();
 
                 }
+                if(domElement.tagName() == "cost_index")
+                {
+                    count_cost_index++;
+                }
 
             }
         }
-        calculate_count_ir(domNode);
+        calculate_count_ir_and_indexs(domNode);
         domNode = domNode.nextSibling();
     }
 
@@ -59,7 +72,15 @@ int WRFile::calculate_count_ir (const QDomNode& node)
 
 void WRFile::traverseNode(const QDomNode& node)
 {
-    static int i=0,m=0,n=0;
+    static int i=0,m=0,n=0,element_mass_index=0;
+
+////////////////////////////////////
+    int num= n;
+    n=qrand();
+    qDebug()<<"\n n rand: "<<n;
+    n=num;
+    QString str;
+//////////////////////////////////////////////////////
 
     QDomNode domNode = node.firstChild();
 
@@ -75,7 +96,7 @@ void WRFile::traverseNode(const QDomNode& node)
                 switch (this->get_numb_tag(domElement.tagName())) {
 
                 case 0:
-                    qDebug()<<"\ncase 0 domElement.attribute: "<<domElement.attribute("number","").toInt();
+                    qDebug()<<"\nnumber ir: "<<domElement.attribute("number","").toInt();
                     i = domElement.attribute("number").toInt()-1;
                     qDebug()<<"\ncase 0 i: "<<i;
                     break;
@@ -118,9 +139,11 @@ void WRFile::traverseNode(const QDomNode& node)
                     break;
 
                 case 8:
-//                    qDebug()<<"\n  case 8 domElement.attribute: "<<domElement.attribute("number", "").toInt();
-                    n = domElement.attribute("number", "").toInt()-1;
-                    qDebug()<<"\n  case 8 domElement.attribute: "<<n;
+                    //                    qDebug()<<"\n  case 8 domElement.attribute: "<<domElement.attribute("number", "").toInt();
+
+                    str = domElement.attribute("number", "");
+                    n = str.toInt()-1;
+                    qDebug()<<"\n  case 8 year develop: "<<n;
                     break;
 
                 case 9:
@@ -178,13 +201,37 @@ void WRFile::traverseNode(const QDomNode& node)
                     break;
 
                 case 18:
+
                     ir[i].maintain->consumables = domElement.text().toInt();
                     break;
 
+                case 19:
+
+                    ir[i].set_val_acquire(true);
+                    break;
+
+                case 20:
+
+                    ir[i].acquire.cost_first_year = domElement.text().toDouble();
+                    qDebug()<<"\nacquire cost first year: "<<ir[i].acquire.cost_first_year ;
+                    break;
+
+                case 21:
+
+                    c_index = new struct cost_index [count_cost_index];
+                    qDebug()<<"\ncost cost index: "<<count_cost_index;
+                    break;
+
+                case 22:
+
+                    c_index[element_mass_index].year.setDate(domElement.attribute("year","").toInt(),1,1);
+                    c_index[element_mass_index].index = domElement.text().toInt();
+                    qDebug()<<"\n year index: "<<c_index[element_mass_index].year.year()<<"  index: "<<c_index[element_mass_index].index;
+                    break;
 
                 default:
 
-                     qDebug()<<"\nInknow tag: "<<domElement.tagName();
+                    qDebug()<<"\nInknow tag: "<<domElement.tagName();
                     break;
                 }
             }
@@ -205,6 +252,6 @@ int WRFile::get_numb_tag(QString str)
 
 QString WRFile::regexp_numb(QString pnumb){
 
-//    cout<<"\nStdstring"<<pnumb.toStdString();
-        return pnumb.remove('\"');
+    //    cout<<"\nStdstring"<<pnumb.toStdString();
+    return pnumb.remove('\"');
 }

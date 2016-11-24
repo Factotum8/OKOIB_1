@@ -7,6 +7,7 @@
 #include <QObject>
 #include <iostream>
 
+#include "QTime"
 
 #include "global.h"
 #include "struct.h"
@@ -24,7 +25,7 @@ class WRFile
     Q_ENUMS(Tag) //https://habrahabr.ru/post/149085/
 
 public:
-    WRFile(QString nameFile);
+    WRFile(QString nameFile, bool* flag);
 
     int get_numb_tag(QString str);
 
@@ -49,11 +50,16 @@ public:
         maintain_employees_count=15,
         employees_maintain=16,
         tax_employee_maintain=17,
-        consumable_maintain=18
+        consumable_maintain=18,
+        acquire=19,
+        cost_first_year=20, //acquire
+        cost_indexs=21,
+        cost_ind=22,
+
     };
 
 private:
-    int calculate_count_ir (const QDomNode& node);
+    int calculate_count_ir_and_indexs (const QDomNode& node);
     void traverseNode(const QDomNode& node);
     QMetaEnum tags;
 };
