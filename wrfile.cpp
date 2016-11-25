@@ -1,8 +1,6 @@
 #include "wrfile.h"
 
 
-
-
 WRFile::WRFile(QString nameFile, bool* flag)
 {
     const QMetaObject &mo = staticMetaObject;
@@ -14,10 +12,7 @@ WRFile::WRFile(QString nameFile, bool* flag)
     QDomDocument domDoc;
 
     QFile file(nameFile);
-    ///////////////////////////
-    QTime midnight(0,0,0);
-    qsrand(midnight.secsTo(QTime::currentTime()));
-////////////////////////////////////
+
     if (file.open(QIODevice::ReadOnly)){
         if(domDoc.setContent(&file)){
 
@@ -74,14 +69,6 @@ void WRFile::traverseNode(const QDomNode& node)
 {
     static int i=0,m=0,n=0,element_mass_index=0;
 
-////////////////////////////////////
-    int num= n;
-    n=qrand();
-    qDebug()<<"\n n rand: "<<n;
-    n=num;
-    QString str;
-//////////////////////////////////////////////////////
-
     QDomNode domNode = node.firstChild();
 
     while(!domNode.isNull()) {
@@ -92,7 +79,7 @@ void WRFile::traverseNode(const QDomNode& node)
 
             if(!domElement.isNull())
             {
-                cout<<"\ndomElement.tagName(): "<<domElement.tagName().toStdString();
+//                qDebug()<<"\ndomElement.tagName(): "<<domElement.tagName().toStdString();
                 switch (this->get_numb_tag(domElement.tagName())) {
 
                 case 0:
@@ -139,10 +126,8 @@ void WRFile::traverseNode(const QDomNode& node)
                     break;
 
                 case 8:
-                    //                    qDebug()<<"\n  case 8 domElement.attribute: "<<domElement.attribute("number", "").toInt();
 
-                    str = domElement.attribute("number", "");
-                    n = str.toInt()-1;
+                    n = domElement.attribute("number", "").toInt()-1;
                     qDebug()<<"\n  case 8 year develop: "<<n;
                     break;
 

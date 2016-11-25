@@ -107,11 +107,10 @@ void Develop::set_number_employees(Employees** pEmployees){
 
 
 
-QDate Develop::set_first_year(int time){
+void Develop::set_first_year(int time){
 
-    QDate date(time,1,1);
+    first_year.setDate(time,1,1);
 
-    return date;
 }
 
 void Develop::set_count_employees(int val){
@@ -123,11 +122,6 @@ void Develop::set_years_develop(int val){
 
     years_develop = val;
 }
-
-//int Develop::get_years_develop(){
-
-//    return this->years_develop;
-//}
 
 QDate Develop::get_first_year(){
 

@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     itemdelegatefloat.cpp \
     formconsumablesdev.cpp \
     formcostindex.cpp \
-    wrfile.cpp
+    wrfile.cpp \
+    forminformationresourcescosts.cpp
 
 HEADERS  += mainwindow.h \
     ir.h \
@@ -43,7 +44,8 @@ HEADERS  += mainwindow.h \
     itemdelegatefloat.h \
     formconsumablesdev.h \
     formcostindex.h \
-    wrfile.h
+    wrfile.h \
+    forminformationresourcescosts.h
 
 FORMS    += mainwindow.ui \
     tableir.ui \
@@ -52,7 +54,8 @@ FORMS    += mainwindow.ui \
     formir.ui \
     formemployees.ui \
     formconsumablesdev.ui \
-    formcostindex.ui
+    formcostindex.ui \
+    forminformationresourcescosts.ui
 
 OTHER_FILES += \
     data.xml

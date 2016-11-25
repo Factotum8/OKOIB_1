@@ -24,9 +24,7 @@ public:
 
     QDate get_first_year();
 
-    QDate set_first_year (QDate time);
-
-    QDate set_first_year (int time);
+    void set_first_year (int time);
 
     int  get_years_develop();
 

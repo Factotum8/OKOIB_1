@@ -98,8 +98,12 @@ void MainWindow::on_edit_quantity_editingFinished()
 
 void MainWindow::on_butt_fileName_clicked()
 {
-    if (!ui->edit_fileName->text().isEmpty())
+    if (ui->edit_fileName->text().isEmpty())
     {
+        ErrorForm::showerror();
+
+        return;
+    }
         bool* flag = new bool;
 
         *flag = 0;
@@ -110,8 +114,12 @@ void MainWindow::on_butt_fileName_clicked()
         {
             ErrorForm::showerror();
 
+            delete flag;
+
             return;
         }
+
+        delete flag;
 
         for (int i=0;i<count_ir;i++)
         {
@@ -123,13 +131,8 @@ void MainWindow::on_butt_fileName_clicked()
             }
         }
 
+        FormInformationResourcesCosts* resourcescosts = new FormInformationResourcesCosts();
 
+        resourcescosts->show();
 
-    }
-    else
-    {
-        ErrorForm::showerror();
-
-        return;
-    }
 }

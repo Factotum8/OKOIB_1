@@ -12,7 +12,7 @@ struct Employees {
 
 struct Acquire { //приобретаемый
 
-    double cost_first_year;
+    int cost_first_year;
 };
 
 
@@ -35,5 +35,7 @@ struct cost_index{ // индексы увеличения ценн
     double index;
 
 };
+
+
 
 #endif // STRUCT_H

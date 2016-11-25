@@ -10,7 +10,7 @@ QWidget* ItemDelegateFloat::createEditor(QWidget *parent, const QStyleOptionView
     QLineEdit* edit = new QLineEdit (parent);
 
 //        edit->setValidator(new QDoubleValidator(0.0,999.0,3));
-        edit->setValidator(new QIntValidator());
+        edit->setValidator(new QIntValidator(parent));
 
         return edit;
 

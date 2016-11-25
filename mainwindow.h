@@ -11,6 +11,7 @@
 #include "ir.h"
 #include "itemdelegate.h"
 #include "wrfile.h"
+#include "forminformationresourcescosts.h"
 
 
 extern IR *ir;

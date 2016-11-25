@@ -133,6 +133,13 @@ void TabWidgetIr::on_ButtonCalculateCostIr_clicked()
         }
     }
 
+    if (isEmptyCostIndex(c_index)) {
+
+        ErrorForm::showerror();
+
+        return;
+    }
+
     QTableWidget* result=new QTableWidget();
 
     result->setRowCount(count_ir);

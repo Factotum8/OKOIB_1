@@ -60,5 +60,6 @@ public:
     int cost_maintain();
 };
 
+bool isEmptyCostIndex (cost_index *pointer);
 
 #endif // IR_H

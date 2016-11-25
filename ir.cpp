@@ -171,7 +171,7 @@ int IR::cost_acquire(){
 
 int IR::cost_development(){
 
-    int base_salory_tax =0, accumulated_salory_tax=0,index_year=0;
+    int base_salory_tax =0, accumulated_salory_tax=1,index_year=0;
 
     for (int i=0;i<count_cost_index;i++){
 
@@ -182,9 +182,11 @@ int IR::cost_development(){
 
     }
 
-        for(int j=0;j<develop->get_years_develop();j++){
+    qDebug()<<"\nindex_year: "<<index_year<<" c_index: "<<c_index[index_year].year<<" fisrt year develop: "<< develop->get_first_year().year();
 
-            for (int i=0;i<develop->get_count_employees();i++){
+    for(int j=0;j<develop->get_years_develop();j++){
+
+        for (int i=0;i<develop->get_count_employees();i++){
 
             base_salory_tax+=develop->get_number_employees()[i][j].salory+develop->get_number_employees()[i][j].tax;
         }
@@ -235,10 +237,12 @@ bool IR::isEmptyIR()
             if ((develop->get_number_employees() != NULL) && (develop->get_consumables() != NULL)) {
 
                 for (int i=0;i<develop->get_count_employees();i++){
+                    for (int j;i<develop->get_years_develop();j++){
 
-                    if (develop->get_number_employees()[i] == NULL) {
-                        return true;}
+                        if (develop->get_number_employees()[i][j].salory <= 0) {return true;}
+                        if (develop->get_number_employees()[i][j].tax <= 0) {return true;}
 
+                    }
                 }
 
             }else{
@@ -276,5 +280,30 @@ bool IR::isEmptyIR()
         }
     }
 
+    if(get_val_acquire()){
+
+        if (acquire.cost_first_year <= 0) {return true;}
+    }
+
+    if(get_val_profit()){
+
+        if(profit.profit<=0){return true;}
+    }
+
     return false;
+}
+
+
+bool isEmptyCostIndex (cost_index *pointer)
+{
+    if (pointer == NULL) { return true;}
+
+    for (int i=0;i<count_cost_index;i++){
+
+        if(pointer->index <= 0) {return true;}
+        if(pointer->year.year() <= 0) {return true;}
+
+    }
+
+
 }

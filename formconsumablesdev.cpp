@@ -13,9 +13,9 @@ FormConsumablesDev::FormConsumablesDev(int element,int count_years,QWidget *pare
 
     ir[element].develop->set_consumables(count_years);
 
-    ui->tableConsumables->setModel(new QStandardItemModel (1,count_years));
+    ui->tableConsumables->setModel(new QStandardItemModel (1,count_years,parent));
 
-    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat);
+    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat(parent));
 
     this->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -34,9 +34,9 @@ FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QW
 
     delta_years=ir[element].get_this_year().year()-ir[element].get_first_year().year();
 
-    ui->tableConsumables->setModel(new QStandardItemModel (1,employees));
+    ui->tableConsumables->setModel(new QStandardItemModel (1,employees,parent));
 
-    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat);
+    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat(parent));
 
     this->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -54,9 +54,9 @@ FormConsumablesDev::FormConsumablesDev (int flagbutt,QWidget *parent):
 
     qDebug()<<"\nconstructor count_cost_index :"<< count_cost_index;
 
-    ui->tableConsumables->setModel(new QStandardItemModel (1,count_cost_index));
+    ui->tableConsumables->setModel(new QStandardItemModel (1,count_cost_index,parent));
 
-    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat);
+    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat(parent));
 
     this->setAttribute(Qt::WA_DeleteOnClose);
 
