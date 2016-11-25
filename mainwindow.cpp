@@ -10,7 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QVBoxLayout* pqvbxLayout = new QVBoxLayout;
+//    this->setAttribute(Qt::WA_DeleteOnClose);
+
+    QVBoxLayout* pqvbxLayout = new QVBoxLayout(this);
 
     pqvbxLayout->setMargin(5);
 
@@ -28,6 +30,13 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    if (ir != NULL )
+        delete [] ir;
+
+    if(c_index != NULL)
+        delete c_index;
+
 }
 
 
@@ -36,16 +45,6 @@ void MainWindow::on_butt_enter_clicked()
     QString str=ui->edit_quantity->text();
 
     if (str.length()==0){
-
-        //        ErrorForm *e = new ErrorForm;
-
-        //        e->setAttribute(Qt::WA_DeleteOnClose);
-
-        //        e->setWindowFlags(Qt::WindowStaysOnTopHint);
-
-        //        e->move(500,500);
-
-        //        e->show();
 
         ErrorForm::showerror();
 

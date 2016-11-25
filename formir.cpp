@@ -8,6 +8,8 @@ FormIr::FormIr(int i,QWidget *parent) :
 {
     ui->setupUi(this);
 
+    this->setAttribute(Qt::WA_DeleteOnClose);
+
     if (!ir[i].get_val_develop()){
 
         ui->frameDevelop->hide();

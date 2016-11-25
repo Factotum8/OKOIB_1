@@ -184,6 +184,8 @@ int IR::cost_development(){
 
     qDebug()<<"\nindex_year: "<<index_year<<" c_index: "<<c_index[index_year].year<<" fisrt year develop: "<< develop->get_first_year().year();
 
+//    qDebug()<<"c_index[0].year: "<<c_index[0].year.year()<<" c_index[1].year: "<<c_index[1].year.year()<<" c_index[3].year: "<<c_index[2].year.year();
+
     for(int j=0;j<develop->get_years_develop();j++){
 
         for (int i=0;i<develop->get_count_employees();i++){
@@ -199,15 +201,29 @@ int IR::cost_development(){
 
     }
 
+    qDebug()<<"\naccumulated_salory_tax: "<<accumulated_salory_tax;
+
     double Ig=1;
 
     for (int i=index_year;i<count_cost_index;i++){
 
         Ig= c_index[i].index * Ig;
 
+        qDebug()<<"\nc_index[i].index: "<<c_index[i].index;
+
     }
 
-    return round( accumulated_salory_tax*Ig*(1-( develop->get_first_year().year() + develop->get_years_develop())/planned_year.year() ) );
+    qDebug()<<"\nIg: "<<Ig;
+
+    qDebug()<<"\naccumulated_salory_tax_1: "<<  this->get_this_year().year() -1;
+
+    qDebug()<<"\naccumulated_salory_tax_2: "<<  ( this->get_this_year().year() -1)/planned_year.year();
+
+    qDebug()<<"\naccumulated_salory_tax_3: "<<  (1-( this->get_this_year().year() -1)/planned_year.year() ) ;
+
+    qDebug()<<"\naccumulated_salory_tax_4: "<<  (accumulated_salory_tax*Ig*(1-( this->get_this_year().year() -1)/planned_year.year() ) );
+
+    return round( accumulated_salory_tax*Ig*(1-( this->get_this_year().year() -1)/planned_year.year() ) );
 }
 
 int IR::cost_maintain(){
@@ -237,10 +253,12 @@ bool IR::isEmptyIR()
             if ((develop->get_number_employees() != NULL) && (develop->get_consumables() != NULL)) {
 
                 for (int i=0;i<develop->get_count_employees();i++){
-                    for (int j;i<develop->get_years_develop();j++){
+                    for (int j;j<develop->get_years_develop();j++){
 
-                        if (develop->get_number_employees()[i][j].salory <= 0) {return true;}
-                        if (develop->get_number_employees()[i][j].tax <= 0) {return true;}
+//                        if (develop->get_number_employees()[i][j].salory <= 0) {return true;}
+//                        if (develop->get_number_employees()[i][j].tax <= 0) {return true;}
+                        qDebug()<<"\n salory:["<<i<<","<<j<<"] = "<< develop->get_number_employees()[i][j].salory;
+
 
                     }
                 }

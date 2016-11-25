@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>390</width>
+    <width>610</width>
     <height>525</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Результат</string>
   </property>
   <widget class="QTableWidget" name="tableResultCost">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>371</width>
+     <width>590</width>
      <height>411</height>
     </rect>
    </property>
@@ -39,7 +39,7 @@
   <widget class="QPushButton" name="exit">
    <property name="geometry">
     <rect>
-     <x>246</x>
+     <x>470</x>
      <y>460</y>
      <width>131</width>
      <height>26</height>

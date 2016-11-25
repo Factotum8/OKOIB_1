@@ -139,9 +139,9 @@
     </info_resource>
 
    <cost_indexs>
-       <cost_ind year = "2009">1.20</cost_ind>
-       <cost_ind year = "2010">1.15</cost_ind>
-       <cost_ind year = "2011">1.18</cost_ind>
+       <cost_ind number = "1" year = "2009">1.20</cost_ind>
+       <cost_ind number = "2" year = "2010">1.15</cost_ind>
+       <cost_ind number = "3" year = "2011">1.18</cost_ind>
    </cost_indexs>
 
    </informational_resources>

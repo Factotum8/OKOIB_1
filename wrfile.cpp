@@ -38,8 +38,6 @@ WRFile::WRFile(QString nameFile, bool* flag)
 int WRFile::calculate_count_ir_and_indexs (const QDomNode& node)
 {
     int count_ir=0;
-    count_cost_index = 0;
-    QString str;
 
     QDomNode domNode = node.firstChild();
     while(!domNode.isNull()) {
@@ -51,9 +49,9 @@ int WRFile::calculate_count_ir_and_indexs (const QDomNode& node)
                     count_ir = domElement.attribute("number", "").toInt();
 
                 }
-                if(domElement.tagName() == "cost_index")
+                if(domElement.tagName() == "cost_ind")
                 {
-                    count_cost_index++;
+                    count_cost_index = domElement.attribute("number","").toInt();
                 }
 
             }
@@ -67,7 +65,7 @@ int WRFile::calculate_count_ir_and_indexs (const QDomNode& node)
 
 void WRFile::traverseNode(const QDomNode& node)
 {
-    static int i=0,m=0,n=0,element_mass_index=0;
+    static int i=0,m=0,n=0;
 
     QDomNode domNode = node.firstChild();
 
@@ -140,8 +138,9 @@ void WRFile::traverseNode(const QDomNode& node)
 
                 case 10:
 
+                    ir[i].set_val_profit(true);
                     ir[i].profit.profit =domElement.text().toInt();
-                    qDebug()<<"\ncase 10 domElement.text "<<ir[i].profit.profit;
+                    qDebug()<<"\ncase 10 profit "<<ir[i].profit.profit;
                     break;
 
                 case 11:
@@ -204,14 +203,14 @@ void WRFile::traverseNode(const QDomNode& node)
                 case 21:
 
                     c_index = new struct cost_index [count_cost_index];
-                    qDebug()<<"\ncost cost index: "<<count_cost_index;
+                    qDebug()<<"\ncount cost index: "<<count_cost_index;
                     break;
 
                 case 22:
 
-                    c_index[element_mass_index].year.setDate(domElement.attribute("year","").toInt(),1,1);
-                    c_index[element_mass_index].index = domElement.text().toInt();
-                    qDebug()<<"\n year index: "<<c_index[element_mass_index].year.year()<<"  index: "<<c_index[element_mass_index].index;
+                    c_index[domElement.attribute("number","").toInt()-1].year.setDate((domElement.attribute("year","").toInt()),1,1);
+                    c_index[domElement.attribute("number","").toInt()-1].index = domElement.text().toDouble();
+                    qDebug()<<"\n year index: "<<c_index[domElement.attribute("number","").toInt()-1].year.year()<<"  index: "<<c_index[domElement.attribute("number","").toInt()-1].index;
                     break;
 
                 default:

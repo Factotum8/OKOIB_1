@@ -26,6 +26,8 @@ public:
 private slots:
     void on_butt_writef_file_clicked();
 
+    void on_exit_clicked();
+
 private:
     Ui::FormInformationResourcesCosts *ui;
 };
