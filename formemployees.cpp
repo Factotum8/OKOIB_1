@@ -105,7 +105,7 @@ bool FormEmployees::dataisnull (int i, int j){
 
         ErrorForm::showerror ();
 
-        return 1;
+        return true;
     }
     return false;
 }
