@@ -19,7 +19,7 @@ Develop::Develop(int first_year,int count_employees, int count_years){
 
     this->first_year.setDate(first_year,1,1);
 
-    if (  NULL != (number_employees = new Employees* [count_employees]) ){
+    if (  NULL != (this->number_employees = new Employees* [count_employees]) ){
 
         for (int i=0;i<count_employees;i++){
 
@@ -92,7 +92,7 @@ void Develop::init_number_employees(int count_employees, int count_years){
     }
 
     for (int i=0;i<count_employees;i++){
-        for(int j=0;j<count_employees;j++){
+        for(int j=0;j<count_years;j++){
             this->number_employees[i][j].salory = 0;
             this->number_employees[i][j].tax = 0;
         }

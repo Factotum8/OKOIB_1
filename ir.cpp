@@ -234,9 +234,10 @@ bool IR::isEmptyIR()
 
             if ((develop->get_number_employees() != NULL) && (develop->get_consumables() != NULL)) {
 
-                for (int i=0;i<develop->get_years_develop();i++){
+                for (int i=0;i<develop->get_count_employees();i++){
 
-                    if (develop->get_number_employees()[i] == NULL) {return true;}
+                    if (develop->get_number_employees()[i] == NULL) {
+                        return true;}
 
                 }
 
