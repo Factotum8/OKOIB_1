@@ -109,10 +109,10 @@ void Develop::init_number_employees(int count_employees, int count_years){
 
 }
 
-void Develop::set_number_employees(Employees** pEmployees){
+//void Develop::set_number_employees(Employees** pEmployees){
 
 //    this->number_employees = pEmployees;
-}
+//}
 
 
 
@@ -148,3 +148,16 @@ int  Develop::get_count_employees(){
 
     return count_employees;
 }
+
+
+ void Develop::init_consumables(int count_years)
+ {
+     consumables = NULL;
+
+     consumables = new int [count_years];
+
+     for (int i=0;i<count_years;i++){
+
+         consumables[i] = 0;
+     }
+ }

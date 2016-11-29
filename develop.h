@@ -42,7 +42,9 @@ public:
 
     void init_number_employees(int count_employees, int count_years);
 
-    void set_number_employees(Employees** pEmployees);
+    void init_consumables(int count_years);
+
+//    void set_number_employees(Employees** pEmployees);
 
     void set_consumables(int count_years);
 

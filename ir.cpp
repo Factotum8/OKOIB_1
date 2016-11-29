@@ -252,12 +252,16 @@ bool IR::isEmptyIR()
 
             if ((develop->get_number_employees() != NULL) && (develop->get_consumables() != NULL)) {
 
+                qDebug()<<"\nisEmptyIR count_employees: "<<develop->get_count_employees();
+                qDebug()<<"\nisEmptyIR years_develop: "<<develop->get_years_develop();
+
                 for (int i=0;i<develop->get_count_employees();i++){
-                    for (int j;j<develop->get_years_develop();j++){
+                    for (int j=0;j<develop->get_years_develop();j++){
 
 //                        if (develop->get_number_employees()[i][j].salory <= 0) {return true;}
 //                        if (develop->get_number_employees()[i][j].tax <= 0) {return true;}
-                        qDebug()<<"\n salory:["<<i<<","<<j<<"] = "<< develop->get_number_employees()[i][j].salory;
+                        qDebug()<<"\n isEmptyIR salory:["<<i<<","<<j<<"] = "<< develop->get_number_employees()[i][j].salory;
+                        qDebug()<<"\n isEmptyIR tax:["<<i<<","<<j<<"] = "<< develop->get_number_employees()[i][j].tax;
 
 
                     }

@@ -36,7 +36,7 @@ private slots:
 
     void buttclickeddev (bool flag);
 
-    bool buttclickedmain (int flagbutt, int employees);
+    bool buttclickedmain (int flagbutt);
 
     void on_ButtonInputTaxMaint_clicked();
 
@@ -53,7 +53,7 @@ private:
 };
 
 
-void init_mantain (int element);
+void init_mantain (int element,int count_employees,int consumables=0);
 
 #endif // FORMIR_H
 

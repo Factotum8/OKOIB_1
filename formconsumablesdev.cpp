@@ -48,7 +48,7 @@ FormConsumablesDev::FormConsumablesDev (int flagbutt,QWidget *parent):
     QWidget(parent),
     ui(new Ui::FormConsumablesDev)
 {
-     ui->setupUi(this);
+    ui->setupUi(this);
 
     this->flagbutt=flagbutt;
 
@@ -138,7 +138,7 @@ void FormConsumablesDev::filling_mantain(){
 
                 ir[element].maintain->tax[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-                qDebug()<<"\n tax "<<ir[element].maintain->tax[i];
+                qDebug()<<"\n filling_mantain tax "<<ir[element].maintain->tax[i];
 
             }else {
 
@@ -158,7 +158,7 @@ void FormConsumablesDev::filling_mantain(){
 
                 ir[element].maintain->salory[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-                qDebug()<<"\n salory "<<ir[element].maintain->salory[i];
+                qDebug()<<"\n filling_mantain salory "<<ir[element].maintain->salory[i];
 
             }else {
 
@@ -169,24 +169,27 @@ void FormConsumablesDev::filling_mantain(){
 
         }
         break;
-            case 4:
-                for (int i=0;i<count_cost_index;i++){
+    case 4:
 
-                    if (!isnull(i)){
+        qDebug()<<"\n filling_mantain count_cost_index: "<<count_cost_index;
 
-                        c_index->index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
+        for (int i=0;i<count_cost_index;i++){
 
-//                        qDebug()<<"\nc_index "<<c_index->index;
+            if (!isnull(i)){
 
-                    }else {
+                c_index->index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-                        ErrorForm::showerror();
+                qDebug()<<"\n filling_mantain c_index[i] "<<c_index->index;
 
-                        return;
-                    }
+            }else {
 
-                }
-                break;
+                ErrorForm::showerror();
+
+                return;
+            }
+
+        }
+        break;
     default:
         ErrorForm::showerror();
 
