@@ -19,28 +19,37 @@ Develop::Develop(int first_year,int count_employees, int count_years){
 
     this->first_year.setDate(first_year,1,1);
 
-    if (  NULL != (this->number_employees = new Employees* [count_employees]) ){
+    this->count_employees = count_employees;
 
-        for (int i=0;i<count_employees;i++){
+    this->years_develop = count_years;
 
-            this->number_employees[i] = new Employees [count_years];
-        }
-    }
-    else{
-        qDebug()<<"\nCan't allocate memory\n";
-        exit(0);
-    }
+//    if (  NULL != (this->number_employees = new Employees* [count_employees]) ){
 
-    for (int i=0;i<count_employees;i++){
+//        for (int i=0;i<count_employees;i++){
 
-        for (int j=0;j<count_years;j++){
+//            this->number_employees[i] = new Employees [count_years];
+//        }
+//    }
+//    else{
+//        qDebug()<<"\nCan't allocate memory\n";
+//        exit(0);
+//    }
 
-            this->number_employees[i][j].salory = 0;
-        }
+    this->number_employees = NULL;
 
-    }
+    init_number_employees(count_employees,count_years);
+//    for (int i=0;i<count_employees;i++){
+
+//        for (int j=0;j<count_years;j++){
+
+//            this->number_employees[i][j].salory = 0;
+//        }
+
+//    }
 
 }
+
+
 
 
 
@@ -73,7 +82,7 @@ void Develop::set_consumables(int count_years){
 
 void Develop::init_number_employees(int count_employees, int count_years){
 
-    qDebug()<<"\ncount_employees: "<<count_employees<<" count_years: "<<count_years;
+//    qDebug()<<"\ncount_employees: "<<count_employees<<" count_years: "<<count_years;
 
     if (this->number_employees == NULL){
 
@@ -102,7 +111,7 @@ void Develop::init_number_employees(int count_employees, int count_years){
 
 void Develop::set_number_employees(Employees** pEmployees){
 
-    this->number_employees = pEmployees;
+//    this->number_employees = pEmployees;
 }
 
 

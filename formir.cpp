@@ -107,16 +107,37 @@ void FormIr::buttclickeddev (bool flag){
     if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()
             &!ui->textEditYearsDev->text().isEmpty()){
 
-        if (ir[k].develop != NULL){
+        if (ir[k].develop == NULL){
 
-            delete (ir[k].develop);
+            ir[k].develop = new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+
+
+
         }
 
-        ir[k].develop = new Develop(ui->textEditFirstYearDev->text().toInt(),ui->textEditEmployeesDev->text().toInt(), ui->textEditYearsDev->text().toInt());
+        if(  (ir[k].develop->get_count_employees() != ui->textEditEmployeesDev->text().toInt()) || (ir[k].develop->get_years_develop() != ui->textEditYearsDev->text().toInt())  )
+        {
+            delete [] ir[k].develop->get_number_employees();
 
-        ir[k].develop->set_count_employees(ui->textEditEmployeesDev->text().toInt());
+            if (ir[k].develop->get_number_employees() == NULL) {qDebug()<<"\n buttclickeddev get_number_employees == null";}
 
-        ir[k].develop->set_years_develop(ui->textEditYearsDev->text().toInt());
+            ir[k].develop->set_count_employees(ui->textEditEmployeesDev->text().toInt());
+
+            ir[k].develop->set_years_develop(ui->textEditYearsDev->text().toInt());
+
+            ir[k].develop->init_number_employees(ir[k].develop->get_count_employees(),ir[k].develop->get_years_develop());
+
+             //реши что делать со временем !!!
+        }
+
+        if (ir[k].develop->get_first_year().year() != ui->textEditFirstYearDev->text().toInt()) {
+
+            ir[k].develop->set_first_year(ui->textEditFirstYearDev->text().toInt());
+        }
+
+//        ir[k].develop->set_count_employees(ui->textEditEmployeesDev->text().toInt());
+
+//        ir[k].develop->set_years_develop(ui->textEditYearsDev->text().toInt());
 
         FormEmployees* formfmployees = new FormEmployees(k,flag,ui->textEditEmployeesDev->text().toInt(),ui->textEditYearsDev->text().toInt());
 
@@ -233,6 +254,16 @@ void FormIr::on_Save_clicked()
         ErrorForm::showerror();
 
         return;
+    }
+
+    if(ir[k].get_val_develop()&&ui->textEditFirstYearDev->text().isEmpty()){
+
+        ErrorForm::showerror();
+
+        return;
+    } else {
+
+        ir[k].develop->set_first_year(ui->textEditFirstYearDev->text().toInt());
     }
 
     ir[k].acquire.cost_first_year = ui->textEditAcquire->text().toInt();
