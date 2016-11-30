@@ -117,7 +117,11 @@ void FormIr::buttclickeddev (bool flag){
         {
             delete [] ir[k].develop->get_number_employees();
 
-            if (ir[k].develop->get_number_employees() == NULL) {qDebug()<<"\n buttclickeddev get_number_employees == null";}
+            ir[k].develop->set_number_employees(NULL);
+
+            if (ir[k].develop->get_number_employees() == NULL)
+            {
+                qDebug()<<"\n buttclickeddev get_number_employees == null";}
 
             ir[k].develop->set_count_employees(ui->textEditEmployeesDev->text().toInt());
 

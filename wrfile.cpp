@@ -1,6 +1,8 @@
 #include "wrfile.h"
 
 
+
+
 WRFile::WRFile(QString nameFile, bool* flag)
 {
     const QMetaObject &mo = staticMetaObject;

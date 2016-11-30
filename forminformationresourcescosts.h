@@ -2,10 +2,13 @@
 #define FORMINFORMATIONRESOURCESCOSTS_H
 
 #include <QWidget>
+#include <QFile>
 
 #include "glob.h"
 #include "struct.h"
 #include "ir.h"
+//#include "wrfile.h"
+
 
 extern cost_index* c_index;
 extern IR *ir;

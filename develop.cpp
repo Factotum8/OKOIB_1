@@ -109,10 +109,10 @@ void Develop::init_number_employees(int count_employees, int count_years){
 
 }
 
-//void Develop::set_number_employees(Employees** pEmployees){
+void Develop::set_number_employees(Employees** pEmployees){
 
-//    this->number_employees = pEmployees;
-//}
+    this->number_employees = pEmployees;
+}
 
 
 

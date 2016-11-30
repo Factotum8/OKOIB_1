@@ -177,13 +177,14 @@ void FormConsumablesDev::filling_mantain(){
 
             if (!isnull(i)){
 
-                c_index[i].index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toFloat();
+                c_index[i].index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toString().replace(",",".").toDouble();
 
-//                qDebug()<<"\n filling_mantain c_index[i] "<<c_index->index;
+                //                c_index[i].index = 1.1;
+                //                qDebug()<<"\n filling_mantain c_index[i] "<<c_index->index;
 
-                cout<<"\n filling_mantain from form "<<ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toString().toStdString();
+                //                cout<<"\n filling_mantain from form "<<ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toString().replace(",",".").toDouble();
 
-                cout<<"\n filling_mantain c_index["<<i<<"]: "<<c_index[i].index;
+                qDebug()<<"\n filling_mantain c_index["<<i<<"]: "<<c_index[i].index;
 
             }else {
 
@@ -194,6 +195,7 @@ void FormConsumablesDev::filling_mantain(){
 
         }
         break;
+
     default:
         ErrorForm::showerror();
 

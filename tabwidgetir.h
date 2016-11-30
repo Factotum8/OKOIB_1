@@ -9,6 +9,7 @@
 #include "ui_tabwidgetir.h"
 #include "global.h"
 #include "formir.h"
+#include "forminformationresourcescosts.h"
 
 extern cost_index* c_index;
 extern int count_cost_index;

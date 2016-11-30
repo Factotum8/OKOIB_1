@@ -143,25 +143,28 @@ void TabWidgetIr::on_ButtonCalculateCostIr_clicked()
         return;
     }
 
-    QTableWidget* result=new QTableWidget();
+    //    QTableWidget* result=new QTableWidget();
 
-    result->setRowCount(count_ir);
+    //    result->setRowCount(count_ir);
 
-    result->setColumnCount(2);
+    //    result->setColumnCount(2);
 
-    for (int i=0;i<count_ir;i++){
+    //    for (int i=0;i<count_ir;i++){
 
-        int result_cost=0;
+    //        int result_cost=0;
 
-        result->setItem(0,i,new QTableWidgetItem (ir[i].get_name()));
+    //        result->setItem(0,i,new QTableWidgetItem (ir[i].get_name()));
 
-        result_cost=ir[i].get_val_acquire()?ir[i].cost_acquire():0 +ir[i].get_val_develop()?ir[i].cost_development():0
-                                                                                            +ir[i].get_val_maintain()?ir[i].cost_maintain():0 +ir[i].get_val_profit()?ir[i].profit.profit:0;
+    //        result_cost=ir[i].get_val_acquire()?ir[i].cost_acquire():0 +ir[i].get_val_develop()?ir[i].cost_development():0
+    //                                                                                            +ir[i].get_val_maintain()?ir[i].cost_maintain():0 +ir[i].get_val_profit()?ir[i].profit.profit:0;
 
-        QString str= QString::number(result_cost);
+    //        QString str= QString::number(result_cost);
 
-        result->setItem(1,i,new QTableWidgetItem(str));
-    }
+    //        result->setItem(1,i,new QTableWidgetItem(str));
+    //    }
 
-    result->show();
+    //    result->show();
+    FormInformationResourcesCosts* resourcescosts = new FormInformationResourcesCosts();
+
+    resourcescosts->show();
 }

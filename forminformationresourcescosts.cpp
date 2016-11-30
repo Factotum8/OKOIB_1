@@ -57,12 +57,30 @@ FormInformationResourcesCosts::~FormInformationResourcesCosts()
 
     delete [] ir;
 
-    delete c_index;
+    delete [] c_index;
 }
 
 void FormInformationResourcesCosts::on_butt_writef_file_clicked()
 {
+    QFile file ("resalt.txt");
 
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)){
+
+        ErrorForm::showerror();
+
+        return;
+    }
+
+    QTextStream writeStream(&file);
+
+    for (int i=0;i<count_ir;i++){
+
+        writeStream<<ui->tableResultCost->item(i,0)->text()<<"  ";
+        writeStream<<ui->tableResultCost->item(0,i)->text()<<"\n";
+    }
+
+    file.close();
+    this->close();
 }
 
 void FormInformationResourcesCosts::on_exit_clicked()

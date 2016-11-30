@@ -175,7 +175,7 @@ int IR::cost_development(){
 
     for (int i=0;i<count_cost_index;i++){
 
-        if (develop->get_first_year().year()== c_index[i].year.year()){
+        if (develop->get_first_year().year() == c_index[i].year.year()){
 
             index_year=i;
         }
@@ -322,10 +322,11 @@ bool isEmptyCostIndex (cost_index *pointer)
 
     for (int i=0;i<count_cost_index;i++){
 
-        if(pointer->index <= 0) {return true;}
-        if(pointer->year.year() <= 0) {return true;}
+        qDebug()<<"\n isEmptyCostIndex c_index: "<<pointer[i].index;
+        if(pointer[i].index <= 0) {return true;}
+        if(pointer[i].year.year() <= 0) {return true;}
 
     }
 
-
+    return false;
 }

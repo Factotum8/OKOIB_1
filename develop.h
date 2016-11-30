@@ -44,7 +44,7 @@ public:
 
     void init_consumables(int count_years);
 
-//    void set_number_employees(Employees** pEmployees);
+    void set_number_employees(Employees** pEmployees = NULL);
 
     void set_consumables(int count_years);
 
