@@ -75,8 +75,12 @@ void FormInformationResourcesCosts::on_butt_writef_file_clicked()
 
     for (int i=0;i<count_ir;i++){
 
+        qDebug()<<"\n item №"<<i;
+        qDebug()<<"\n name:"<<ui->tableResultCost->item(i,0)->text();
+        qDebug()<<"\n values:"<<ui->tableResultCost->item(i,1)->text();
+
         writeStream<<ui->tableResultCost->item(i,0)->text()<<"  ";
-        writeStream<<ui->tableResultCost->item(0,i)->text()<<"\n";
+        writeStream<<ui->tableResultCost->item(i,1)->text()<<"\n";
     }
 
     file.close();
