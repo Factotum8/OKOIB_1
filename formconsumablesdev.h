@@ -2,10 +2,14 @@
 #define FORMCONSUMABLESDEV_H
 
 #include <QWidget>
+#include <iostream>
 
 #include "global.h"
+#include "itemdelegatecostindex.h"
+
 //#include "itemdelegatefloat.h"
 
+using std::cout;
 extern int count_cost_index;
 
 namespace Ui {

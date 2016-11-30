@@ -35,7 +35,7 @@ MainWindow::~MainWindow()
         delete [] ir;
 
     if(c_index != NULL)
-        delete c_index;
+        delete [] c_index;
 
 }
 

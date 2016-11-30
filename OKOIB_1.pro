@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     formconsumablesdev.cpp \
     formcostindex.cpp \
     wrfile.cpp \
-    forminformationresourcescosts.cpp
+    forminformationresourcescosts.cpp \
+    itemdelegatecostindex.cpp
 
 HEADERS  += mainwindow.h \
     ir.h \
@@ -45,7 +46,8 @@ HEADERS  += mainwindow.h \
     formconsumablesdev.h \
     formcostindex.h \
     wrfile.h \
-    forminformationresourcescosts.h
+    forminformationresourcescosts.h \
+    itemdelegatecostindex.h
 
 FORMS    += mainwindow.ui \
     tableir.ui \

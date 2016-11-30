@@ -83,11 +83,11 @@ void TabWidgetIr::on_buttCostYears_clicked()
         delete [] c_index;
     }
 
-        c_index = new cost_index [count_cost_index];
+    c_index = new cost_index [count_cost_index];
 
-      for (int i=0;i<count_cost_index;i++){
+    for (int i=0;i<count_cost_index;i++){
 
-        c_index->index = 0;
+        c_index[i].index = 0;
     }
 
     FormConsumablesDev* form_cost_index = new FormConsumablesDev (4);
