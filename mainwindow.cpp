@@ -31,12 +31,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 
-    if (ir != NULL )
-        delete [] ir;
-
-    if(c_index != NULL)
-        delete [] c_index;
-
 }
 
 
