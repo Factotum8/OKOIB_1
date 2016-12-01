@@ -93,7 +93,7 @@ void FormInformationResourcesCosts::on_butt_writef_file_clicked()
         qDebug()<<"\n values:"<<ui->tableResultCost->item(i,1)->text();
 
         writeStream<<ui->tableResultCost->item(i,0)->text()<<"  ";
-        writeStream<<ui->tableResultCost->item(i,1)->text()<<"\n";
+        writeStream<<ui->tableResultCost->item(i,5)->text()<<"\n";
     }
 
     file.close();

@@ -171,7 +171,9 @@ int IR::cost_acquire(){
 
 int IR::cost_development(){
 
-    int base_salory_tax [develop->get_years_develop()] , accumulated_salory_tax=0,first_year_develop=0,first_year_exploitation=0;
+    int base_salory_tax [develop->get_years_develop()] , first_year_develop=0,first_year_exploitation=0;
+
+    double accumulated_salory_tax=0.0;
 
     for (int i=0;i<count_cost_index;i++){
 
@@ -227,7 +229,7 @@ int IR::cost_development(){
 
 //    qDebug()<<"\n double or int: "<<(1-((double)this_year.year()-1)/(double)planned_year.year());
 
-    return accumulated_salory_tax= accumulated_salory_tax * (1-((double)this_year.year()-1)/(double)planned_year.year() );
+    return round(  accumulated_salory_tax= accumulated_salory_tax * (1-((double)this_year.year()-1)/(double)planned_year.year())  );
 }
 
 int IR::cost_maintain(){
