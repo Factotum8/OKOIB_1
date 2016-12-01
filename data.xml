@@ -4,8 +4,8 @@
     <info_resource number = "1">
         <name>сведения о новых технологиях</name>
         <first_year>2011</first_year>
-        <this_year>2013</this_year>
-        <planned_year>2016</planned_year>
+        <this_year>2</this_year>
+        <planned_year>3</planned_year>
         <develop>
             <start_year_develop>2010</start_year_develop>
             <years_develop>2</years_develop>
@@ -33,8 +33,8 @@
      <info_resource number = "2">
      <name>решения совещаний</name>
      <first_year>2012</first_year>
-     <this_year>2013</this_year>
-     <planned_year>2016</planned_year>
+     <this_year>1</this_year>
+     <planned_year>3</planned_year>
      <maintain>
          <maintain_employees_count>1</maintain_employees_count>
          <employees_maintain number = "1">300</employees_maintain>
@@ -46,8 +46,8 @@
     <info_resource number = "3">
         <name>бухгалтерские документы</name>
         <first_year>2009</first_year>
-        <this_year>2013</this_year>
-        <planned_year>2018</planned_year>
+        <this_year>4</this_year>
+        <planned_year>5</planned_year>
         <maintain>
             <maintain_employees_count>10</maintain_employees_count>
             <employees_maintain number = "1">320</employees_maintain>
@@ -77,8 +77,8 @@
     <info_resource number = "4">
         <name>маркетинговые исследования</name>
         <first_year>2012</first_year>
-        <this_year>2013</this_year>
-        <planned_year>2013</planned_year>
+        <this_year>1</this_year>
+        <planned_year>1</planned_year>
         <develop>
             <start_year_develop>2012</start_year_develop>
             <years_develop>1</years_develop>
@@ -101,8 +101,8 @@
     <info_resource number = "5">
         <name>автоматизированная система управления бизнес-процессами</name>
         <first_year>2009</first_year>
-        <this_year>2013</this_year>
-        <planned_year>2016</planned_year>
+        <this_year>4</this_year>
+        <planned_year>4</planned_year>
         <acquire>
             <cost_first_year>420</cost_first_year>
         </acquire>

@@ -372,7 +372,7 @@ void init_mantain (int element,int count_employees,int consumables){
 
 //            if (ir[k].maintain->consumables <= 0) {
 //                qDebug()<<"\nir[k].maintain->consumables: "<<ir[k].maintain->consumables;
-//                qDebug()<<"\nacquire.cost_first_year: "<<ir[k].acquire.cost_first_year;
+//                qDebug()<<"\nacquire.cost_first_year: "<<ir[k].acquire._first_year;
 //                qDebug()<<"\nir[k].profit.profit: "<< ir[k].profit.profit;
 
 //                return true;}

@@ -16,11 +16,11 @@ FormInformationResourcesCosts::FormInformationResourcesCosts(QWidget *parent) :
 
     this->setFixedHeight(525);
 
-    this->setFixedWidth(610);
+    this->setFixedWidth(1000);
 
     ui->tableResultCost->setRowCount(count_ir);
 
-    ui->tableResultCost->setColumnCount(2);
+    ui->tableResultCost->setColumnCount(6);
 
     ui->tableResultCost->setColumnWidth(0,450);
 
@@ -28,7 +28,9 @@ FormInformationResourcesCosts::FormInformationResourcesCosts(QWidget *parent) :
 
     ui->tableResultCost->setHorizontalHeaderItem(0, new QTableWidgetItem(tr("Наименование ИР")));
 
-    ui->tableResultCost->setHorizontalHeaderItem(1, new QTableWidgetItem(tr("Cтоимость")));
+    ui->tableResultCost->setHorizontalHeaderItem(1,new QTableWidgetItem(tr("Приобретаемые")));
+
+    ui->tableResultCost->setHorizontalHeaderItem(5, new QTableWidgetItem(tr("Cтоимость")));
 
     for (int i=0;i<count_ir;i++){
 
@@ -38,11 +40,21 @@ FormInformationResourcesCosts::FormInformationResourcesCosts(QWidget *parent) :
 
         qDebug()<<"\nname: "<<ir[i].get_name();
 
+        ui->tableResultCost->setItem(  i,1,new QTableWidgetItem(QString::number(ir[i].get_val_acquire()?ir[i].cost_acquire():0))  );
+
+        ui->tableResultCost->setItem( i,2,new QTableWidgetItem(QString::number(ir[i].get_val_develop()?ir[i].cost_development():0)));
+
+        ui->tableResultCost->setItem( i,3,new QTableWidgetItem(QString::number(ir[i].get_val_maintain()?ir[i].cost_maintain():0)));
+
+        ui->tableResultCost->setItem( i,4,new QTableWidgetItem(QString::number(ir[i].get_val_profit()?ir[i].profit.profit:0)));
+
+//        ui->tableResultCost
+
         result_cost=( (ir[i].get_val_acquire()?ir[i].cost_acquire():0) +(ir[i].get_val_develop()?ir[i].cost_development():0) +(ir[i].get_val_maintain()?ir[i].cost_maintain():0) +(ir[i].get_val_profit()?ir[i].profit.profit:0) );
 
         QString str= QString::number(result_cost);
 
-        ui->tableResultCost->setItem(i,1,new QTableWidgetItem(str));
+        ui->tableResultCost->setItem(i,5,new QTableWidgetItem(str));
     }
 }
 

@@ -158,72 +158,121 @@ int IR::cost_acquire(){
 
     double Ig=1;
 
-    for (int i=index_year;i<count_cost_index;i++){
+    for (int i=index_year; i < (this_year.year()-1); i++){
 
         Ig= c_index[i].index * Ig;
 
     }
 
-    return round (  acquire.cost_first_year*Ig*( 1-this_year.year()/planned_year.year())  );
+//    return round (  )
+
+    return round (  (double)acquire.cost_first_year*Ig*(1-((double)this_year.year()-1)/(double)planned_year.year())  );
 
 }
 
 
 int IR::cost_development(){
 
-    int base_salory_tax =0, accumulated_salory_tax=1,index_year=0;
+    int base_salory_tax [develop->get_years_develop()] , accumulated_salory_tax=0,first_year_develop=0,first_year_exploitation=0;
 
     for (int i=0;i<count_cost_index;i++){
 
         if (develop->get_first_year().year() == c_index[i].year.year()){
 
-            index_year=i;
+            first_year_develop=i;
+
+            qDebug()<<"\n first_year_develop:"<<c_index[i].index;
+        }
+
+        if (first_year.year() == c_index[i].year.year()){
+
+            first_year_exploitation=i;
+
+            qDebug()<<"\n first_year_exploitation:"<<c_index[i].index;
         }
 
     }
 
-    qDebug()<<"\nindex_year: "<<index_year<<" c_index: "<<c_index[index_year].year<<" fisrt year develop: "<< develop->get_first_year().year();
-
-//    qDebug()<<"c_index[0].year: "<<c_index[0].year.year()<<" c_index[1].year: "<<c_index[1].year.year()<<" c_index[3].year: "<<c_index[2].year.year();
-
-    for(int j=0;j<develop->get_years_develop();j++){
+    for (int j=0;j<develop->get_years_develop();j++){
+        qDebug()<<"\n gsg:"<<develop->get_count_employees();
 
         for (int i=0;i<develop->get_count_employees();i++){
 
-            base_salory_tax+=develop->get_number_employees()[i][j].salory+develop->get_number_employees()[i][j].tax;
+            base_salory_tax[j] = develop->get_number_employees()[i][j].salory + develop->get_number_employees()[i][j].tax;
+
+            qDebug()<<"\n salory:"<<develop->get_number_employees()[i][j].salory;
+
+            qDebug()<<"\n tax:"<<develop->get_number_employees()[i][j].tax;
+
         }
 
-        base_salory_tax+=develop->get_consumables()[j];
+        base_salory_tax[j]+=develop->get_consumables()[j];
 
-        accumulated_salory_tax=c_index[index_year+j].index*accumulated_salory_tax+base_salory_tax;
-
-        base_salory_tax=0;
+        qDebug()<<"\n base_salory_tax[j]:  "<<base_salory_tax[j];
 
     }
 
-    qDebug()<<"\naccumulated_salory_tax: "<<accumulated_salory_tax;
+    accumulated_salory_tax = base_salory_tax[0];
 
-    double Ig=1;
+    for (int i=1;i<develop->get_years_develop();i++){
 
-    for (int i=index_year;i<count_cost_index;i++){
-
-        Ig= c_index[i].index * Ig;
-
-        qDebug()<<"\nc_index[i].index: "<<c_index[i].index;
-
+        accumulated_salory_tax = c_index[first_year_develop+i-1].index * accumulated_salory_tax + base_salory_tax[i];
     }
 
-    qDebug()<<"\nIg: "<<Ig;
+    for (int i= first_year_develop+develop->get_years_develop()-1;i< (this_year.year()-1)  ;i++){
 
-    qDebug()<<"\naccumulated_salory_tax_1: "<<  this->get_this_year().year() -1;
+        accumulated_salory_tax = accumulated_salory_tax * c_index[i].index;
 
-    qDebug()<<"\naccumulated_salory_tax_2: "<<  ( this->get_this_year().year() -1)/planned_year.year();
+        qDebug()<<"\n retard"<<i;
+    }
 
-    qDebug()<<"\naccumulated_salory_tax_3: "<<  (1-( this->get_this_year().year() -1)/planned_year.year() ) ;
+//    qDebug()<<"\n double or int: "<<(1-((double)this_year.year()-1)/(double)planned_year.year());
 
-    qDebug()<<"\naccumulated_salory_tax_4: "<<  (accumulated_salory_tax*Ig*(1-( this->get_this_year().year() -1)/planned_year.year() ) );
+    return accumulated_salory_tax= accumulated_salory_tax * (1-((double)this_year.year()-1)/(double)planned_year.year() );
 
-    return round( accumulated_salory_tax*Ig*(1-( this->get_this_year().year() -1)/planned_year.year() ) );
+
+    //    qDebug()<<"\nindex_year: "<<index_year<<" c_index: "<<c_index[index_year].year<<" fisrt year develop: "<< develop->get_first_year().year();
+
+    //    qDebug()<<"c_index[0].year: "<<c_index[0].year.year()<<" c_index[1].year: "<<c_index[1].year.year()<<" c_index[3].year: "<<c_index[2].year.year();
+
+    //    for(int j=0;j<develop->get_years_develop();j++){
+
+    //        for (int i=0;i<develop->get_count_employees();i++){
+
+    //            base_salory_tax+=develop->get_number_employees()[i][j].salory+develop->get_number_employees()[i][j].tax;
+    //        }
+
+    //        base_salory_tax+=develop->get_consumables()[j];
+
+    //        accumulated_salory_tax=c_index[index_year+j].index*accumulated_salory_tax+base_salory_tax;
+
+    //        base_salory_tax=0;
+
+    //    }
+
+    //    qDebug()<<"\naccumulated_salory_tax: "<<accumulated_salory_tax;
+
+    //    double Ig=1;
+
+    //    for (int i=index_year;i<count_cost_index;i++){
+
+    //        Ig= c_index[i].index * Ig;
+
+    //        qDebug()<<"\nc_index[i].index: "<<c_index[i].index;
+
+    //    }
+
+    //    qDebug()<<"\nIg: "<<Ig;
+
+    //    qDebug()<<"\naccumulated_salory_tax_1: "<<  this->get_this_year().year() -1;
+
+    //    qDebug()<<"\naccumulated_salory_tax_2: "<<  ( this->get_this_year().year() -1)/planned_year.year();
+
+    //    qDebug()<<"\naccumulated_salory_tax_3: "<<  (1-( this->get_this_year().year() -1)/planned_year.year() ) ;
+
+    //    qDebug()<<"\naccumulated_salory_tax_4: "<<  (accumulated_salory_tax*Ig*(1-( this->get_this_year().year() -1)/planned_year.year() ) );
+
+    //    return round( accumulated_salory_tax*Ig*(1-( this->get_this_year().year() -1)/planned_year.year() ) );
 }
 
 int IR::cost_maintain(){
@@ -258,8 +307,8 @@ bool IR::isEmptyIR()
                 for (int i=0;i<develop->get_count_employees();i++){
                     for (int j=0;j<develop->get_years_develop();j++){
 
-//                        if (develop->get_number_employees()[i][j].salory <= 0) {return true;}
-//                        if (develop->get_number_employees()[i][j].tax <= 0) {return true;}
+                        //                        if (develop->get_number_employees()[i][j].salory <= 0) {return true;}
+                        //                        if (develop->get_number_employees()[i][j].tax <= 0) {return true;}
                         qDebug()<<"\n isEmptyIR salory:["<<i<<","<<j<<"] = "<< develop->get_number_employees()[i][j].salory;
                         qDebug()<<"\n isEmptyIR tax:["<<i<<","<<j<<"] = "<< develop->get_number_employees()[i][j].tax;
 
