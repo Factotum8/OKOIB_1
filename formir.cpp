@@ -1,6 +1,6 @@
 #include "formir.h"
 
-int k=0;
+
 
 FormIr::FormIr(int i,QWidget *parent) :
     QWidget(parent),
@@ -9,6 +9,8 @@ FormIr::FormIr(int i,QWidget *parent) :
     ui->setupUi(this);
 
     this->setAttribute(Qt::WA_DeleteOnClose);
+
+    k=0;
 
     if (!ir[i].get_val_develop()){
 
@@ -50,6 +52,7 @@ FormIr::FormIr(int i,QWidget *parent) :
     }
 
     k=i;
+
 }
 
 FormIr::~FormIr()
@@ -104,8 +107,8 @@ void FormIr::on_ButtTaxDev_clicked()
 
 void FormIr::buttclickeddev (bool flag){
 
-    if (ir[k].get_val_develop()&!ui->textEditEmployeesDev->text().isEmpty()&!ui->textEditFirstYearDev->text().isEmpty()
-            &!ui->textEditYearsDev->text().isEmpty()){
+    if (ir[k].get_val_develop()&&!ui->textEditEmployeesDev->text().isEmpty()&&!ui->textEditFirstYearDev->text().isEmpty()
+            &&!ui->textEditYearsDev->text().isEmpty()){
 
         if (ir[k].develop == NULL){
 
@@ -147,6 +150,8 @@ void FormIr::buttclickeddev (bool flag){
         formfmployees->show();
 
     }else{
+
+        qDebug()<<"\n ir[k] k:"<<k;
 
         ErrorForm::showerror ();
     }
@@ -251,6 +256,8 @@ void FormIr::on_Save_clicked()
 {
     if (ir[k].get_val_acquire()&&ui->textEditAcquire->text().isEmpty() ){
 
+        qDebug()<<"\n ir[k] k:"<<k;
+
         ErrorForm::showerror();
 
         return;
@@ -258,12 +265,16 @@ void FormIr::on_Save_clicked()
 
     if (ir[k].get_val_profit()&&ui->textEditProfit->text().isEmpty() ){
 
+        qDebug()<<"\n ir[k] k:"<<k;
+
         ErrorForm::showerror();
 
         return;
     }
 
-    if (ir[k].get_val_maintain()&&ui->textEditAcquire->text().isEmpty() ){
+    if (ir[k].get_val_maintain()&&ui->textEditEmployeesMaint->text().isEmpty() ){
+
+        qDebug()<<"\n ir[k] k:"<<k;
 
         ErrorForm::showerror();
 
@@ -271,11 +282,13 @@ void FormIr::on_Save_clicked()
     }
 
     if(ir[k].get_val_develop()&&ui->textEditFirstYearDev->text().isEmpty()){
+        qDebug()<<"\n ir[k] k:"<<k;
 
         ErrorForm::showerror();
 
         return;
-    } else {
+    }
+    if (ir[k].get_val_develop()){
 
         ir[k].develop->set_first_year(ui->textEditFirstYearDev->text().toInt());
     }
@@ -306,9 +319,9 @@ void init_mantain (int element,int count_employees,int consumables){
     ir[element].maintain->consumables = consumables;
     ir[element].maintain->count_employees = count_employees;
 
-    ir[k].maintain->salory = NULL;
+    ir[element].maintain->salory = NULL;
 
-    ir[k].maintain->tax = NULL;
+    ir[element].maintain->tax = NULL;
 
     if (ir[element].maintain->salory == NULL && ir[element].maintain->tax == NULL ){
 

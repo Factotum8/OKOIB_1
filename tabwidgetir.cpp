@@ -23,6 +23,8 @@ TabWidgetIr::TabWidgetIr(QWidget *parent) :
 
     foreach (QString str, list) {
 
+        qDebug()<<"\nTabWidgetIr() FormIr(i) i:"<<i;
+
         ui->tabWidget->addTab(new FormIr(i),str );
 
         i++;
@@ -58,15 +60,18 @@ void TabWidgetIr::on_buttCostYears_clicked()
     for (int i=0;i<count_ir;i++){
         //        qDebug()<<"\nir[i]:"<< ir[i].get_this_year().year();
 
+        if (ir[i].get_val_develop()){
 
-        if (max_years_develop < ir[i].develop->get_years_develop() ){
 
-            max_years_develop = ir[i].develop->get_years_develop();
-        }
+            if (max_years_develop < ir[i].develop->get_years_develop() ){
 
-        if (min_first_year > ir[i].develop->get_first_year().year()){
+                max_years_develop = ir[i].develop->get_years_develop();
+            }
 
-            min_first_year = ir[i].develop->get_first_year().year();
+            if (min_first_year > ir[i].develop->get_first_year().year()){
+
+                min_first_year = ir[i].develop->get_first_year().year();
+            }
         }
     }
 

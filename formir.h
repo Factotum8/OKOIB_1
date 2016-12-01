@@ -50,6 +50,8 @@ private slots:
 
 private:
     Ui::FormIr *ui;
+
+    int k=0;
 };
 
 

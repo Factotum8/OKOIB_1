@@ -40,11 +40,6 @@ FormInformationResourcesCosts::FormInformationResourcesCosts(QWidget *parent) :
 
         result_cost=( (ir[i].get_val_acquire()?ir[i].cost_acquire():0) +(ir[i].get_val_develop()?ir[i].cost_development():0) +(ir[i].get_val_maintain()?ir[i].cost_maintain():0) +(ir[i].get_val_profit()?ir[i].profit.profit:0) );
 
-        if (i==0)
-        {
-            qDebug()<<"\nir[i].cost_development()"<<ir[i].cost_development();
-        }
-
         QString str= QString::number(result_cost);
 
         ui->tableResultCost->setItem(i,1,new QTableWidgetItem(str));

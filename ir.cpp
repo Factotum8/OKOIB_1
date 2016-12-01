@@ -149,7 +149,7 @@ int IR::cost_acquire(){
 
     for (int i=0;i<count_cost_index;i++){
 
-        if (develop->get_first_year().year()== c_index[i].year.year()){
+        if (get_first_year().year()== c_index[i].year.year()){
 
             index_year=i;
         }
