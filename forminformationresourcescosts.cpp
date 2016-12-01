@@ -16,7 +16,7 @@ FormInformationResourcesCosts::FormInformationResourcesCosts(QWidget *parent) :
 
     this->setFixedHeight(525);
 
-    this->setFixedWidth(1000);
+    this->setFixedWidth(1100);
 
     ui->tableResultCost->setRowCount(count_ir);
 
@@ -29,6 +29,12 @@ FormInformationResourcesCosts::FormInformationResourcesCosts(QWidget *parent) :
     ui->tableResultCost->setHorizontalHeaderItem(0, new QTableWidgetItem(tr("Наименование ИР")));
 
     ui->tableResultCost->setHorizontalHeaderItem(1,new QTableWidgetItem(tr("Приобретаемые")));
+
+    ui->tableResultCost->setHorizontalHeaderItem(2,new QTableWidgetItem(tr("Разрабатываемый")));
+
+    ui->tableResultCost->setHorizontalHeaderItem(1,new QTableWidgetItem(tr("Обслуживаемый")));
+
+    ui->tableResultCost->setHorizontalHeaderItem(1,new QTableWidgetItem(tr("Прибыльный")));
 
     ui->tableResultCost->setHorizontalHeaderItem(5, new QTableWidgetItem(tr("Cтоимость")));
 

@@ -121,6 +121,7 @@ void WRFile::traverseNode(const QDomNode& node)
 
                 case 7:
 
+                    ir[i].develop->set_count_employees(domElement.text().toInt());
                     ir[i].develop->init_number_employees(domElement.text().toInt(),ir[i].develop->get_years_develop());
                     ir[i].develop->set_consumables(ir[i].develop->get_years_develop());
                     break;

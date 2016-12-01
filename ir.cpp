@@ -164,8 +164,6 @@ int IR::cost_acquire(){
 
     }
 
-//    return round (  )
-
     return round (  (double)acquire.cost_first_year*Ig*(1-((double)this_year.year()-1)/(double)planned_year.year())  );
 
 }
@@ -193,16 +191,17 @@ int IR::cost_development(){
 
     }
 
+    qDebug()<<"\ndevelop->get_count_employees: "<<develop->get_count_employees();
+
     for (int j=0;j<develop->get_years_develop();j++){
-        qDebug()<<"\n gsg:"<<develop->get_count_employees();
 
         for (int i=0;i<develop->get_count_employees();i++){
 
             base_salory_tax[j] = develop->get_number_employees()[i][j].salory + develop->get_number_employees()[i][j].tax;
 
-            qDebug()<<"\n salory:"<<develop->get_number_employees()[i][j].salory;
+//            qDebug()<<"\n salory:"<<develop->get_number_employees()[i][j].salory;
 
-            qDebug()<<"\n tax:"<<develop->get_number_employees()[i][j].tax;
+//            qDebug()<<"\n tax:"<<develop->get_number_employees()[i][j].tax;
 
         }
 
@@ -229,50 +228,6 @@ int IR::cost_development(){
 //    qDebug()<<"\n double or int: "<<(1-((double)this_year.year()-1)/(double)planned_year.year());
 
     return accumulated_salory_tax= accumulated_salory_tax * (1-((double)this_year.year()-1)/(double)planned_year.year() );
-
-
-    //    qDebug()<<"\nindex_year: "<<index_year<<" c_index: "<<c_index[index_year].year<<" fisrt year develop: "<< develop->get_first_year().year();
-
-    //    qDebug()<<"c_index[0].year: "<<c_index[0].year.year()<<" c_index[1].year: "<<c_index[1].year.year()<<" c_index[3].year: "<<c_index[2].year.year();
-
-    //    for(int j=0;j<develop->get_years_develop();j++){
-
-    //        for (int i=0;i<develop->get_count_employees();i++){
-
-    //            base_salory_tax+=develop->get_number_employees()[i][j].salory+develop->get_number_employees()[i][j].tax;
-    //        }
-
-    //        base_salory_tax+=develop->get_consumables()[j];
-
-    //        accumulated_salory_tax=c_index[index_year+j].index*accumulated_salory_tax+base_salory_tax;
-
-    //        base_salory_tax=0;
-
-    //    }
-
-    //    qDebug()<<"\naccumulated_salory_tax: "<<accumulated_salory_tax;
-
-    //    double Ig=1;
-
-    //    for (int i=index_year;i<count_cost_index;i++){
-
-    //        Ig= c_index[i].index * Ig;
-
-    //        qDebug()<<"\nc_index[i].index: "<<c_index[i].index;
-
-    //    }
-
-    //    qDebug()<<"\nIg: "<<Ig;
-
-    //    qDebug()<<"\naccumulated_salory_tax_1: "<<  this->get_this_year().year() -1;
-
-    //    qDebug()<<"\naccumulated_salory_tax_2: "<<  ( this->get_this_year().year() -1)/planned_year.year();
-
-    //    qDebug()<<"\naccumulated_salory_tax_3: "<<  (1-( this->get_this_year().year() -1)/planned_year.year() ) ;
-
-    //    qDebug()<<"\naccumulated_salory_tax_4: "<<  (accumulated_salory_tax*Ig*(1-( this->get_this_year().year() -1)/planned_year.year() ) );
-
-    //    return round( accumulated_salory_tax*Ig*(1-( this->get_this_year().year() -1)/planned_year.year() ) );
 }
 
 int IR::cost_maintain(){
