@@ -201,9 +201,9 @@ int IR::cost_development(){
 
             base_salory_tax[j] = develop->get_number_employees()[i][j].salory + develop->get_number_employees()[i][j].tax;
 
-//            qDebug()<<"\n salory:"<<develop->get_number_employees()[i][j].salory;
+            qDebug()<<"\n cost_development salory:"<<develop->get_number_employees()[i][j].salory;
 
-//            qDebug()<<"\n tax:"<<develop->get_number_employees()[i][j].tax;
+            qDebug()<<"\n cost_development tax:"<<develop->get_number_employees()[i][j].tax;
 
         }
 

@@ -16,7 +16,7 @@ FormInformationResourcesCosts::FormInformationResourcesCosts(QWidget *parent) :
 
     this->setFixedHeight(525);
 
-    this->setFixedWidth(1100);
+    this->setFixedWidth(1250);
 
     ui->tableResultCost->setRowCount(count_ir);
 
@@ -24,19 +24,27 @@ FormInformationResourcesCosts::FormInformationResourcesCosts(QWidget *parent) :
 
     ui->tableResultCost->setColumnWidth(0,450);
 
-    ui->tableResultCost->horizontalHeader()->setStretchLastSection(true);
+    ui->tableResultCost->horizontalHeader()->setStretchLastSection(true); // авто подгон последней колонки
 
     ui->tableResultCost->setHorizontalHeaderItem(0, new QTableWidgetItem(tr("Наименование ИР")));
 
-    ui->tableResultCost->setHorizontalHeaderItem(1,new QTableWidgetItem(tr("Приобретаемые")));
+    ui->tableResultCost->setHorizontalHeaderItem(1,new QTableWidgetItem(tr("Приобретённые")));
 
     ui->tableResultCost->setHorizontalHeaderItem(2,new QTableWidgetItem(tr("Разрабатываемый")));
 
-    ui->tableResultCost->setHorizontalHeaderItem(1,new QTableWidgetItem(tr("Обслуживаемый")));
+    ui->tableResultCost->setHorizontalHeaderItem(3,new QTableWidgetItem(tr("Обслуживаемый")));
 
-    ui->tableResultCost->setHorizontalHeaderItem(1,new QTableWidgetItem(tr("Прибыльный")));
+    ui->tableResultCost->setHorizontalHeaderItem(4,new QTableWidgetItem(tr("Прибыльный")));
 
     ui->tableResultCost->setHorizontalHeaderItem(5, new QTableWidgetItem(tr("Cтоимость")));
+
+    ui->tableResultCost->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
+
+    ui->tableResultCost->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
+
+    ui->tableResultCost->horizontalHeader()->setSectionResizeMode(3, QHeaderView::Stretch);
+
+//    ui->tableResultCost->horizontalHeader()->setSectionResizeMode(4, QHeaderView::Stretch);
 
     for (int i=0;i<count_ir;i++){
 
