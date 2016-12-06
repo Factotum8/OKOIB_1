@@ -12,7 +12,7 @@ FormEmployees::FormEmployees(int element, bool flag,int count_employees,int coun
     this->count_employees=count_employees;
     this->count_years=count_years;
 
-//    this->setAttribute(Qt::WA_DeleteOnClose);
+    this->setAttribute(Qt::WA_DeleteOnClose);
 
     this->move(10,10);
 
@@ -60,7 +60,7 @@ void FormEmployees::on_ButtonExit_clicked()
 }
 
 void FormEmployees::on_ButtonSave_clicked()
-{  // qDebug()<<"\n on_ButtonSave_clicked";
+{   qDebug()<<"\n on_ButtonSave_clicked";
 
     for(int i=0;i<count_employees;i++){
         for(int j=0;j<count_years;j++){
@@ -70,8 +70,6 @@ void FormEmployees::on_ButtonSave_clicked()
     }
 
     close();
-
-    return;
 }
 
 bool FormEmployees::isnull (int i,int j){
@@ -88,14 +86,14 @@ bool FormEmployees::dataisnull (int i, int j){
         case true:
             (ir[element].develop->get_number_employees())[i][j].salory = ui->tableEmployees->model()->data( ui->tableEmployees->model()->index(i,j,QModelIndex())  ).toInt();
 
-//            qDebug()<<"\n salory "<<(ir[element].develop->get_number_employees())[i][j].salory;
+            qDebug()<<"\n dataisnull salory "<<(ir[element].develop->get_number_employees())[i][j].salory;
 
             break;
 
         case false:
             (ir[element].develop->get_number_employees())[i][j].tax = ui->tableEmployees->model()->data(  ui->tableEmployees->model()->index(i,j,QModelIndex())  ).toInt();
 
-//            qDebug()<<"\n tax "<<ir[element].develop->get_number_employees()[i][j].tax;
+            qDebug()<<"\n dataisnull tax "<<ir[element].develop->get_number_employees()[i][j].tax;
 
             break;
 
@@ -109,6 +107,5 @@ bool FormEmployees::dataisnull (int i, int j){
 
         return true;
     }
-
     return false;
 }

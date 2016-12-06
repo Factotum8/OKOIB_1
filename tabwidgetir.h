@@ -9,6 +9,7 @@
 #include "ui_tabwidgetir.h"
 #include "global.h"
 #include "formir.h"
+#include "forminformationresourcescosts.h"
 
 extern cost_index* c_index;
 extern int count_cost_index;
@@ -32,7 +33,7 @@ private slots:
 
     void on_buttCostYears_clicked();
 
-    void on_ButtonCalculate_clicked();
+    void on_ButtonCalculateCostIr_clicked();
 
 private:
     Ui::TabWidgetIr *ui;

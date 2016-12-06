@@ -16,17 +16,17 @@ QWidget* ItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem 
         break;
     case 1:
         edit->setPlaceholderText("1920-2020");
-        edit->setValidator(new QIntValidator (1920,2020));
+        edit->setValidator(new QIntValidator (1920,2020,parent));
         return edit;
         break;
     case 2:
         edit->setPlaceholderText("1920-2020");
-        edit->setValidator(new QIntValidator (1920,2020));
+        edit->setValidator(new QIntValidator (1920,2020,parent));
         return edit;
         break;
     case 3:
         edit->setPlaceholderText("1920-2020");
-        edit->setValidator(new QIntValidator (1920,2020));
+        edit->setValidator(new QIntValidator (1920,2020,parent));
         return edit;
         break;
     case 4:

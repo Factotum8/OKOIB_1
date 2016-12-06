@@ -13,9 +13,9 @@ FormConsumablesDev::FormConsumablesDev(int element,int count_years,QWidget *pare
 
     ir[element].develop->set_consumables(count_years);
 
-    ui->tableConsumables->setModel(new QStandardItemModel (1,count_years));
+    ui->tableConsumables->setModel(new QStandardItemModel (1,count_years,parent));
 
-    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat);
+    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat(parent));
 
     this->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -34,29 +34,9 @@ FormConsumablesDev::FormConsumablesDev(int flagbutt,int element,int employees,QW
 
     delta_years=ir[element].get_this_year().year()-ir[element].get_first_year().year();
 
-    //    if (ir[element].maintain->salory== NULL){
+    ui->tableConsumables->setModel(new QStandardItemModel (1,employees,parent));
 
-    //        ir[element].maintain->salory = new int[employees];
-
-    //    }
-
-//    if (ir[element].maintain->consumables== NULL){
-
-//        ir[element].maintain->consumables = new int[delta_years];
-
-//    }
-
-    ir[element].maintain->consumables = 0;
-
-    //    if (ir[element].maintain->tax== NULL){
-
-    //        ir[element].maintain->tax = new int[employees];
-
-    //    }
-
-    ui->tableConsumables->setModel(new QStandardItemModel (1,employees));
-
-    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat);
+    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat(parent));
 
     this->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -68,15 +48,15 @@ FormConsumablesDev::FormConsumablesDev (int flagbutt,QWidget *parent):
     QWidget(parent),
     ui(new Ui::FormConsumablesDev)
 {
-     ui->setupUi(this);
+    ui->setupUi(this);
 
     this->flagbutt=flagbutt;
 
     qDebug()<<"\nconstructor count_cost_index :"<< count_cost_index;
 
-    ui->tableConsumables->setModel(new QStandardItemModel (1,count_cost_index));
+    ui->tableConsumables->setModel(new QStandardItemModel (1,count_cost_index,parent));
 
-    ui->tableConsumables->setItemDelegate(new ItemDelegateFloat);
+    (flagbutt == 4)?ui->tableConsumables->setItemDelegate(new itemDelegateCostIndex(parent)):ui->tableConsumables->setItemDelegate(new ItemDelegateFloat(parent));
 
     this->setAttribute(Qt::WA_DeleteOnClose);
 
@@ -158,7 +138,7 @@ void FormConsumablesDev::filling_mantain(){
 
                 ir[element].maintain->tax[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-                qDebug()<<"\n tax "<<ir[element].maintain->tax[i];
+                qDebug()<<"\n filling_mantain tax "<<ir[element].maintain->tax[i];
 
             }else {
 
@@ -178,7 +158,7 @@ void FormConsumablesDev::filling_mantain(){
 
                 ir[element].maintain->salory[i] = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
 
-                qDebug()<<"\n salory "<<ir[element].maintain->salory[i];
+                qDebug()<<"\n filling_mantain salory "<<ir[element].maintain->salory[i];
 
             }else {
 
@@ -189,24 +169,33 @@ void FormConsumablesDev::filling_mantain(){
 
         }
         break;
-            case 4:
-                for (int i=0;i<count_cost_index;i++){
+    case 4:
 
-                    if (!isnull(i)){
+        qDebug()<<"\n filling_mantain count_cost_index: "<<count_cost_index;
 
-                        c_index->index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toInt();
+        for (int i=0;i<count_cost_index;i++){
 
-                        qDebug()<<"\nc_index "<<c_index->index;
+            if (!isnull(i)){
 
-                    }else {
+                c_index[i].index = ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toString().replace(",",".").toDouble();
 
-                        ErrorForm::showerror();
+                //                c_index[i].index = 1.1;
+                //                qDebug()<<"\n filling_mantain c_index[i] "<<c_index->index;
 
-                        return;
-                    }
+                //                cout<<"\n filling_mantain from form "<<ui->tableConsumables->model()->data(ui->tableConsumables->model()->index(0,i,QModelIndex())).toString().replace(",",".").toDouble();
 
-                }
-                break;
+                qDebug()<<"\n filling_mantain c_index["<<i<<"]: "<<c_index[i].index;
+
+            }else {
+
+                ErrorForm::showerror();
+
+                return;
+            }
+
+        }
+        break;
+
     default:
         ErrorForm::showerror();
 

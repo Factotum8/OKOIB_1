@@ -10,7 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QVBoxLayout* pqvbxLayout = new QVBoxLayout;
+//    this->setAttribute(Qt::WA_DeleteOnClose);
+
+    QVBoxLayout* pqvbxLayout = new QVBoxLayout(this);
 
     pqvbxLayout->setMargin(5);
 
@@ -28,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
 
 
@@ -36,16 +39,6 @@ void MainWindow::on_butt_enter_clicked()
     QString str=ui->edit_quantity->text();
 
     if (str.length()==0){
-
-//        ErrorForm *e = new ErrorForm;
-
-//        e->setAttribute(Qt::WA_DeleteOnClose);
-
-//        e->setWindowFlags(Qt::WindowStaysOnTopHint);
-
-//        e->move(500,500);
-
-//        e->show();
 
         ErrorForm::showerror();
 
@@ -70,28 +63,69 @@ void MainWindow::on_butt_enter_clicked()
 void MainWindow::on_edit_quantity_editingFinished()
 {
 
-//    QString str=ui->edit_quantity->text();
+    //    QString str=ui->edit_quantity->text();
 
-//    if (str.length()==0){
+    //    if (str.length()==0){
 
-//        ErrorForm *e = new ErrorForm;
+    //        ErrorForm *e = new ErrorForm;
 
-//        e->setAttribute(Qt::WA_DeleteOnClose);
+    //        e->setAttribute(Qt::WA_DeleteOnClose);
 
-//        e->show();
+    //        e->show();
 
-//        return;
-//    }
+    //        return;
+    //    }
 
-//    count_ir=str.toInt();
+    //    count_ir=str.toInt();
 
-//    ir = new IR [count_ir];
+    //    ir = new IR [count_ir];
 
-//    TableIr *w2 = new TableIr;
+    //    TableIr *w2 = new TableIr;
 
-//    w2->setAttribute(Qt::WA_DeleteOnClose);
+    //    w2->setAttribute(Qt::WA_DeleteOnClose);
 
 
-//    w2->show();
+    //    w2->show();
+
+}
+
+void MainWindow::on_butt_fileName_clicked()
+{
+    if (ui->edit_fileName->text().isEmpty())
+    {
+        ErrorForm::showerror();
+
+        return;
+    }
+        bool* flag = new bool;
+
+        *flag = 0;
+
+        WRFile wrfile(ui->edit_fileName->text(),flag);
+
+        if ( *flag )
+        {
+            ErrorForm::showerror();
+
+            delete flag;
+
+            return;
+        }
+
+        delete flag;
+
+        for (int i=0;i<count_ir;i++)
+        {
+            if (ir[i].isEmptyIR())
+            {
+                ErrorForm::showerror();
+
+                return;
+            }
+        }
+
+        FormInformationResourcesCosts* resourcescosts = new FormInformationResourcesCosts();
+
+        resourcescosts->show();
 
 }

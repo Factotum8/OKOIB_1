@@ -1,0 +1,160 @@
+<?xml version = "1.0"?>
+<!-- Информационные ресурсы -->
+<informational_resources>
+    <info_resource number = "1">
+        <name>сведения о новых технологиях</name>
+        <first_year>2011</first_year>
+        <this_year>2</this_year>
+        <planned_year>3</planned_year>
+        <develop>
+            <start_year_develop>2010</start_year_develop>
+            <years_develop>2</years_develop>
+            <develop_employees_count>3</develop_employees_count>
+            <year_develop number ="1">
+                <employee_develop number ="1">350</employee_develop>
+                <employee_develop number = "2">400</employee_develop>
+                <tax_employee_develop number = "1">91</tax_employee_develop>
+                <tax_employee_develop number = "2">104</tax_employee_develop>
+                <consumables_develop number = "1">100</consumables_develop>
+            </year_develop>
+            <year_develop number ="2">
+                <employee_develop number ="1">380</employee_develop>
+                <employee_develop number ="2">420</employee_develop>
+                <employee_develop number ="3">500</employee_develop>
+                <tax_employee_develop number = "1">99</tax_employee_develop>
+                <tax_employee_develop number = "2">109</tax_employee_develop>
+                <tax_employee_develop number = "3">130</tax_employee_develop>
+                <consumables_develop number = "2">140</consumables_develop>
+            </year_develop>
+        </develop>
+        <profit>7000</profit>
+    </info_resource>
+
+     <info_resource number = "2">
+     <name>решения совещаний</name>
+     <first_year>2012</first_year>
+     <this_year>1</this_year>
+     <planned_year>3</planned_year>
+     <maintain>
+         <maintain_employees_count>1</maintain_employees_count>
+         <employees_maintain number = "1">300</employees_maintain>
+         <tax_employee_maintain number = "1">78</tax_employee_maintain>
+         <consumable_maintain>120</consumable_maintain>
+     </maintain>
+    </info_resource>
+
+    <info_resource number = "3">
+        <name>бухгалтерские документы</name>
+        <first_year>2009</first_year>
+        <this_year>4</this_year>
+        <planned_year>5</planned_year>
+        <maintain>
+            <maintain_employees_count>10</maintain_employees_count>
+            <employees_maintain number = "1">320</employees_maintain>
+            <employees_maintain number = "2">280</employees_maintain>
+            <employees_maintain number = "3">280</employees_maintain>
+            <employees_maintain number = "4">280</employees_maintain>
+            <employees_maintain number = "5">280</employees_maintain>
+            <employees_maintain number = "6">280</employees_maintain>
+            <employees_maintain number = "7">280</employees_maintain>
+            <employees_maintain number = "8">280</employees_maintain>
+            <employees_maintain number = "9">280</employees_maintain>
+            <employees_maintain number = "10">280</employees_maintain>
+            <tax_employee_maintain number = "1">83</tax_employee_maintain>
+            <tax_employee_maintain number = "2">73</tax_employee_maintain>
+            <tax_employee_maintain number = "3">73</tax_employee_maintain>
+            <tax_employee_maintain number = "4">73</tax_employee_maintain>
+            <tax_employee_maintain number = "5">73</tax_employee_maintain>
+            <tax_employee_maintain number = "6">73</tax_employee_maintain>
+            <tax_employee_maintain number = "7">73</tax_employee_maintain>
+            <tax_employee_maintain number = "8">73</tax_employee_maintain>
+            <tax_employee_maintain number = "9">73</tax_employee_maintain>
+            <tax_employee_maintain number = "10">73</tax_employee_maintain>
+            <consumable_maintain>400</consumable_maintain>
+            </maintain>
+    </info_resource>
+
+    <info_resource number = "4">
+        <name>маркетинговые исследования</name>
+        <first_year>2012</first_year>
+        <this_year>1</this_year>
+        <planned_year>1</planned_year>
+        <develop>
+            <start_year_develop>2012</start_year_develop>
+            <years_develop>1</years_develop>
+            <develop_employees_count>4</develop_employees_count>
+            <year_develop number ="1">
+                <employee_develop number ="1">200</employee_develop>
+                <employee_develop number ="2">210</employee_develop>
+                <employee_develop number ="3">210</employee_develop>
+                <employee_develop number ="4">240</employee_develop>
+                <tax_employee_develop number = "1">52</tax_employee_develop>
+                <tax_employee_develop number = "2">55</tax_employee_develop>
+                <tax_employee_develop number = "3">55</tax_employee_develop>
+                <tax_employee_develop number = "4">63</tax_employee_develop>
+                <consumables_develop number = "1">200</consumables_develop>
+            </year_develop>
+        </develop>
+        <profit>4500</profit>
+    </info_resource>
+
+    <info_resource number = "5">
+        <name>автоматизированная система управления бизнес-процессами</name>
+        <first_year>2009</first_year>
+        <this_year>4</this_year>
+        <planned_year>4</planned_year>
+        <acquire>
+            <cost_first_year>420</cost_first_year>
+        </acquire>
+        <develop>
+            <start_year_develop>2009</start_year_develop>
+            <years_develop>3</years_develop>
+            <develop_employees_count>2</develop_employees_count>
+            <year_develop number ="1">
+                <employee_develop number ="1">300</employee_develop>
+                <tax_employee_develop number = "1">78</tax_employee_develop>
+                <consumables_develop number = "1">250</consumables_develop>
+            </year_develop>
+            <year_develop number ="2">
+                <employee_develop number ="1">330</employee_develop>
+                <tax_employee_develop number = "1">86</tax_employee_develop>
+                <consumables_develop number = "1">260</consumables_develop>
+            </year_develop>
+            <year_develop number ="3">
+                <employee_develop number ="1">350</employee_develop>
+                <employee_develop number ="2">360</employee_develop>
+                <tax_employee_develop number = "1">91</tax_employee_develop>
+                <tax_employee_develop number = "2">94</tax_employee_develop>
+                <consumables_develop number = "1">270</consumables_develop>
+            </year_develop>
+        </develop>
+        <maintain>
+            <maintain_employees_count>2</maintain_employees_count>
+            <employees_maintain number = "1">270</employees_maintain>
+            <employees_maintain number = "2">270</employees_maintain>
+            <tax_employee_maintain number = "1">70</tax_employee_maintain>
+            <tax_employee_maintain number = "2">70</tax_employee_maintain>
+            <consumable_maintain>200</consumable_maintain>
+        </maintain>
+    </info_resource>
+
+   <cost_indexs>
+       <cost_ind number = "1" year = "2009">1.20</cost_ind>
+       <cost_ind number = "2" year = "2010">1.15</cost_ind>
+       <cost_ind number = "3" year = "2011">1.18</cost_ind>
+   </cost_indexs>
+
+   </informational_resources>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,6 @@
 #include "ir.h"
+#include "develop.h"
+#include "struct.h"
 
 int count_cost_index=40;
 cost_index* c_index=NULL;
@@ -13,16 +15,10 @@ IR::IR()
     val_maintain=0;
     val_profit=0;
 
-    first_year.setDate(1,1,1);;
-    this_year.setDate(1,1,1);;
+    this_year.setDate(1,1,1);
     planned_year.setDate(1,1,1);;
     maintain = NULL;
     acquire.cost_first_year=0;
-    develop=NULL;
-    //        maintain->number_employees=NULL;
-    //        maintain->salory=NULL;
-    //        maintain->tax=NULL;
-    //        maintain->consumables=NULL;
     profit.profit=0;
 
     name="not name";
@@ -118,7 +114,7 @@ void IR::set_mantain_salory(int count){
 
     } else {
 
-        free (maintain->salory);
+        delete maintain->salory;
 
         maintain->salory = new int [count];
 
@@ -133,18 +129,18 @@ void IR::set_mantain_tax(int count){
 
     }  else {
 
-        free (maintain->tax);
+        delete maintain->tax;
 
         maintain->tax = new int [count];
 
     }
 }
 
+//////////////////////
 
+void IR::set_mantain_consumables(int count){
 
-void IR::set_mantain_consumables(int consum){
-
-    maintain->consumables=consum;
+    maintain->consumables=count;
 }
 
 int IR::cost_acquire(){
@@ -153,7 +149,7 @@ int IR::cost_acquire(){
 
     for (int i=0;i<count_cost_index;i++){
 
-        if (develop->get_first_year().year()== c_index[i].year.year()){
+        if (get_first_year().year()== c_index[i].year.year()){
 
             index_year=i;
         }
@@ -162,54 +158,78 @@ int IR::cost_acquire(){
 
     double Ig=1;
 
-    for (int i=index_year;i<count_cost_index;i++){
+    for (int i=index_year; i < (this_year.year()-1); i++){
 
         Ig= c_index[i].index * Ig;
 
     }
 
-    return round (  acquire.cost_first_year*Ig*( 1-this_year.year()/planned_year.year())  );
+    return round (  (double)acquire.cost_first_year*Ig*(1-((double)this_year.year()-1)/(double)planned_year.year())  );
 
 }
 
 
 int IR::cost_development(){
 
-    int base_salory_tax =0, accumulated_salory_tax=0,index_year=0;
+    int base_salory_tax [develop->get_years_develop()] , first_year_develop=0,first_year_exploitation=0;
+
+    double accumulated_salory_tax=0.0;
 
     for (int i=0;i<count_cost_index;i++){
 
-        if (develop->get_first_year().year()== c_index[i].year.year()){
+        if (develop->get_first_year().year() == c_index[i].year.year()){
 
-            index_year=i;
+            first_year_develop=i;
+
+            qDebug()<<"\n first_year_develop:"<<c_index[i].index;
+        }
+
+        if (first_year.year() == c_index[i].year.year()){
+
+            first_year_exploitation=i;
+
+            qDebug()<<"\n first_year_exploitation:"<<c_index[i].index;
         }
 
     }
 
-        for(int j=0;j<develop->get_count_years();j++){
+    qDebug()<<"\ndevelop->get_count_employees: "<<develop->get_count_employees();
 
-            for (int i=0;i<develop->get_count_employees();i++){
+    for (int j=0;j<develop->get_years_develop();j++){
 
-            base_salory_tax+=develop->get_number_employees()[i][j].salory+develop->get_number_employees()[i][j].tax;
+        for (int i=0;i<develop->get_count_employees();i++){
+
+            base_salory_tax[j] = develop->get_number_employees()[i][j].salory + develop->get_number_employees()[i][j].tax;
+
+            qDebug()<<"\n cost_development salory:"<<develop->get_number_employees()[i][j].salory;
+
+            qDebug()<<"\n cost_development tax:"<<develop->get_number_employees()[i][j].tax;
+
         }
 
-        base_salory_tax+=develop->get_consumables()[j];
+        base_salory_tax[j]+=develop->get_consumables()[j];
 
-        accumulated_salory_tax=c_index[index_year+j].index*accumulated_salory_tax+base_salory_tax;
-
-        base_salory_tax=0;
+        qDebug()<<"\n base_salory_tax[j]:  "<<base_salory_tax[j];
 
     }
 
-    double Ig=1;
+    accumulated_salory_tax = base_salory_tax[0];
 
-    for (int i=index_year;i<count_cost_index;i++){
+    for (int i=1;i<develop->get_years_develop();i++){
 
-        Ig= c_index[i].index * Ig;
-
+        accumulated_salory_tax = c_index[first_year_develop+i-1].index * accumulated_salory_tax + base_salory_tax[i];
     }
 
-    return round( accumulated_salory_tax*Ig*(1-( develop->get_first_year().year() + develop->get_count_years())/planned_year.year() ) );
+    for (int i= first_year_develop+develop->get_years_develop()-1;i< (this_year.year()-1)  ;i++){
+
+        accumulated_salory_tax = accumulated_salory_tax * c_index[i].index;
+
+        qDebug()<<"\n retard"<<i;
+    }
+
+//    qDebug()<<"\n double or int: "<<(1-((double)this_year.year()-1)/(double)planned_year.year());
+
+    return round(  accumulated_salory_tax= accumulated_salory_tax * (1-((double)this_year.year()-1)/(double)planned_year.year())  );
 }
 
 int IR::cost_maintain(){
@@ -223,4 +243,96 @@ int IR::cost_maintain(){
 
     return cost+maintain->consumables;
 
+}
+
+
+bool IR::isEmptyIR()
+{
+
+    if (get_val_develop())  {
+        if (   develop!=NULL) {
+
+            if (develop->get_first_year().isNull()) {return true;}
+
+            if (develop->get_years_develop()<=0)    {return true;}
+
+            if ((develop->get_number_employees() != NULL) && (develop->get_consumables() != NULL)) {
+
+                qDebug()<<"\nisEmptyIR count_employees: "<<develop->get_count_employees();
+                qDebug()<<"\nisEmptyIR years_develop: "<<develop->get_years_develop();
+
+                for (int i=0;i<develop->get_count_employees();i++){
+                    for (int j=0;j<develop->get_years_develop();j++){
+
+                        //                        if (develop->get_number_employees()[i][j].salory <= 0) {return true;}
+                        //                        if (develop->get_number_employees()[i][j].tax <= 0) {return true;}
+                        qDebug()<<"\n isEmptyIR salory:["<<i<<","<<j<<"] = "<< develop->get_number_employees()[i][j].salory;
+                        qDebug()<<"\n isEmptyIR tax:["<<i<<","<<j<<"] = "<< develop->get_number_employees()[i][j].tax;
+
+
+                    }
+                }
+
+            }else{
+                return  true;
+            }
+        }else{
+            return true;
+        }
+
+    }
+
+    if(get_val_maintain()){
+
+        if (maintain != NULL){
+
+            qDebug()<<"nval_maintain==1 and mantain != NULL";
+
+            if (maintain->consumables <= 0) {
+                qDebug()<<"\nir[k].maintain->consumables: "<<maintain->consumables;
+                qDebug()<<"\nacquire.cost_first_year: "<<acquire.cost_first_year;
+                qDebug()<<"\nir[k].profit.profit: "<< profit.profit;
+
+                return true;}
+
+            if (maintain->count_employees <= 0) {return true;}
+
+            if (maintain->salory == NULL) {return true;}
+            if (maintain->tax == NULL) {return true;}
+
+        }
+
+        else
+        {   qDebug()<<"nval_maintain==1 or mantain == NULL";
+            return true;
+        }
+    }
+
+    if(get_val_acquire()){
+
+        if (acquire.cost_first_year <= 0) {return true;}
+    }
+
+    if(get_val_profit()){
+
+        if(profit.profit<=0){return true;}
+    }
+
+    return false;
+}
+
+
+bool isEmptyCostIndex (cost_index *pointer)
+{
+    if (pointer == NULL) { return true;}
+
+    for (int i=0;i<count_cost_index;i++){
+
+        qDebug()<<"\n isEmptyCostIndex c_index: "<<pointer[i].index;
+        if(pointer[i].index <= 0) {return true;}
+        if(pointer[i].year.year() <= 0) {return true;}
+
+    }
+
+    return false;
 }

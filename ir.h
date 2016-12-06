@@ -2,16 +2,13 @@
 #define IR_H
 
 #include <QTime>
+#include "develop.h"
+#include "struct.h"
 #include <QString>
 #include <math.h>
 
-#include "develop.h"
-#include "struct.h"
-#include "develop.h"
-#include "struct.h"
-
-extern cost_index* c_index;
 extern int count_cost_index;
+extern cost_index* c_index;
 
 class IR
 {
@@ -24,7 +21,6 @@ private:
     bool val_develop; //разрабатываемый
     bool val_maintain; //обслуживаемый
     bool val_profit; //приносящий прибыль
-    Cost_ir cost_ir;
 
 public:
 
@@ -39,10 +35,13 @@ public:
     QDate get_first_year();
     QDate get_this_year();
     QDate get_planned_year();
+
     bool get_val_acquire();
     bool get_val_develop();
     bool get_val_maintain();
     bool get_val_profit();
+
+    bool isEmptyIR();
 
     void set_name (QString str);
     void set_first_year (QDate date);
@@ -55,12 +54,12 @@ public:
     void set_mantain_salory(int count);
     void set_mantain_tax(int count);
     void set_mantain_consumables(int count);
+
     int cost_acquire();
     int cost_development();
     int cost_maintain();
-
-
 };
 
+bool isEmptyCostIndex (cost_index *pointer);
 
 #endif // IR_H

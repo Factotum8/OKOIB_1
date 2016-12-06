@@ -1,22 +1,21 @@
-#include "itemdelegatefloat.h"
+#include "itemdelegatecostindex.h"
 
-ItemDelegateFloat::ItemDelegateFloat(QObject *parent):
+itemDelegateCostIndex::itemDelegateCostIndex(QObject *parent):
     QItemDelegate(parent)
 {
 }
 
-QWidget* ItemDelegateFloat::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+
+QWidget* itemDelegateCostIndex::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     QLineEdit* edit = new QLineEdit (parent);
 
-//        edit->setValidator(new QDoubleValidator(0.0,999.0,3));
-        edit->setValidator(new QIntValidator(parent));
+    edit->setValidator(new QDoubleValidator(0.0,999.0,3,parent));
 
-        return edit;
-
+    return edit;
 }
 
-void ItemDelegateFloat::setEditorData(QWidget *editor,
+void itemDelegateCostIndex::setEditorData(QWidget *editor,
                                  const QModelIndex &index) const
 {
     QString value =index.model()->data(index, Qt::EditRole).toString();
@@ -25,7 +24,7 @@ void ItemDelegateFloat::setEditorData(QWidget *editor,
 }
 
 
-void ItemDelegateFloat::setModelData(QWidget *editor,
+void itemDelegateCostIndex::setModelData(QWidget *editor,
                                 QAbstractItemModel *model,
                                 const QModelIndex &index) const
 {
