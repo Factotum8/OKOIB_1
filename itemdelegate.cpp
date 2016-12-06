@@ -20,13 +20,13 @@ QWidget* ItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem 
         return edit;
         break;
     case 2:
-        edit->setPlaceholderText("1920-2020");
-        edit->setValidator(new QIntValidator (1920,2020,parent));
+        edit->setPlaceholderText("1-40");
+        edit->setValidator(new QIntValidator (1,40,parent));
         return edit;
         break;
     case 3:
-        edit->setPlaceholderText("1920-2020");
-        edit->setValidator(new QIntValidator (1920,2020,parent));
+        edit->setPlaceholderText("1-40");
+        edit->setValidator(new QIntValidator (1,40,parent));
         return edit;
         break;
     case 4:
