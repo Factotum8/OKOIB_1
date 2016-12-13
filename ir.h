@@ -61,5 +61,6 @@ public:
 };
 
 bool isEmptyCostIndex (cost_index *pointer);
+int getIndexForYear(int year);
 
 #endif // IR_H

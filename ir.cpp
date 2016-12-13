@@ -173,6 +173,7 @@ int IR::cost_development(){
 
     int base_salory_tax [develop->get_years_develop()] , first_year_develop=0,first_year_exploitation=0;
 
+
     double accumulated_salory_tax=0.0;
 
     for (int i=0;i<count_cost_index;i++){
@@ -181,50 +182,78 @@ int IR::cost_development(){
 
             first_year_develop=i;
 
-            qDebug()<<"\n first_year_develop:"<<c_index[i].index;
+//            qDebug()<<"\n first_year_develop:"<<c_index[i].index;
         }
 
         if (first_year.year() == c_index[i].year.year()){
 
             first_year_exploitation=i;
 
-            qDebug()<<"\n first_year_exploitation:"<<c_index[i].index;
+//            qDebug()<<"\n first_year_exploitation:"<<c_index[i].index;
         }
+
+        qDebug()<<"year "<<c_index[i].year.year()<<" index "<<c_index[i].index;
 
     }
 
-    qDebug()<<"\ndevelop->get_count_employees: "<<develop->get_count_employees();
+//    qDebug()<<"\ndevelop->get_count_employees: "<<develop->get_count_employees();
 
     for (int j=0;j<develop->get_years_develop();j++){
 
+        base_salory_tax[j]=0;
+
         for (int i=0;i<develop->get_count_employees();i++){
 
-            base_salory_tax[j] = develop->get_number_employees()[i][j].salory + develop->get_number_employees()[i][j].tax;
+            base_salory_tax[j] += develop->get_number_employees()[i][j].salory + develop->get_number_employees()[i][j].tax;
 
-            qDebug()<<"\n cost_development salory:"<<develop->get_number_employees()[i][j].salory;
+//            qDebug()<<"\n cost_development salory:"<<develop->get_number_employees()[i][j].salory;
 
-            qDebug()<<"\n cost_development tax:"<<develop->get_number_employees()[i][j].tax;
+//            qDebug()<<"\n cost_development tax:"<<develop->get_number_employees()[i][j].tax;
 
         }
 
         base_salory_tax[j]+=develop->get_consumables()[j];
 
-        qDebug()<<"\n base_salory_tax[j]:  "<<base_salory_tax[j];
-
     }
+
+//    for (int i=0;i<develop->get_years_develop();i++)
+//    {
+
+//        qDebug()<<"\ncost_development base_salory_tax["<<i<<"]:  "<<base_salory_tax[i];
+
+//    }
 
     accumulated_salory_tax = base_salory_tax[0];
 
     for (int i=1;i<develop->get_years_develop();i++){
 
         accumulated_salory_tax = c_index[first_year_develop+i-1].index * accumulated_salory_tax + base_salory_tax[i];
+
+//        qDebug()<<"accumulated_salory_tax "<<accumulated_salory_tax<<" c-index "<<c_index[first_year_develop+i-1].index;
     }
 
-    for (int i= first_year_develop+develop->get_years_develop()-1;i< (this_year.year()-1)  ;i++){
 
-        accumulated_salory_tax = accumulated_salory_tax * c_index[i].index;
+    qDebug()<<"\nname "<<this->name ;
+    qDebug()<<"develop->get_first_year().year() "<<develop->get_first_year().year();
+    qDebug()<<"develop->get_years_develop()"<<develop->get_years_develop();
+    qDebug()<< "this_year+develop->get_years_develop()-1" << develop->get_first_year().year()+develop->get_years_develop()-1;
+    qDebug()<<"";
+    qDebug()<<"first_year.year()"<<first_year.year();
+    qDebug()<<"this_year.year()"<<this_year.year();
+    qDebug()<<"first_year.year()+this_year.year()-1"<<first_year.year()+this_year.year()-1;
 
-        qDebug()<<"\n retard"<<i;
+
+    for (int i = (develop->get_first_year().year()+develop->get_years_develop() - 1); i< (first_year.year()+this_year.year()-1)  ;i++){
+
+//        qDebug()<<"name "<<this->name << "this_year+develop->get_years_develop()" << develop->get_first_year().year()+develop->get_years_develop()-1;
+
+//        qDebug()<<"develop->get_first_year().year()+this_year.year()"<<develop->get_first_year().year()+this_year.year()-1;
+
+//        qDebug()<<"index i"<<i;
+
+        accumulated_salory_tax = accumulated_salory_tax * c_index[getIndexForYear(i)].index;
+
+        qDebug()<<"\naccumulated_salory_tax "<<accumulated_salory_tax<<" c_index["<<i<<"].index "<<c_index[i].index;
     }
 
 //    qDebug()<<"\n double or int: "<<(1-((double)this_year.year()-1)/(double)planned_year.year());
@@ -335,4 +364,18 @@ bool isEmptyCostIndex (cost_index *pointer)
     }
 
     return false;
+}
+
+int getIndexForYear(int year)
+{
+
+    for (int i=0;i<count_cost_index;i++)
+    {
+        if (year==c_index[i].year.year()){
+
+            return i;
+        }
+    }
+
+    return 0;
 }

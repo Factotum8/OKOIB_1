@@ -52,7 +52,7 @@ FormInformationResourcesCosts::FormInformationResourcesCosts(QWidget *parent) :
 
         ui->tableResultCost->setItem(i,0,new QTableWidgetItem (ir[i].get_name()));
 
-        qDebug()<<"\nname: "<<ir[i].get_name();
+//        qDebug()<<"\nname: "<<ir[i].get_name();
 
         ui->tableResultCost->setItem(  i,1,new QTableWidgetItem(QString::number(ir[i].get_val_acquire()?ir[i].cost_acquire():0))  );
 
